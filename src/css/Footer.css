@@ -1,0 +1,459 @@
+/* =========================================
+   FOOTER
+========================================= */
+
+.site-footer {
+  width: 100%;
+
+  background: #10245f;
+
+  color: #ffffff;
+
+  margin-top: 0;
+}
+
+
+/* =========================================
+   MAIN FOOTER
+========================================= */
+
+.footer-main {
+  width: 100%;
+
+  padding: 75px 0 65px;
+}
+
+.footer-container {
+  width: 100%;
+
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding: 0 6%;
+
+  box-sizing: border-box;
+
+  display: grid;
+
+  grid-template-columns:
+    1.8fr
+    1fr
+    1fr
+    1.4fr;
+
+  gap: 60px;
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.footer-brand {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  text-decoration: none;
+
+  color: #ffffff;
+}
+
+.footer-logo {
+  width: 55px;
+  height: 55px;
+
+  background: #ffffff;
+
+  color: #10245f;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-family: Georgia, serif;
+
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.footer-brand-text {
+  display: flex;
+
+  flex-direction: column;
+
+  line-height: 1;
+}
+
+.footer-brand-text span {
+  font-size: 20px;
+
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.footer-brand-text small {
+  margin-top: 6px;
+
+  font-size: 12px;
+
+  font-style: italic;
+
+  opacity: 0.75;
+}
+
+
+/* =========================================
+   DESCRIPTION
+========================================= */
+
+.footer-description {
+  max-width: 390px;
+
+  margin: 25px 0;
+
+  color: rgba(255, 255, 255, 0.72);
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================
+   SOCIAL
+========================================= */
+
+.footer-social {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.footer-social a {
+  width: 38px;
+  height: 38px;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  color: #ffffff;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  text-decoration: none;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.footer-social a:hover {
+  background: #b31f35;
+
+  border-color: #b31f35;
+
+  transform: translateY(-3px);
+}
+
+
+/* =========================================
+   COLUMN HEADINGS
+========================================= */
+
+.footer-column h3 {
+  position: relative;
+
+  margin: 0 0 25px;
+
+  padding-bottom: 12px;
+
+  color: #ffffff;
+
+  font-size: 15px;
+
+  font-weight: 700;
+
+  letter-spacing: 1px;
+}
+
+.footer-column h3::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 35px;
+  height: 2px;
+
+  background: #b31f35;
+}
+
+
+/* =========================================
+   LINKS
+========================================= */
+
+.footer-links {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 13px;
+}
+
+.footer-links a {
+  width: fit-content;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+
+  padding-left: 5px;
+}
+
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.footer-contact {
+  display: flex;
+
+  flex-direction: column;
+}
+
+.footer-contact-item {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 12px;
+
+  margin-bottom: 18px;
+
+  color: rgba(255, 255, 255, 0.7);
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+.footer-contact-item svg {
+  flex-shrink: 0;
+
+  margin-top: 4px;
+
+  color: #d42a46;
+
+  font-size: 14px;
+}
+
+.footer-contact-item a {
+  color: rgba(255, 255, 255, 0.7);
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.footer-contact-item a:hover {
+  color: #ffffff;
+}
+
+
+/* =========================================
+   RED STRIP
+========================================= */
+
+.footer-red-strip {
+  background: #b31f35;
+
+  width: 100%;
+}
+
+.footer-red-inner {
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding: 20px 6%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  box-sizing: border-box;
+}
+
+.footer-red-inner p {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================
+   BACK TO TOP
+========================================= */
+
+.footer-top-button {
+  border: none;
+
+  background: transparent;
+
+  color: #ffffff;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  cursor: pointer;
+
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+.footer-top-button svg {
+  transition: transform 0.2s ease;
+}
+
+.footer-top-button:hover svg {
+  transform: translateY(-4px);
+}
+
+
+/* =========================================
+   BOTTOM
+========================================= */
+
+.footer-bottom {
+  background: #0b1a47;
+
+  width: 100%;
+}
+
+.footer-bottom-inner {
+  max-width: 1400px;
+
+  margin: 0 auto;
+
+  padding: 18px 6%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  box-sizing: border-box;
+}
+
+.footer-bottom p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 12px;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+  .footer-container {
+    grid-template-columns: 1.5fr 1fr 1fr;
+
+    gap: 45px;
+  }
+
+  .footer-contact {
+    grid-column: span 3;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .footer-main {
+    padding: 55px 0 45px;
+  }
+
+  .footer-container {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+
+    padding: 0 8%;
+  }
+
+  .footer-contact {
+    grid-column: auto;
+  }
+
+  .footer-description {
+    max-width: 100%;
+  }
+
+  .footer-red-inner {
+    padding: 18px 8%;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 15px;
+  }
+
+  .footer-bottom-inner {
+    padding: 18px 8%;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+}

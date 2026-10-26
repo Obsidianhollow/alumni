@@ -1,0 +1,999 @@
+/* =========================================
+   ALUMNI DIRECTORY PAGE
+========================================= */
+
+.directory-page {
+  width: 100%;
+  min-height: 100vh;
+
+  background: #f4f3ef;
+
+  color: #233d4d;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.directory-hero {
+  position: relative;
+
+  min-height: 480px;
+
+  display: flex;
+  align-items: center;
+
+  padding: 80px 6%;
+
+  background: #233d4d;
+
+  color: #f4f3ef;
+
+  overflow: hidden;
+}
+
+.directory-hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 420px;
+  height: 420px;
+
+  right: 5%;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 50%;
+}
+
+.directory-hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  right: 15%;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border: 1px solid rgba(254, 127, 45, 0.35);
+
+  border-radius: 50%;
+}
+
+.directory-hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 850px;
+}
+
+.directory-eyebrow {
+  display: block;
+
+  margin-bottom: 20px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 2.5px;
+
+  color: #fe7f2d;
+}
+
+.directory-hero h1 {
+  margin: 0;
+
+  font-size: clamp(50px, 7vw, 90px);
+
+  line-height: 0.95;
+
+  font-weight: 500;
+
+  letter-spacing: -3px;
+}
+
+.directory-hero h1 span {
+  color: #fe7f2d;
+}
+
+.directory-hero p {
+  max-width: 600px;
+
+  margin: 28px 0 0;
+
+  font-size: 16px;
+
+  line-height: 1.7;
+
+  color: #d9e1e5;
+}
+
+.directory-hero-mark {
+  position: absolute;
+
+  right: 9%;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 150px;
+  height: 150px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  border-radius: 50%;
+
+  z-index: 3;
+}
+
+.directory-hero-mark span {
+  font-size: 42px;
+
+  font-weight: 500;
+
+  letter-spacing: -2px;
+
+  color: #f4f3ef;
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.directory-intro {
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding: 85px 40px;
+
+  display: grid;
+
+  grid-template-columns: 220px 1fr;
+
+  gap: 50px;
+}
+
+.directory-intro-label {
+  padding-top: 8px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  color: #fe7f2d;
+}
+
+.directory-intro-content {
+  max-width: 850px;
+}
+
+.directory-intro-content h2 {
+  margin: 0 0 25px;
+
+  font-size: clamp(38px, 4.5vw, 62px);
+
+  line-height: 1;
+
+  font-weight: 500;
+
+  letter-spacing: -1.5px;
+
+  color: #233d4d;
+}
+
+.directory-intro-content h2 span {
+  color: #7b858c;
+}
+
+.directory-intro-content p {
+  max-width: 700px;
+
+  margin: 0;
+
+  font-size: 16px;
+
+  line-height: 1.8;
+
+  color: #68747c;
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.directory-stats {
+  width: 100%;
+
+  background: #eaecf0;
+
+  border-top: 1px solid #d5d9dc;
+
+  border-bottom: 1px solid #d5d9dc;
+}
+
+.directory-stats-inner {
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding: 45px 40px;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.directory-stat {
+  padding: 5px 35px;
+
+  border-right: 1px solid #cbd0d3;
+}
+
+.directory-stat:first-child {
+  padding-left: 0;
+}
+
+.directory-stat:last-child {
+  border-right: none;
+}
+
+.directory-stat strong {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: 40px;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  color: #233d4d;
+}
+
+.directory-stat span {
+  font-size: 13px;
+
+  color: #68747c;
+}
+
+
+/* =========================================
+   DIRECTORY SECTION
+========================================= */
+
+.directory-section {
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding: 85px 40px;
+}
+
+.directory-heading {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 40px;
+
+  margin-bottom: 38px;
+}
+
+.directory-section-label {
+  display: block;
+
+  margin-bottom: 10px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  color: #fe7f2d;
+}
+
+.directory-heading h2 {
+  margin: 0;
+
+  font-size: clamp(35px, 4vw, 52px);
+
+  line-height: 1;
+
+  font-weight: 500;
+
+  letter-spacing: -1px;
+
+  color: #233d4d;
+}
+
+.directory-heading p {
+  max-width: 390px;
+
+  margin: 0;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+
+  color: #68747c;
+}
+
+
+/* =========================================
+   SEARCH CONTROLS
+========================================= */
+
+.directory-controls {
+  display: grid;
+
+  grid-template-columns: 1fr 230px;
+
+  gap: 15px;
+
+  margin-bottom: 25px;
+}
+
+.directory-search {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  height: 55px;
+
+  background: #ffffff;
+
+  border: 1px solid #d1d5d7;
+
+  border-radius: 5px;
+}
+
+.search-icon {
+  margin-left: 18px;
+
+  font-size: 25px;
+
+  line-height: 1;
+
+  color: #7a858b;
+}
+
+.directory-search input {
+  width: 100%;
+
+  height: 100%;
+
+  padding: 0 45px 0 14px;
+
+  border: none;
+
+  outline: none;
+
+  background: transparent;
+
+  color: #233d4d;
+
+  font-size: 14px;
+}
+
+.directory-search input::placeholder {
+  color: #9aa2a6;
+}
+
+.clear-search {
+  position: absolute;
+
+  right: 15px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #68747c;
+
+  font-size: 22px;
+
+  cursor: pointer;
+}
+
+.directory-filter select {
+  width: 100%;
+
+  height: 55px;
+
+  padding: 0 15px;
+
+  border: 1px solid #d1d5d7;
+
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  color: #233d4d;
+
+  outline: none;
+
+  cursor: pointer;
+
+  font-size: 14px;
+}
+
+
+/* =========================================
+   RESULT BAR
+========================================= */
+
+.directory-result-bar {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 25px;
+
+  font-size: 12px;
+
+  color: #7a858b;
+}
+
+.directory-result-bar strong {
+  color: #233d4d;
+}
+
+.directory-line {
+  width: 40px;
+
+  height: 1px;
+
+  background: #c7cccf;
+}
+
+
+/* =========================================
+   ALUMNI GRID
+========================================= */
+
+.directory-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+
+/* =========================================
+   ALUMNI CARD
+========================================= */
+
+.directory-card {
+  background: #ffffff;
+
+  border: 1px solid #d2d5d7;
+
+  border-radius: 6px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 20px rgba(35, 61, 77, 0.07);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.directory-card:hover {
+  transform: translateY(-6px);
+
+  border-color: #fe7f2d;
+
+  box-shadow:
+    0 15px 30px rgba(35, 61, 77, 0.12);
+}
+
+
+/* =========================================
+   CARD IMAGE
+========================================= */
+
+.directory-card-image {
+  position: relative;
+
+  width: 100%;
+
+  height: 280px;
+
+  background: #eaecf0;
+
+  overflow: hidden;
+}
+
+.directory-card-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 0.4s ease;
+}
+
+.directory-card:hover .directory-card-image img {
+  transform: scale(1.035);
+}
+
+.directory-batch {
+  position: absolute;
+
+  top: 15px;
+  right: 15px;
+
+  padding: 6px 10px;
+
+  background: #233d4d;
+
+  color: #ffffff;
+
+  border-radius: 20px;
+
+  font-size: 11px;
+
+  letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   CARD CONTENT
+========================================= */
+
+.directory-card-content {
+  padding: 20px;
+}
+
+.directory-card-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 13px;
+}
+
+.directory-card-top span {
+  font-size: 11px;
+
+  color: #7a858b;
+}
+
+.directory-card-top span:first-child {
+  color: #fe7f2d;
+
+  font-weight: 600;
+}
+
+.directory-card h3 {
+  margin: 0 0 8px;
+
+  font-size: 23px;
+
+  line-height: 1.2;
+
+  font-weight: 500;
+
+  color: #233d4d;
+}
+
+.directory-profession {
+  margin: 0 0 5px;
+
+  font-size: 14px;
+
+  color: #56636a;
+}
+
+.directory-company {
+  margin: 0;
+
+  font-size: 13px;
+
+  color: #899196;
+}
+
+.directory-card-footer {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-top: 20px;
+
+  padding-top: 15px;
+
+  border-top: 1px solid #e3e5e6;
+}
+
+.directory-card-footer > span {
+  font-size: 12px;
+
+  color: #7a858b;
+}
+
+.directory-card-footer button {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d2d6d8;
+
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: #233d4d;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.directory-card:hover
+.directory-card-footer button {
+  background: #fe7f2d;
+
+  border-color: #fe7f2d;
+
+  color: #ffffff;
+}
+
+
+/* =========================================
+   EMPTY STATE
+========================================= */
+
+.directory-empty {
+  padding: 80px 20px;
+
+  text-align: center;
+
+  background: #ffffff;
+
+  border: 1px solid #d2d5d7;
+
+  border-radius: 6px;
+}
+
+.empty-icon {
+  width: 55px;
+  height: 55px;
+
+  margin: 0 auto 20px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #d2d5d7;
+
+  border-radius: 50%;
+
+  font-size: 20px;
+
+  color: #fe7f2d;
+}
+
+.directory-empty h3 {
+  margin: 0 0 8px;
+
+  font-size: 23px;
+
+  font-weight: 500;
+
+  color: #233d4d;
+}
+
+.directory-empty p {
+  margin: 0 0 20px;
+
+  font-size: 14px;
+
+  color: #68747c;
+}
+
+.directory-empty button {
+  padding: 11px 18px;
+
+  border: none;
+
+  border-radius: 3px;
+
+  background: #233d4d;
+
+  color: #ffffff;
+
+  cursor: pointer;
+}
+
+
+/* =========================================
+   CTA
+========================================= */
+
+.directory-cta {
+  width: 100%;
+
+  padding: 85px 25px;
+
+  background: #233d4d;
+
+  text-align: center;
+
+  color: #f4f3ef;
+}
+
+.directory-cta-content {
+  max-width: 700px;
+
+  margin: 0 auto;
+}
+
+.directory-cta-content > span {
+  display: block;
+
+  margin-bottom: 15px;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  color: #fe7f2d;
+}
+
+.directory-cta h2 {
+  margin: 0;
+
+  font-size: clamp(40px, 5vw, 65px);
+
+  line-height: 1;
+
+  font-weight: 500;
+
+  letter-spacing: -1.5px;
+}
+
+.directory-cta p {
+  max-width: 520px;
+
+  margin: 25px auto;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+
+  color: #d6dee2;
+}
+
+.directory-cta button {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 13px 20px;
+
+  border: 1px solid #fe7f2d;
+
+  border-radius: 3px;
+
+  background: #fe7f2d;
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.directory-cta button:hover {
+  transform: translateY(-2px);
+
+  background: #e86e20;
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1050px) {
+
+  .directory-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .directory-hero-mark {
+    right: 6%;
+  }
+
+}
+
+
+/* =========================================
+   SMALL TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+  .directory-hero {
+    min-height: 430px;
+
+    padding: 70px 6%;
+  }
+
+  .directory-hero-mark {
+    display: none;
+  }
+
+  .directory-intro {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    padding: 70px 30px;
+  }
+
+  .directory-stats-inner {
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px 0;
+  }
+
+  .directory-stat:nth-child(2) {
+    border-right: none;
+  }
+
+  .directory-heading {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .directory-hero {
+    min-height: 390px;
+
+    padding: 60px 25px;
+  }
+
+  .directory-hero h1 {
+    font-size: 50px;
+
+    letter-spacing: -2px;
+  }
+
+  .directory-hero p {
+    font-size: 14px;
+  }
+
+
+  .directory-intro {
+    padding: 60px 25px;
+  }
+
+  .directory-intro-content h2 {
+    font-size: 38px;
+  }
+
+  .directory-intro-content p {
+    font-size: 14px;
+  }
+
+
+  .directory-stats-inner {
+    padding: 35px 20px;
+  }
+
+  .directory-stat {
+    padding: 5px 15px;
+  }
+
+  .directory-stat:first-child {
+    padding-left: 0;
+  }
+
+  .directory-stat strong {
+    font-size: 30px;
+  }
+
+  .directory-stat span {
+    font-size: 12px;
+  }
+
+
+  .directory-section {
+    padding: 65px 20px;
+  }
+
+  .directory-heading h2 {
+    font-size: 36px;
+  }
+
+
+  .directory-controls {
+    grid-template-columns: 1fr;
+  }
+
+
+  .directory-grid {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+  }
+
+  .directory-card-image {
+    height: 300px;
+  }
+
+
+  .directory-cta {
+    padding: 70px 25px;
+  }
+
+  .directory-cta h2 {
+    font-size: 45px;
+  }
+
+}

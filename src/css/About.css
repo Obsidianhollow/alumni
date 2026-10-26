@@ -1,0 +1,215 @@
+
+/* ==================================
+   AAACGS ABOUT PAGE
+   Professional Institutional Style
+================================== */
+
+.about-page {
+  --about-navy: #233d4d;
+  --about-maroon: #a9253b;
+  --about-cream: #f7f5f0;
+  --about-text: #4e5962;
+  --about-border: #deded8;
+
+  width: 100%;
+  padding: 0 0 80px;
+  background: var(--about-cream);
+  color: var(--about-navy);
+  font-family: inherit;
+}
+
+.about-page * {
+  box-sizing: border-box;
+}
+
+.about-container {
+  width: min(1000px, 88%);
+  margin: 0 auto;
+}
+
+/* Page header */
+
+.about-page-header {
+  padding: 80px 0 55px;
+  border-bottom: 1px solid var(--about-border);
+}
+
+.about-label {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--about-maroon);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+.about-page-header h1 {
+  max-width: 800px;
+  margin: 0 0 20px;
+  color: var(--about-navy);
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+}
+
+.about-page-header > p {
+  max-width: 720px;
+  margin: 0;
+  color: var(--about-text);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* Content sections */
+
+.about-content-section {
+  padding: 42px 0;
+  border-bottom: 1px solid var(--about-border);
+  scroll-margin-top: 100px;
+}
+
+.about-content-section h2 {
+  position: relative;
+  margin: 0 0 24px;
+  padding-left: 18px;
+  color: var(--about-navy);
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.about-content-section h2::before {
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: 0;
+  width: 4px;
+  background: var(--about-maroon);
+  content: "";
+}
+
+.about-content-section p {
+  margin: 0 0 18px;
+  color: var(--about-text);
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.95;
+  text-align: left;
+}
+
+.about-content-section p:last-child {
+  margin-bottom: 0;
+}
+
+/* Closing statement */
+
+.about-closing {
+  margin-top: 45px;
+  padding: 30px 32px;
+  border-left: 4px solid var(--about-maroon);
+  background: #eeece5;
+}
+
+.about-closing p {
+  margin: 0 0 12px;
+  color: var(--about-navy);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.about-closing span {
+  color: var(--about-maroon);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+/* Tablet */
+
+@media (max-width: 768px) {
+  .about-page {
+    padding-bottom: 55px;
+  }
+
+  .about-page-header {
+    padding: 60px 0 40px;
+  }
+
+  .about-page-header > p {
+    font-size: 16px;
+  }
+
+  .about-content-section {
+    padding: 34px 0;
+  }
+
+  .about-content-section h2 {
+    font-size: 25px;
+  }
+
+  .about-content-section p {
+    font-size: 14px;
+    line-height: 1.85;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .about-container {
+    width: 90%;
+  }
+
+  .about-page-header {
+    padding: 45px 0 32px;
+  }
+
+  .about-label {
+    margin-bottom: 15px;
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .about-page-header h1 {
+    font-size: 35px;
+    letter-spacing: -0.8px;
+  }
+
+  .about-page-header > p {
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .about-content-section {
+    padding: 28px 0;
+  }
+
+  .about-content-section h2 {
+    margin-bottom: 18px;
+    padding-left: 14px;
+    font-size: 23px;
+  }
+
+  .about-content-section p {
+    margin-bottom: 15px;
+    font-size: 14px;
+    line-height: 1.85;
+  }
+
+  .about-closing {
+    margin-top: 30px;
+    padding: 23px 20px;
+  }
+
+  .about-closing p {
+    font-size: 17px;
+  }
+
+  .about-closing span {
+    font-size: 10px;
+    line-height: 1.8;
+  }
+}

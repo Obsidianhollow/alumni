@@ -1,0 +1,283 @@
+/* =========================================
+   NAVBAR + TOPBAR POSITIONING
+========================================= */
+
+/*
+  TopBar = 44px high.
+  Navbar starts directly underneath it.
+*/
+/* =========================================
+   MAIN NAVBAR
+========================================= */
+
+.site-navbar {
+  position: relative;
+
+  width: 100%;
+
+  z-index: 999;
+
+  background: #f4f1eb;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  background: #f4f1eb;
+
+  z-index: 999;
+}
+
+
+/* =========================================
+   DESKTOP DROPDOWN
+========================================= */
+
+.nav-item {
+  position: relative;
+}
+
+
+/* =========================================
+   DROPDOWN MENU
+========================================= */
+
+.dropdown-menu {
+  position: absolute;
+
+  /* Directly below nav item - no mouse gap */
+  top: 100%;
+  left: 0;
+
+  min-width: 250px;
+
+  padding: 8px;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.12);
+
+  z-index: 2000;
+
+  /* Hidden initially */
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(6px);
+
+  pointer-events: none;
+
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* =========================================
+   SHOW DROPDOWN
+========================================= */
+
+.nav-item:hover .dropdown-menu,
+.nav-item:focus-within .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+
+  pointer-events: auto;
+}
+
+
+/* =========================================
+   DROPDOWN ITEMS
+========================================= */
+
+.dropdown-item {
+  display: block;
+
+  width: 100%;
+
+  padding: 12px 14px;
+
+  color: #233d4d;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  white-space: nowrap;
+
+  box-sizing: border-box;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+
+/* =========================================
+   DROPDOWN ITEM HOVER
+========================================= */
+
+.dropdown-item:hover {
+  background: #f3f4f6;
+
+  color: #b31f35;
+
+  padding-left: 18px;
+}
+
+
+/* =========================================
+   MOBILE NAVIGATION
+========================================= */
+
+.mobile-nav-wrapper {
+  width: 100%;
+}
+
+
+.mobile-nav-row {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* =========================================
+   MOBILE DROPDOWN BUTTON
+========================================= */
+
+.mobile-dropdown-toggle {
+  border: none;
+
+  background: transparent;
+
+  font-size: 24px;
+
+  cursor: pointer;
+
+  padding: 8px 12px;
+
+  color: inherit;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================
+   MOBILE DROPDOWN
+========================================= */
+
+.mobile-dropdown {
+  margin-left: 35px;
+
+  margin-bottom: 10px;
+
+  padding-left: 15px;
+
+  border-left: 2px solid #b31f35;
+
+  animation: dropdownOpen 0.25s ease;
+}
+
+
+/* =========================================
+   MOBILE DROPDOWN ITEM
+========================================= */
+
+.mobile-dropdown-item {
+  display: block;
+
+  padding: 10px 0;
+
+  color: #233d4d;
+
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+
+.mobile-dropdown-item:hover {
+  color: #b31f35;
+
+  padding-left: 5px;
+}
+
+
+/* =========================================
+   MOBILE DROPDOWN ANIMATION
+========================================= */
+
+@keyframes dropdownOpen {
+
+  from {
+    opacity: 0;
+
+    transform: translateY(-5px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================
+   TABLET / MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .dropdown-menu {
+    display: none;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .mobile-dropdown {
+    margin-left: 20px;
+
+    padding-left: 12px;
+  }
+
+  .mobile-dropdown-item {
+    font-size: 13px;
+  }
+
+}
