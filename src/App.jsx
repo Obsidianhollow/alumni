@@ -78,7 +78,7 @@ function App() {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer /> 
     </BrowserRouter>
   );
 }
