@@ -28,8 +28,7 @@ function TopBar() {
             <FaMapMarkerAlt />
 
             <span>
-              Haldia Institute of Technology, Haldia, Purba Medinipur,
-              West Bengal - 721657
+              Alumni Association of Assembly of God Church School (AAAGCS)
             </span>
           </a>
 
@@ -42,7 +41,7 @@ function TopBar() {
             <FaEnvelope />
 
             <span>
-              alumni@hithaldia.ac.in
+              agalumni.hld@agcschools.edu.in
             </span>
           </a>
 

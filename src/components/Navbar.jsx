@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import AuthModal from "./AuthModal";
@@ -65,9 +66,8 @@ function Navbar() {
     <>
       <header className="site-navbar">
         <div className="navbar-inner">
-          {/* =========================================
-              BRAND
-          ========================================= */}
+
+          {/* BRAND LOGO */}
 
           <Link
             to="/"
@@ -75,30 +75,28 @@ function Navbar() {
             onClick={closeMenu}
             aria-label="Alumni Association Home"
           >
-            <div className="brand-mark">A</div>
-
-            <div className="brand-text">
-              <span className="brand-name">ALUMNI</span>
-
-              <span className="brand-subtitle">Association</span>
-            </div>
+            <img
+              src="/images/logo.jpeg"
+              alt="Alumni Association Logo"
+              className="navbar-logo"
+            />
           </Link>
 
-          {/* =========================================
-              DESKTOP NAVIGATION
-          ========================================= */}
+          {/* DESKTOP NAVIGATION */}
 
           <nav className="desktop-nav" aria-label="Main navigation">
             {navLinks.map((link, index) => (
               <div
                 key={link.name}
-                className={`nav-item ${link.dropdown ? "has-dropdown" : ""}`}
+                className={`nav-item ${
+                  link.dropdown ? "has-dropdown" : ""
+                }`}
               >
-                {/* Main Navigation Link */}
-
                 <Link
                   to={link.href}
-                  className={`nav-link ${index === 0 ? "active" : ""}`}
+                  className={`nav-link ${
+                    index === 0 ? "active" : ""
+                  }`}
                 >
                   <span className="nav-number">
                     {String(index + 1).padStart(2, "0")}
@@ -107,9 +105,7 @@ function Navbar() {
                   <span>{link.name}</span>
                 </Link>
 
-                {/* =========================================
-                    DESKTOP DROPDOWN
-                ========================================= */}
+                {/* DESKTOP DROPDOWN */}
 
                 {link.dropdown && (
                   <div className="dropdown-menu">
@@ -118,7 +114,6 @@ function Navbar() {
                         key={item.name}
                         to={item.href}
                         className="dropdown-item"
-                        onClick={closeMenu}
                       >
                         {item.name}
                       </Link>
@@ -129,20 +124,17 @@ function Navbar() {
             ))}
           </nav>
 
-          {/* =========================================
-              RIGHT SIDE
-          ========================================= */}
+          {/* RIGHT SIDE */}
 
           <div className="navbar-right">
-            {/* Login / Signup */}
-
-            {/* Contact */}
 
             <a href="#contact" className="contact-link">
               <span>Get in touch</span>
-
               <span aria-hidden="true">↗</span>
             </a>
+
+            {/* AUTH BUTTONS */}
+
             <div className="auth-buttons">
               <button
                 type="button"
@@ -161,56 +153,67 @@ function Navbar() {
               </button>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* MOBILE MENU BUTTON */}
 
             <button
               type="button"
               className="menu-button"
               onClick={() => setMenuOpen((prev) => !prev)}
               aria-label={
-                menuOpen ? "Close navigation menu" : "Open navigation menu"
+                menuOpen
+                  ? "Close navigation menu"
+                  : "Open navigation menu"
               }
               aria-expanded={menuOpen}
             >
               <span className={menuOpen ? "line rotate-top" : "line"} />
-
               <span className={menuOpen ? "line hide-line" : "line"} />
-
               <span className={menuOpen ? "line rotate-bottom" : "line"} />
             </button>
           </div>
         </div>
 
-        {/* =========================================
-            MOBILE NAVIGATION
-        ========================================= */}
+        {/* MOBILE NAVIGATION */}
 
         <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
           <div className="mobile-menu-content">
-            <div className="mobile-menu-label">Navigation</div>
+
+            <div className="mobile-menu-label">
+              Navigation
+            </div>
 
             {navLinks.map((link, index) => (
-              <div key={link.name} className="mobile-nav-wrapper">
-                {/* Main Mobile Navigation Row */}
-
+              <div
+                key={link.name}
+                className="mobile-nav-wrapper"
+              >
                 <div className="mobile-nav-row">
+
                   <Link
                     to={link.href}
                     className="mobile-nav-link"
-                    onClick={() => !link.dropdown && closeMenu()}
+                    onClick={() => {
+                      if (!link.dropdown) {
+                        closeMenu();
+                      }
+                    }}
                   >
-                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <span>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
 
                     {link.name}
                   </Link>
 
-                  {/* Dropdown Toggle */}
+                  {/* MOBILE DROPDOWN TOGGLE */}
 
                   {link.dropdown && (
                     <button
                       type="button"
                       className="mobile-dropdown-toggle"
-                      onClick={() => setAboutOpen((prev) => !prev)}
+                      onClick={() =>
+                        setAboutOpen((prev) => !prev)
+                      }
                       aria-label="Toggle About Us menu"
                       aria-expanded={aboutOpen}
                     >
@@ -219,9 +222,7 @@ function Navbar() {
                   )}
                 </div>
 
-                {/* =========================================
-                    MOBILE DROPDOWN
-                ========================================= */}
+                {/* MOBILE DROPDOWN */}
 
                 {link.dropdown && aboutOpen && (
                   <div className="mobile-dropdown">
@@ -240,9 +241,7 @@ function Navbar() {
               </div>
             ))}
 
-            {/* =========================================
-                MOBILE AUTHENTICATION
-            ========================================= */}
+            {/* MOBILE AUTHENTICATION */}
 
             <div className="mobile-auth-buttons">
               <button
@@ -262,20 +261,21 @@ function Navbar() {
               </button>
             </div>
 
-            {/* Mobile Contact */}
+            {/* MOBILE CONTACT */}
 
-            <a href="#contact" className="mobile-contact" onClick={closeMenu}>
+            <a
+              href="#contact"
+              className="mobile-contact"
+              onClick={closeMenu}
+            >
               <span>Start a conversation</span>
-
               <span aria-hidden="true">↗</span>
             </a>
           </div>
         </div>
       </header>
 
-      {/* =========================================
-          AUTH MODAL
-      ========================================= */}
+      {/* AUTH MODAL */}
 
       <AuthModal
         isOpen={authOpen}

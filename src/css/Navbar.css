@@ -1,77 +1,122 @@
-/* =========================================
-   NAVBAR + TOPBAR POSITIONING
-========================================= */
 
-/*
-  TopBar = 44px high.
-  Navbar starts directly underneath it.
-*/
 /* =========================================
    MAIN NAVBAR
 ========================================= */
 
 .site-navbar {
   position: relative;
-
   width: 100%;
-
   z-index: 999;
-
   background: #f4f1eb;
+  border-bottom: 1px solid rgba(35, 61, 77, 0.1);
 }
 
-.navbar {
-  position: sticky;
-  top: 0;
-  left: 0;
-
+.navbar-inner {
   width: 100%;
+  max-width: 1440px;
+  min-height: 88px;
+  margin: 0 auto;
+  padding: 0 5%;
 
-  background: #f4f1eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
 
-  z-index: 999;
+  box-sizing: border-box;
 }
 
+/* =========================================
+   BRAND LOGO
+========================================= */
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.navbar-logo {
+  display: block;
+  width: 180px;
+  height: 55px;
+  object-fit: contain;
+  object-position: left center;
+  max-width: 100%;
+}
+
+/* =========================================
+   DESKTOP NAVIGATION
+========================================= */
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.nav-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 88px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  text-decoration: none;
+  color: #233d4d;
+
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #b31f35;
+}
+
+.nav-number {
+  font-size: 10px;
+  font-weight: 700;
+  color: #a5a09a;
+}
 
 /* =========================================
    DESKTOP DROPDOWN
 ========================================= */
 
-.nav-item {
+.nav-item.has-dropdown {
   position: relative;
 }
 
-
-/* =========================================
-   DROPDOWN MENU
-========================================= */
-
 .dropdown-menu {
   position: absolute;
-
-  /* Directly below nav item - no mouse gap */
   top: 100%;
   left: 0;
 
   min-width: 250px;
-
   padding: 8px;
 
   background: #ffffff;
-
   border: 1px solid #e5e7eb;
 
-  box-shadow:
-    0 15px 35px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
 
   z-index: 2000;
 
-  /* Hidden initially */
   opacity: 0;
   visibility: hidden;
-
   transform: translateY(6px);
-
   pointer-events: none;
 
   transition:
@@ -80,21 +125,13 @@
     transform 0.2s ease;
 }
 
-
-/* =========================================
-   SHOW DROPDOWN
-========================================= */
-
 .nav-item:hover .dropdown-menu,
 .nav-item:focus-within .dropdown-menu {
   opacity: 1;
   visibility: visible;
-
   transform: translateY(0);
-
   pointer-events: auto;
 }
-
 
 /* =========================================
    DROPDOWN ITEMS
@@ -102,20 +139,16 @@
 
 .dropdown-item {
   display: block;
-
   width: 100%;
-
   padding: 12px 14px;
 
   color: #233d4d;
-
   text-decoration: none;
 
   font-size: 14px;
   font-weight: 500;
 
   white-space: nowrap;
-
   box-sizing: border-box;
 
   transition:
@@ -124,38 +157,184 @@
     padding-left 0.2s ease;
 }
 
-
-/* =========================================
-   DROPDOWN ITEM HOVER
-========================================= */
-
 .dropdown-item:hover {
   background: #f3f4f6;
-
   color: #b31f35;
-
   padding-left: 18px;
 }
 
+/* =========================================
+   NAVBAR RIGHT SIDE
+========================================= */
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  flex-shrink: 0;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #233d4d;
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+  color: #b31f35;
+}
+
+/* =========================================
+   DESKTOP AUTH BUTTONS
+========================================= */
+
+.auth-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.login-button,
+.signup-button {
+  padding: 11px 19px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+  border-radius: 3px;
+
+  transition: all 0.25s ease;
+}
+
+.login-button {
+  background: transparent;
+  color: #233d4d;
+  border: 1px solid #233d4d;
+}
+
+.login-button:hover {
+  background: #233d4d;
+  color: #f4f1eb;
+}
+
+.signup-button {
+  background: #b31f35;
+  color: #ffffff;
+  border: 1px solid #b31f35;
+}
+
+.signup-button:hover {
+  background: #8f1729;
+  border-color: #8f1729;
+}
+
+/* =========================================
+   MOBILE MENU BUTTON
+========================================= */
+
+.menu-button {
+  display: none;
+
+  width: 42px;
+  height: 42px;
+
+  background: transparent;
+  border: none;
+
+  cursor: pointer;
+
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.line {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background: #233d4d;
+  transition: all 0.3s ease;
+}
+
+.rotate-top {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hide-line {
+  opacity: 0;
+}
+
+.rotate-bottom {
+  transform: translateY(-8px) rotate(-45deg);
+}
 
 /* =========================================
    MOBILE NAVIGATION
 ========================================= */
 
-.mobile-nav-wrapper {
-  width: 100%;
+.mobile-menu {
+  display: none;
 }
 
+.mobile-menu-content {
+  padding: 25px 6% 30px;
+}
+
+.mobile-menu-label {
+  margin-bottom: 18px;
+
+  color: #99918a;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.mobile-nav-wrapper {
+  width: 100%;
+  border-bottom: 1px solid rgba(35, 61, 77, 0.12);
+}
 
 .mobile-nav-row {
   width: 100%;
 
   display: flex;
-
   align-items: center;
   justify-content: space-between;
 }
 
+.mobile-nav-link {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  padding: 16px 0;
+
+  color: #233d4d;
+  text-decoration: none;
+
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.mobile-nav-link span {
+  color: #a5a09a;
+  font-size: 11px;
+}
 
 /* =========================================
    MOBILE DROPDOWN BUTTON
@@ -163,23 +342,18 @@
 
 .mobile-dropdown-toggle {
   border: none;
-
   background: transparent;
 
   font-size: 24px;
-
   cursor: pointer;
-
   padding: 8px 12px;
 
-  color: inherit;
+  color: #233d4d;
 
   display: flex;
-
   align-items: center;
   justify-content: center;
 }
-
 
 /* =========================================
    MOBILE DROPDOWN
@@ -187,9 +361,7 @@
 
 .mobile-dropdown {
   margin-left: 35px;
-
   margin-bottom: 10px;
-
   padding-left: 15px;
 
   border-left: 2px solid #b31f35;
@@ -197,18 +369,11 @@
   animation: dropdownOpen 0.25s ease;
 }
 
-
-/* =========================================
-   MOBILE DROPDOWN ITEM
-========================================= */
-
 .mobile-dropdown-item {
   display: block;
-
   padding: 10px 0;
 
   color: #233d4d;
-
   text-decoration: none;
 
   font-size: 14px;
@@ -219,60 +384,201 @@
     padding-left 0.2s ease;
 }
 
-
 .mobile-dropdown-item:hover {
   color: #b31f35;
-
   padding-left: 5px;
 }
 
+/* =========================================
+   MOBILE AUTHENTICATION
+========================================= */
+
+.mobile-auth-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.mobile-login-button,
+.mobile-signup-button {
+  flex: 1;
+  padding: 13px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+  border-radius: 3px;
+
+  transition: all 0.25s ease;
+}
+
+.mobile-login-button {
+  background: transparent;
+  color: #233d4d;
+  border: 1px solid #233d4d;
+}
+
+.mobile-signup-button {
+  background: #b31f35;
+  color: #ffffff;
+  border: 1px solid #b31f35;
+}
 
 /* =========================================
-   MOBILE DROPDOWN ANIMATION
+   MOBILE CONTACT
+========================================= */
+
+.mobile-contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 22px;
+  padding: 15px 0;
+
+  color: #b31f35;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =========================================
+   DROPDOWN ANIMATION
 ========================================= */
 
 @keyframes dropdownOpen {
-
   from {
     opacity: 0;
-
     transform: translateY(-5px);
   }
 
   to {
     opacity: 1;
-
     transform: translateY(0);
   }
 }
 
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1100px) {
+  .navbar-inner {
+    padding: 0 3%;
+    gap: 18px;
+  }
+
+  .desktop-nav {
+    gap: 17px;
+  }
+
+  .navbar-right {
+    gap: 12px;
+  }
+
+  .navbar-logo {
+    width: 155px;
+    height: 52px;
+  }
+
+  .contact-link {
+    display: none;
+  }
+}
 
 /* =========================================
    TABLET / MOBILE
 ========================================= */
 
 @media (max-width: 768px) {
+  .navbar-inner {
+    min-height: 75px;
+    padding: 0 5%;
+  }
+
+  .navbar-logo {
+    width: 160px;
+    height: 52px;
+  }
 
   .desktop-nav {
     display: none;
+  }
+
+  .navbar-right {
+    gap: 12px;
+  }
+
+  .contact-link,
+  .auth-buttons {
+    display: none;
+  }
+
+  .menu-button {
+    display: flex;
   }
 
   .dropdown-menu {
     display: none;
   }
 
-}
+  .mobile-menu {
+    display: block;
 
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+
+    background: #f4f1eb;
+    border-top: 1px solid rgba(35, 61, 77, 0.1);
+
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.08);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(-8px);
+
+    transition:
+      opacity 0.25s ease,
+      visibility 0.25s ease,
+      transform 0.25s ease;
+  }
+
+  .mobile-menu.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+}
 
 /* =========================================
    SMALL MOBILE
 ========================================= */
 
 @media (max-width: 480px) {
+  .navbar-inner {
+    min-height: 68px;
+    padding: 0 18px;
+  }
+
+  .navbar-logo {
+    width: 140px;
+    height: 46px;
+  }
+
+  .mobile-menu-content {
+    padding: 20px 20px 25px;
+  }
 
   .mobile-dropdown {
     margin-left: 20px;
-
     padding-left: 12px;
   }
 
@@ -280,4 +586,22 @@
     font-size: 13px;
   }
 
+  .mobile-nav-link {
+    font-size: 14px;
+  }
+}
+
+/* =========================================
+   EXTRA SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+  .navbar-logo {
+    width: 125px;
+    height: 42px;
+  }
+
+  .navbar-inner {
+    padding: 0 14px;
+  }
 }
