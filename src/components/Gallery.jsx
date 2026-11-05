@@ -1,157 +1,112 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import "../css/Gallery.css";
 
-const galleryItems = [
+const galleryImages = [
   {
-    category: "ALUMNI MEET",
-    title: "Coming Together",
-    image: "/images/gallery/alumni-meet.jpg",
-    year: "2026",
+    id: 1,
+    title: "Campus Moments",
+    image:
+      "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=800",
   },
   {
-    category: "CAMPUS LIFE",
-    title: "Where It All Began",
-    image: "/images/gallery/campus-life.jpg",
-    year: "2025",
+    id: 2,
+    title: "Annual Celebrations",
+    image:
+      "https://images.unsplash.com/photo-1517457373958-b7bdd4587205?w=800",
   },
   {
-    category: "COMMUNITY",
-    title: "Shared Moments",
-    image: "/images/gallery/community.jpg",
-    year: "2025",
+    id: 3,
+    title: "Student Activities",
+    image:
+      "https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800",
   },
   {
-    category: "REUNION",
-    title: "Back Together",
-    image: "/images/gallery/reunion.jpg",
-    year: "2024",
+    id: 4,
+    title: "Workshops & Seminars",
+    image:
+      "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800",
   },
   {
-    category: "MEMORIES",
-    title: "Moments We Keep",
-    image: "/images/gallery/memories.jpg",
-    year: "2024",
+    id: 5,
+    title: "Campus Life",
+    image:
+      "https://images.unsplash.com/photo-1562774053-701939374585?w=800",
   },
   {
-    category: "ALUMNI STORIES",
-    title: "Generations Connected",
-    image: "/images/gallery/alumni-stories.jpg",
-    year: "2023",
-  },
-  {
-    category: "SCHOOL EVENTS",
-    title: "Celebrating Together",
-    image: "/images/gallery/school-events.jpg",
-    year: "2023",
-  },
-  {
-    category: "FRIENDSHIPS",
-    title: "Old Friends, New Memories",
-    image: "/images/gallery/friendships.jpg",
-    year: "2022",
-  },
-  {
-    category: "CELEBRATIONS",
-    title: "A Day to Remember",
-    image: "/images/gallery/celebrations.jpg",
-    year: "2022",
-  },
-  {
-    category: "SCHOOL LEGACY",
-    title: "Our Shared Heritage",
-    image: "/images/gallery/school-legacy.jpg",
-    year: "2021",
-  },
-  {
-    category: "GATHERINGS",
-    title: "Together Again",
-    image: "/images/gallery/gatherings.jpg",
-    year: "2021",
-  },
-  {
-    category: "ALUMNI COMMUNITY",
-    title: "Connected for Life",
-    image: "/images/gallery/alumni-community.jpg",
-    year: "2021",
+    id: 6,
+    title: "Unforgettable Memories",
+    image:
+      "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800",
   },
 ];
 
-// Add more real gallery records here until you have 50 images.
-
-function Gallery({ fullPage = false }) {
-  const items = fullPage ? galleryItems : galleryItems.slice(0, 6);
-
+const HomeGallery = () => {
   return (
-    <section id="gallery" className="gallery-section">
-      <div className="gallery-container">
-        <header className="gallery-header">
-          <div className="gallery-heading-content">
-            <span className="gallery-eyebrow">OUR MEMORIES</span>
+    <section className="bg-[#f4f1eb] text-gray-700 body-font">
+      <div className="container px-5 py-20 mx-auto">
 
-            <h2 className="gallery-title">
-              Moments That
-              <span> Bring Us Together.</span>
-            </h2>
+        {/* Section Heading */}
+        <div className="flex flex-col text-center w-full mb-14">
+          <h2 className="sm:text-4xl text-3xl font-semibold title-font mb-5 text-gray-900">
+            Gallery
+          </h2>
 
-            <p className="gallery-intro">
-              Explore the gatherings, friendships, celebrations,
-              and memories that connect our alumni community.
-            </p>
-          </div>
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-600">
+            Explore the moments, celebrations, achievements and experiences
+            that make our institution special.
+          </p>
+        </div>
 
-          {fullPage && (
-            <div className="gallery-count">
-              <strong>{String(items.length).padStart(2, "0")}</strong>
-              <span>PHOTOGRAPHS</span>
-            </div>
-          )}
-        </header>
+        {/* Gallery Grid */}
+        <div className="flex flex-wrap -m-3">
+          {galleryImages.map((item) => (
+            <div
+              key={item.id}
+              className="lg:w-1/3 sm:w-1/2 w-full p-3"
+            >
+              <div className="relative h-72 overflow-hidden rounded-xl group shadow-md bg-gray-200">
 
-        <div className="gallery-grid">
-          {items.map((item, index) => (
-            <article className="gallery-card" key={item.title}>
-              <img
-                src={item.image}
-                alt={item.title}
-                className="gallery-image"
-                loading="lazy"
-              />
+                {/* Image */}
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
+                />
 
-              <div className="gallery-card-overlay">
-                <span className="gallery-card-number">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t' from-black/85 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-all duration-500" />
 
-                <div className="gallery-card-info">
-                  <span className="gallery-category">
-                    {item.category}
-                  </span>
-
-                  <h3>{item.title}</h3>
-
-                  <div className="gallery-card-bottom">
-                    <span>{item.year}</span>
-                    <span className="gallery-card-line" />
-                  </div>
+                {/* Image Title */}
+                <div className="absolute inset-0 flex flex-col justify-end p-7 text-white">
+                  <h3 className="text-xl font-semibold">
+                    {item.title}
+                  </h3>
                 </div>
+
               </div>
-            </article>
+            </div>
           ))}
         </div>
 
-        {!fullPage && (
-          <div className="gallery-footer">
-            <Link to="/gallery" className="gallery-more-button">
-              See More
-              <span aria-hidden="true">↗</span>
-            </Link>
-          </div>
-        )}
+        {/* See More Button */}
+        <div className="flex justify-center mt-12">
+          <Link
+            to="/gallery"
+            className="inline-flex items-center gap-3 px-8 py-3 rounded-full bg-[#233d4d] text-white font-medium tracking-wide hover:bg-[#fe7f2d] transition-all duration-300 shadow-md group"
+          >
+            See More
+
+            <span className="transition-transform duration-300 group-hover:translate-x-2">
+              →
+            </span>
+          </Link>
+        </div>
+
       </div>
     </section>
   );
-}
+};
 
-export default Gallery;
+export default HomeGallery;

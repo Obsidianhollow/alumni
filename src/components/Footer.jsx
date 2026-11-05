@@ -175,9 +175,7 @@ function Footer() {
               <FaMapMarkerAlt />
 
               <span>
-                Haldia Institute of Technology,
-                Haldia, Purba Medinipur,
-                West Bengal - 721657
+                Alumni Association of Assembly of God Church School (AAAGCS)
               </span>
 
             </div>
@@ -188,7 +186,7 @@ function Footer() {
               <FaEnvelope />
 
               <a href="mailto:alumni@hithaldia.ac.in">
-                alumni@hithaldia.ac.in
+                agalumni.hld@agcschools.edu.in
               </a>
 
             </div>
@@ -247,8 +245,7 @@ function Footer() {
         <div className="footer-bottom-inner">
 
           <p>
-            © {new Date().getFullYear()} Alumni Association of
-            Haldia Institute of Technology. All Rights Reserved.
+            © {new Date().getFullYear()} Alumni Association of Assembly of God Church School (AAAGCS) All Rights Reserved.
           </p>
 
           <p>
