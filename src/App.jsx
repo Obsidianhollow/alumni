@@ -16,7 +16,9 @@ import AlumniAchivment from "./pages/AlumniAchivment.jsx";
 import AlumniDirectory from "./pages/AlumniDirectory.jsx";
 import OurMembers from "./pages/OurMembers.jsx";
 import CoreCommittee from "./pages/CoreCommittee.jsx";
+import Logo from "../assets/logo.png";
 
+<img src={Logo} alt="Logo" />
 // Home Page
 function Home() {
   return (

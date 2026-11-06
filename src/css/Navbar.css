@@ -37,7 +37,12 @@
   flex-shrink: 0;
   text-decoration: none;
 }
-
+.navbar-logo {
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  display: block;
+}
 .navbar-logo {
   display: block;
   width: 180px;

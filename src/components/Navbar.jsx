@@ -76,6 +76,11 @@ function Navbar() {
             aria-label="Alumni Association Home"
           >
             <img
+  src="/logo.jpeg"
+  alt="School Logo"
+  className="school-logo"
+/>
+            <img
               src="/images/logo.jpeg"
               alt="Alumni Association Logo"
               className="navbar-logo"
