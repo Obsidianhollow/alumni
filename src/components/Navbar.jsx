@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import AuthModal from "./AuthModal";
 import "../css/Navbar.css";
 
+// NAVIGATION LINKS
 const navLinks = [
   {
     name: "Home",
@@ -14,8 +15,8 @@ const navLinks = [
     href: "/about",
     dropdown: [
       {
-        name: "Core Committee Members",
-        href: "/about/core-committee",
+        name: "Founding Members",
+        href: "/about/founding-member",
       },
       {
         name: "Alumni Directory",
@@ -45,17 +46,20 @@ const navLinks = [
   },
 ];
 
+// NAVBAR COMPONENT
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [authOpen, setAuthOpen] = useState(false);
   const [authMode, setAuthMode] = useState("login");
   const [aboutOpen, setAboutOpen] = useState(false);
 
+  // CLOSE MOBILE MENU
   const closeMenu = () => {
     setMenuOpen(false);
     setAboutOpen(false);
   };
 
+  // OPEN AUTH MODAL
   const openAuth = (mode) => {
     setAuthMode(mode);
     setAuthOpen(true);
@@ -98,6 +102,7 @@ function Navbar() {
                   className={`nav-link ${
                     index === 0 ? "active" : ""
                   }`}
+                  onClick={closeMenu}
                 >
                   <span className="nav-number">
                     {String(index + 1).padStart(2, "0")}
@@ -114,6 +119,7 @@ function Navbar() {
                         key={item.name}
                         to={item.href}
                         className="dropdown-item"
+                        onClick={closeMenu}
                       >
                         {item.name}
                       </Link>
@@ -131,6 +137,7 @@ function Navbar() {
             <a
               href="/#contact"
               className="contact-link"
+              onClick={closeMenu}
             >
               <span>Get in touch</span>
               <span aria-hidden="true">↗</span>
@@ -174,17 +181,20 @@ function Navbar() {
                   menuOpen ? "line rotate-top" : "line"
                 }
               />
+
               <span
                 className={
                   menuOpen ? "line hide-line" : "line"
                 }
               />
+
               <span
                 className={
                   menuOpen ? "line rotate-bottom" : "line"
                 }
               />
             </button>
+
           </div>
         </div>
 
@@ -237,6 +247,7 @@ function Navbar() {
                       {aboutOpen ? "−" : "+"}
                     </button>
                   )}
+
                 </div>
 
                 {/* MOBILE DROPDOWN */}
@@ -254,11 +265,13 @@ function Navbar() {
                     ))}
                   </div>
                 )}
+
               </div>
             ))}
 
             {/* MOBILE AUTH BUTTONS */}
             <div className="mobile-auth-buttons">
+
               <button
                 type="button"
                 className="mobile-login-button"
@@ -274,6 +287,7 @@ function Navbar() {
               >
                 Sign up
               </button>
+
             </div>
 
             {/* MOBILE CONTACT */}
@@ -285,6 +299,7 @@ function Navbar() {
               <span>Start a conversation</span>
               <span aria-hidden="true">↗</span>
             </a>
+
           </div>
         </div>
       </header>
@@ -296,6 +311,7 @@ function Navbar() {
         onClose={() => setAuthOpen(false)}
         onModeChange={setAuthMode}
       />
+
     </>
   );
 }
