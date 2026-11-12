@@ -3,32 +3,29 @@ import "../css/CoreCommittee.css";
 
 const committeeMembers = [
   {
-    name: "Dr. Rajesh Kumar",
+    name: "Mr.Sankhasubha Roy",
     designation: "President",
     department: "Alumni Association",
     image: "/images/committee/member-01.jpg",
   },
   {
-    name: "Prof. Ananya Sen",
-    designation: "Vice President",
+    name: "Dr. Santanu Maity",
+    designation: "Secretary"  ,
     department: "Alumni Association",
     image: "/images/committee/member-02.jpg",
   },
   {
-    name: "Mr. Arindam Roy",
-    designation: "General Secretary",
+    name: "Mr. Saurav Samanta",
     department: "Alumni Association",
     image: "/images/committee/member-03.jpg",
   },
   {
-    name: "Ms. Sneha Das",
-    designation: "Joint Secretary",
+    name: "Mrs. Payel Panda Pandit",
     department: "Alumni Association",
     image: "/images/committee/member-04.jpg",
   },
   {
-    name: "Mr. Abhishek Sharma",
-    designation: "Treasurer",
+    name: "Mr. Sayantan Pandit",  
     department: "Alumni Association",
     image: "/images/committee/member-05.jpg",
   },

@@ -68,18 +68,12 @@ function Navbar() {
         <div className="navbar-inner">
 
           {/* BRAND LOGO */}
-
           <Link
             to="/"
             className="navbar-brand"
             onClick={closeMenu}
             aria-label="Alumni Association Home"
           >
-            <img
-  src="/logo.jpeg"
-  alt="School Logo"
-  className="school-logo"
-/>
             <img
               src="/images/logo.jpeg"
               alt="Alumni Association Logo"
@@ -88,8 +82,10 @@ function Navbar() {
           </Link>
 
           {/* DESKTOP NAVIGATION */}
-
-          <nav className="desktop-nav" aria-label="Main navigation">
+          <nav
+            className="desktop-nav"
+            aria-label="Main navigation"
+          >
             {navLinks.map((link, index) => (
               <div
                 key={link.name}
@@ -111,7 +107,6 @@ function Navbar() {
                 </Link>
 
                 {/* DESKTOP DROPDOWN */}
-
                 {link.dropdown && (
                   <div className="dropdown-menu">
                     {link.dropdown.map((item) => (
@@ -130,16 +125,18 @@ function Navbar() {
           </nav>
 
           {/* RIGHT SIDE */}
-
           <div className="navbar-right">
 
-            <a href="#contact" className="contact-link">
+            {/* CONTACT LINK */}
+            <a
+              href="/#contact"
+              className="contact-link"
+            >
               <span>Get in touch</span>
               <span aria-hidden="true">↗</span>
             </a>
 
             {/* AUTH BUTTONS */}
-
             <div className="auth-buttons">
               <button
                 type="button"
@@ -159,11 +156,12 @@ function Navbar() {
             </div>
 
             {/* MOBILE MENU BUTTON */}
-
             <button
               type="button"
               className="menu-button"
-              onClick={() => setMenuOpen((prev) => !prev)}
+              onClick={() =>
+                setMenuOpen((prev) => !prev)
+              }
               aria-label={
                 menuOpen
                   ? "Close navigation menu"
@@ -171,16 +169,31 @@ function Navbar() {
               }
               aria-expanded={menuOpen}
             >
-              <span className={menuOpen ? "line rotate-top" : "line"} />
-              <span className={menuOpen ? "line hide-line" : "line"} />
-              <span className={menuOpen ? "line rotate-bottom" : "line"} />
+              <span
+                className={
+                  menuOpen ? "line rotate-top" : "line"
+                }
+              />
+              <span
+                className={
+                  menuOpen ? "line hide-line" : "line"
+                }
+              />
+              <span
+                className={
+                  menuOpen ? "line rotate-bottom" : "line"
+                }
+              />
             </button>
           </div>
         </div>
 
         {/* MOBILE NAVIGATION */}
-
-        <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+        <div
+          className={`mobile-menu ${
+            menuOpen ? "open" : ""
+          }`}
+        >
           <div className="mobile-menu-content">
 
             <div className="mobile-menu-label">
@@ -210,8 +223,7 @@ function Navbar() {
                     {link.name}
                   </Link>
 
-                  {/* MOBILE DROPDOWN TOGGLE */}
-
+                  {/* MOBILE DROPDOWN BUTTON */}
                   {link.dropdown && (
                     <button
                       type="button"
@@ -228,7 +240,6 @@ function Navbar() {
                 </div>
 
                 {/* MOBILE DROPDOWN */}
-
                 {link.dropdown && aboutOpen && (
                   <div className="mobile-dropdown">
                     {link.dropdown.map((item) => (
@@ -246,8 +257,7 @@ function Navbar() {
               </div>
             ))}
 
-            {/* MOBILE AUTHENTICATION */}
-
+            {/* MOBILE AUTH BUTTONS */}
             <div className="mobile-auth-buttons">
               <button
                 type="button"
@@ -267,9 +277,8 @@ function Navbar() {
             </div>
 
             {/* MOBILE CONTACT */}
-
             <a
-              href="#contact"
+              href="/#contact"
               className="mobile-contact"
               onClick={closeMenu}
             >
@@ -281,7 +290,6 @@ function Navbar() {
       </header>
 
       {/* AUTH MODAL */}
-
       <AuthModal
         isOpen={authOpen}
         mode={authMode}

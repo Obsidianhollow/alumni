@@ -17,12 +17,10 @@
   min-height: 88px;
   margin: 0 auto;
   padding: 0 5%;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-
   box-sizing: border-box;
 }
 
@@ -36,13 +34,9 @@
   justify-content: flex-start;
   flex-shrink: 0;
   text-decoration: none;
+  overflow: hidden;
 }
-.navbar-logo {
-  width: 65px;
-  height: 65px;
-  object-fit: contain;
-  display: block;
-}
+
 .navbar-logo {
   display: block;
   width: 180px;
@@ -50,6 +44,7 @@
   object-fit: contain;
   object-position: left center;
   max-width: 100%;
+  flex-shrink: 0;
 }
 
 /* =========================================
@@ -74,14 +69,11 @@
   display: flex;
   align-items: center;
   gap: 8px;
-
   text-decoration: none;
   color: #233d4d;
-
   font-size: 14px;
   font-weight: 600;
   white-space: nowrap;
-
   transition: color 0.2s ease;
 }
 
@@ -108,22 +100,16 @@
   position: absolute;
   top: 100%;
   left: 0;
-
   min-width: 250px;
   padding: 8px;
-
   background: #ffffff;
   border: 1px solid #e5e7eb;
-
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-
   z-index: 2000;
-
   opacity: 0;
   visibility: hidden;
   transform: translateY(6px);
   pointer-events: none;
-
   transition:
     opacity 0.2s ease,
     visibility 0.2s ease,
@@ -146,16 +132,12 @@
   display: block;
   width: 100%;
   padding: 12px 14px;
-
   color: #233d4d;
   text-decoration: none;
-
   font-size: 14px;
   font-weight: 500;
-
   white-space: nowrap;
   box-sizing: border-box;
-
   transition:
     background-color 0.2s ease,
     color 0.2s ease,
@@ -183,14 +165,11 @@
   display: flex;
   align-items: center;
   gap: 8px;
-
   color: #233d4d;
   text-decoration: none;
-
   font-size: 13px;
   font-weight: 600;
   white-space: nowrap;
-
   transition: color 0.2s ease;
 }
 
@@ -211,13 +190,10 @@
 .login-button,
 .signup-button {
   padding: 11px 19px;
-
   font-size: 13px;
   font-weight: 600;
-
   cursor: pointer;
   border-radius: 3px;
-
   transition: all 0.25s ease;
 }
 
@@ -249,15 +225,11 @@
 
 .menu-button {
   display: none;
-
   width: 42px;
   height: 42px;
-
   background: transparent;
   border: none;
-
   cursor: pointer;
-
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -298,9 +270,7 @@
 
 .mobile-menu-label {
   margin-bottom: 18px;
-
   color: #99918a;
-
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -314,7 +284,6 @@
 
 .mobile-nav-row {
   width: 100%;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -322,16 +291,12 @@
 
 .mobile-nav-link {
   flex: 1;
-
   display: flex;
   align-items: center;
   gap: 14px;
-
   padding: 16px 0;
-
   color: #233d4d;
   text-decoration: none;
-
   font-size: 15px;
   font-weight: 600;
 }
@@ -348,13 +313,10 @@
 .mobile-dropdown-toggle {
   border: none;
   background: transparent;
-
   font-size: 24px;
   cursor: pointer;
   padding: 8px 12px;
-
   color: #233d4d;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -368,22 +330,17 @@
   margin-left: 35px;
   margin-bottom: 10px;
   padding-left: 15px;
-
   border-left: 2px solid #b31f35;
-
   animation: dropdownOpen 0.25s ease;
 }
 
 .mobile-dropdown-item {
   display: block;
   padding: 10px 0;
-
   color: #233d4d;
   text-decoration: none;
-
   font-size: 14px;
   font-weight: 500;
-
   transition:
     color 0.2s ease,
     padding-left 0.2s ease;
@@ -408,13 +365,10 @@
 .mobile-signup-button {
   flex: 1;
   padding: 13px;
-
   font-size: 14px;
   font-weight: 600;
-
   cursor: pointer;
   border-radius: 3px;
-
   transition: all 0.25s ease;
 }
 
@@ -438,13 +392,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   margin-top: 22px;
   padding: 15px 0;
-
   color: #b31f35;
   text-decoration: none;
-
   font-size: 14px;
   font-weight: 600;
 }
@@ -531,24 +482,17 @@
 
   .mobile-menu {
     display: block;
-
     position: absolute;
     top: 100%;
     left: 0;
-
     width: 100%;
-
     background: #f4f1eb;
     border-top: 1px solid rgba(35, 61, 77, 0.1);
-
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.08);
-
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-
     transform: translateY(-8px);
-
     transition:
       opacity 0.25s ease,
       visibility 0.25s ease,
