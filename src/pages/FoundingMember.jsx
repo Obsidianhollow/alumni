@@ -1,31 +1,36 @@
-import React from "react";
-import "../css/CoreCommittee.css";
 
-const committeeMembers = [
+import React from "react";
+import "../css/FoundingMember.css";
+
+// FOUNDING MEMBERS DATA
+const foundingMembers = [
   {
-    name: "Mr.Sankhasubha Roy",
+    name: "Mr. Sankhasubha Roy",
     designation: "President",
     department: "Alumni Association",
     image: "/images/committee/member-01.jpg",
   },
   {
     name: "Dr. Santanu Maity",
-    designation: "Secretary"  ,
+    designation: "Secretary",
     department: "Alumni Association",
     image: "/images/committee/member-02.jpg",
   },
   {
     name: "Mr. Saurav Samanta",
+    designation: "Founding Member",
     department: "Alumni Association",
     image: "/images/committee/member-03.jpg",
   },
   {
     name: "Mrs. Payel Panda Pandit",
+    designation: "Founding Member",
     department: "Alumni Association",
     image: "/images/committee/member-04.jpg",
   },
   {
-    name: "Mr. Sayantan Pandit",  
+    name: "Mr. Sayantan Pandit",
+    designation: "Founding Member",
     department: "Alumni Association",
     image: "/images/committee/member-05.jpg",
   },
@@ -37,93 +42,110 @@ const committeeMembers = [
   },
 ];
 
-function CoreCommittee() {
+function FoundingMember() {
   return (
     <div className="committee-page">
 
-      {/* HERO */}
+      {/* HERO SECTION */}
       <section className="committee-hero">
         <div className="committee-hero-content">
+
           <span className="committee-eyebrow">
             ALUMNI ASSOCIATION
           </span>
 
-          <h1>
-            Core Committee
-          </h1>
+          <h1>Founding Members</h1>
 
           <p>
-            Meet the dedicated leaders working together to strengthen
-            our alumni community and build meaningful connections
-            between graduates, students and the institution.
+            Meet the distinguished individuals who laid the
+            foundation of our Alumni Association and continue
+            to inspire a strong and connected alumni community.
           </p>
+
         </div>
 
         <div className="committee-hero-shape shape-one"></div>
         <div className="committee-hero-shape shape-two"></div>
       </section>
 
-      {/* INTRO */}
+
+      {/* INTRODUCTION */}
       <section className="committee-intro">
+
         <div className="committee-intro-label">
           <span></span>
-          OUR LEADERSHIP
+          OUR FOUNDERS
         </div>
 
         <div className="committee-intro-grid">
+
           <h2>
-            Leadership with purpose.
+            A legacy built on vision.
           </h2>
 
           <p>
-            The Core Committee provides strategic direction to the
-            Alumni Association and works towards creating opportunities
-            for engagement, collaboration and lifelong connections
-            among our alumni.
+            The Founding Members played an important role in
+            establishing the Alumni Association. Their vision,
+            dedication and commitment continue to strengthen
+            the relationship between alumni and the institution.
           </p>
+
         </div>
       </section>
 
-      {/* COMMITTEE */}
+
+      {/* FOUNDING MEMBERS */}
       <section className="committee-section">
 
         <div className="committee-section-heading">
+
           <div>
             <span className="section-kicker">
-              CORE COMMITTEE
+              OUR FOUNDERS
             </span>
 
-            <h2>
-              Meet the team
-            </h2>
+            <h2>Meet the Founding Members</h2>
           </div>
 
           <p>
-            A committed group of professionals and representatives
-            guiding the association forward.
+            Recognising the people whose contributions helped
+            establish and shape our alumni community.
           </p>
+
         </div>
 
+
+        {/* MEMBERS GRID */}
         <div className="committee-grid">
-          {committeeMembers.map((member, index) => (
+
+          {foundingMembers.map((member, index) => (
+
             <article
               className={`committee-card ${
                 index === 0 ? "committee-card-featured" : ""
               }`}
               key={member.name}
             >
+
+              {/* MEMBER IMAGE */}
               <div className="committee-image-wrapper">
+
                 <img
                   src={member.image}
                   alt={member.name}
+                  loading="lazy"
                 />
 
                 <span className="member-number">
                   {String(index + 1).padStart(2, "0")}
                 </span>
+
               </div>
 
+
+              {/* MEMBER DETAILS */}
               <div className="committee-card-content">
+
                 <span className="member-designation">
                   {member.designation}
                 </span>
@@ -135,55 +157,72 @@ function CoreCommittee() {
                 <div className="member-line"></div>
 
                 <span className="member-role">
-                  Core Committee Member
+                  Founding Member
                 </span>
+
               </div>
+
             </article>
+
           ))}
+
         </div>
+
       </section>
 
-      {/* RESPONSIBILITY */}
+
+      {/* RESPONSIBILITY SECTION */}
       <section className="committee-responsibility">
 
         <div className="responsibility-content">
+
           <span className="section-kicker">
-            OUR RESPONSIBILITY
+            OUR LEGACY
           </span>
 
           <h2>
-            Building a stronger alumni network.
+            A foundation for generations to come.
           </h2>
 
           <p>
-            Through collaboration, mentorship, events and community
-            initiatives, the committee works to create a lasting
-            relationship between the institution and its alumni.
+            The Founding Members established a vision of
+            connection, collaboration and lifelong relationships.
+            Their contributions continue to inspire future
+            generations of alumni to stay connected and contribute
+            to the institution.
           </p>
+
         </div>
 
+
+        {/* HIGHLIGHTS */}
         <div className="responsibility-stats">
+
           <div>
             <strong>01</strong>
-            <span>Leadership</span>
+            <span>Vision</span>
           </div>
 
           <div>
             <strong>02</strong>
-            <span>Engagement</span>
+            <span>Foundation</span>
           </div>
 
           <div>
             <strong>03</strong>
-            <span>Community</span>
+            <span>Legacy</span>
           </div>
+
         </div>
 
       </section>
 
-      {/* CTA */}
+
+      {/* CALL TO ACTION */}
       <section className="committee-cta">
+
         <div>
+
           <span className="section-kicker">
             STAY CONNECTED
           </span>
@@ -193,19 +232,16 @@ function CoreCommittee() {
           </h2>
 
           <p>
-            Connect, contribute and grow with a network that continues
-            beyond graduation.
+            Connect, contribute and grow with a network
+            that continues beyond graduation.
           </p>
+
         </div>
 
-        <button>
-          Connect With Us
-          <span>↗</span>
-        </button>
       </section>
 
     </div>
   );
 }
 
-export default CoreCommittee;
+export default FoundingMember;

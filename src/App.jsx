@@ -7,7 +7,9 @@ import Footer from "./components/Footer.jsx";
 
 import Hero from "./components/Hero.jsx";
 import AlumniCards from "./components/Alumni.jsx";
+import Notice from "./components/Notice.jsx";
 import Events from "./components/Events.jsx";
+
 import Gallery from "./components/Gallery.jsx";
 import About from "./components/About.jsx";
 
@@ -15,14 +17,14 @@ import GalleryPage from "./pages/GalleryPage.jsx";
 import AlumniAchivment from "./pages/AlumniAchivment.jsx";
 import AlumniDirectory from "./pages/AlumniDirectory.jsx";
 import OurMembers from "./pages/OurMembers.jsx";
-import CoreCommittee from "./pages/CoreCommittee.jsx";
-
+import FoundingMember from "./pages/FoundingMember.jsx";
 
 // Home Page
 function Home() {
   return (
     <>
       <Hero />
+      <Notice />
       <Events />
       <AlumniCards />
       <Gallery />
@@ -52,10 +54,10 @@ function App() {
           {/* Gallery - All Photos */}
           <Route path="/gallery" element={<GalleryPage />} />
 
-          {/* Core Committee */}
+          {/* Founding Members */}
           <Route
-            path="/about/core-committee"
-            element={<CoreCommittee />}
+            path="/about/founding-member"
+            element={<FoundingMember />}
           />
 
           {/* Alumni Directory */}
@@ -79,10 +81,9 @@ function App() {
       </main>
 
       {/* Footer */}
-      <Footer /> 
+      <Footer />
     </BrowserRouter>
   );
 }
 
 export default App;
-
