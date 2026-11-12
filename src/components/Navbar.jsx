@@ -19,12 +19,12 @@ const navLinks = [
         href: "/about/founding-member",
       },
       {
-        name: "Alumni Directory",
-        href: "/about/alumni-directory",
+        name: "CoreCommitteeMembers",
+        href: "/about/core-committee-members",
       },
       {
-        name: "Our Members",
-        href: "/about/our-members",
+        name: "Alumni Directory",
+        href: "/about/alumni-directory",
       },
       {
         name: "Alumni Achievements",

@@ -16,7 +16,7 @@ import About from "./components/About.jsx";
 import GalleryPage from "./pages/GalleryPage.jsx";
 import AlumniAchivment from "./pages/AlumniAchivment.jsx";
 import AlumniDirectory from "./pages/AlumniDirectory.jsx";
-import OurMembers from "./pages/OurMembers.jsx";
+import CoreCommitteeMembers from "./pages/CoreCommitteeMembers.jsx";
 import FoundingMember from "./pages/FoundingMember.jsx";
 
 // Home Page
@@ -68,8 +68,8 @@ function App() {
 
           {/* Our Members */}
           <Route
-            path="/about/our-members"
-            element={<OurMembers />}
+            path="/about/core-committee-members"
+            element={<CoreCommitteeMembers />}
           />
 
           {/* Alumni Achievements */}
