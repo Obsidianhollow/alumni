@@ -19,7 +19,7 @@ const navLinks = [
         href: "/about/founding-member",
       },
       {
-        name: "CoreCommitteeMembers",
+        name: "Core CommitteeMembers",
         href: "/about/core-committee-members",
       },
       {
