@@ -1,25 +1,30 @@
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// LAYOUT COMPONENTS
 import TopBar from "./components/TopBar.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 
+// HOME COMPONENTS
 import Hero from "./components/Hero.jsx";
 import AlumniCards from "./components/Alumni.jsx";
 import Notice from "./components/Notice.jsx";
 import Events from "./components/Events.jsx";
-
 import Gallery from "./components/Gallery.jsx";
 import About from "./components/About.jsx";
 
+// PAGE COMPONENTS
 import GalleryPage from "./pages/GalleryPage.jsx";
 import AlumniAchivment from "./pages/AlumniAchivment.jsx";
 import AlumniDirectory from "./pages/AlumniDirectory.jsx";
 import CoreCommitteeMembers from "./pages/CoreCommitteeMembers.jsx";
 import FoundingMember from "./pages/FoundingMember.jsx";
 
-// Home Page
+// =========================================
+// HOME PAGE
+// =========================================
+
 function Home() {
   return (
     <>
@@ -32,56 +37,92 @@ function Home() {
   );
 }
 
-// Main App
+// =========================================
+// 404 PAGE
+// =========================================
+
+function NotFound() {
+  return (
+    <section className="not-found-page">
+      <h1>404</h1>
+      <h2>Page Not Found</h2>
+      <p>The page you are looking for does not exist.</p>
+      <a href="/">Return to Home</a>
+    </section>
+  );
+}
+
+// =========================================
+// MAIN APP
+// =========================================
+
 function App() {
   return (
     <BrowserRouter>
-      {/* Top Bar */}
+
+      {/* TOP BAR */}
       <TopBar />
 
-      {/* Navigation */}
+      {/* NAVIGATION */}
       <Navbar />
 
-      {/* Page Routes */}
+      {/* PAGE ROUTES */}
       <main>
+
         <Routes>
-          {/* Home */}
+
+          {/* HOME */}
           <Route path="/" element={<Home />} />
 
-          {/* About Us */}
-          <Route path="/about" element={<About />} />
+          {/* ABOUT */}
+          <Route
+            path="/about"
+            element={<About />}
+          />
 
-          {/* Gallery - All Photos */}
-          <Route path="/gallery" element={<GalleryPage />} />
+          {/* GALLERY */}
+          <Route
+            path="/gallery"
+            element={<GalleryPage />}
+          />
 
-          {/* Founding Members */}
+          {/* FOUNDING MEMBERS */}
           <Route
             path="/about/founding-member"
             element={<FoundingMember />}
           />
 
-          {/* Alumni Directory */}
-          <Route
-            path="/about/alumni-directory"
-            element={<AlumniDirectory />}
-          />
-
-          {/* Our Members */}
+          {/* CORE COMMITTEE MEMBERS */}
           <Route
             path="/about/core-committee-members"
             element={<CoreCommitteeMembers />}
           />
 
-          {/* Alumni Achievements */}
+          {/* ALUMNI DIRECTORY */}
+          <Route
+            path="/about/alumni-directory"
+            element={<AlumniDirectory />}
+          />
+
+          {/* ALUMNI ACHIEVEMENTS */}
           <Route
             path="/about/alumni-achievements"
             element={<AlumniAchivment />}
           />
+
+          {/* INVALID ROUTES */}
+          <Route
+            path="*"
+            element={<NotFound />}
+          />
+
         </Routes>
+
       </main>
 
-      {/* Footer */}
+      {/* FOOTER */}
       <Footer />
+
     </BrowserRouter>
   );
 }

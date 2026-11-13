@@ -11,6 +11,10 @@
   border-bottom: 1px solid rgba(35, 61, 77, 0.1);
 }
 
+.site-navbar * {
+  box-sizing: border-box;
+}
+
 .navbar-inner {
   width: 100%;
   max-width: 1440px;
@@ -20,31 +24,55 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 30px;
-  box-sizing: border-box;
+  gap: 25px;
 }
 
 /* =========================================
-   BRAND LOGO
+   BRAND LOGO AND SCHOOL NAME
 ========================================= */
 
 .navbar-brand {
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  gap: 12px;
   flex-shrink: 0;
+  width: auto;
   text-decoration: none;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .navbar-logo {
   display: block;
-  width: 180px;
-  height: 55px;
+  width: 58px;
+  height: 58px;
   object-fit: contain;
-  object-position: left center;
-  max-width: 100%;
   flex-shrink: 0;
+}
+
+.navbar-brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.school-name {
+  font-family: "Cloister Black", serif;
+  font-size: 23px;
+  font-weight: normal;
+  color: #233d4d;
+  white-space: nowrap;
+}
+
+.association-name {
+  margin-top: 5px;
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #b31f35;
+  white-space: nowrap;
 }
 
 /* =========================================
@@ -55,7 +83,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 27px;
 }
 
 .nav-item {
@@ -66,26 +94,41 @@
 }
 
 .nav-link {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 8px;
+  padding: 12px 0;
   text-decoration: none;
   color: #233d4d;
   font-size: 14px;
   font-weight: 600;
   white-space: nowrap;
-  transition: color 0.2s ease;
+  transition: color 0.25s ease;
+}
+
+/* UNDERLINE */
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  width: 100%;
+  height: 1.5px;
+  background: #b31f35;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  transform: scaleX(1);
 }
 
 .nav-link:hover,
 .nav-link.active {
   color: #b31f35;
-}
-
-.nav-number {
-  font-size: 10px;
-  font-weight: 700;
-  color: #a5a09a;
 }
 
 /* =========================================
@@ -98,22 +141,22 @@
 
 .dropdown-menu {
   position: absolute;
-  top: 100%;
+  top: calc(100% - 1px);
   left: 0;
-  min-width: 250px;
+  min-width: 255px;
   padding: 8px;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+  background: #f4f1eb;
+  border: 1px solid rgba(35, 61, 77, 0.12);
+  box-shadow: 0 16px 35px rgba(35, 61, 77, 0.13);
   z-index: 2000;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(6px);
+  transform: translateY(8px);
   pointer-events: none;
   transition:
-    opacity 0.2s ease,
-    visibility 0.2s ease,
-    transform 0.2s ease;
+    opacity 0.22s ease,
+    visibility 0.22s ease,
+    transform 0.22s ease;
 }
 
 .nav-item:hover .dropdown-menu,
@@ -124,30 +167,28 @@
   pointer-events: auto;
 }
 
-/* =========================================
-   DROPDOWN ITEMS
-========================================= */
+/* DROPDOWN ITEMS */
 
 .dropdown-item {
   display: block;
   width: 100%;
-  padding: 12px 14px;
+  padding: 13px 14px;
   color: #233d4d;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   white-space: nowrap;
-  box-sizing: border-box;
   transition:
-    background-color 0.2s ease,
+    background 0.2s ease,
     color 0.2s ease,
     padding-left 0.2s ease;
 }
 
-.dropdown-item:hover {
-  background: #f3f4f6;
+.dropdown-item:hover,
+.dropdown-item.active {
+  background: #eaecf0;
   color: #b31f35;
-  padding-left: 18px;
+  padding-left: 19px;
 }
 
 /* =========================================
@@ -157,11 +198,12 @@
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 22px;
+  gap: 20px;
   flex-shrink: 0;
 }
 
 .contact-link {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -173,8 +215,25 @@
   transition: color 0.2s ease;
 }
 
+.contact-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 100%;
+  height: 1px;
+  background: #b31f35;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
 .contact-link:hover {
   color: #b31f35;
+}
+
+.contact-link:hover::after {
+  transform: scaleX(1);
 }
 
 /* =========================================
@@ -184,12 +243,13 @@
 .auth-buttons {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 9px;
 }
 
 .login-button,
 .signup-button {
-  padding: 11px 19px;
+  padding: 11px 18px;
+  font-family: inherit;
   font-size: 13px;
   font-weight: 600;
   cursor: pointer;
@@ -227,6 +287,7 @@
   display: none;
   width: 42px;
   height: 42px;
+  padding: 0;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -293,17 +354,17 @@
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 14px;
   padding: 16px 0;
   color: #233d4d;
   text-decoration: none;
   font-size: 15px;
   font-weight: 600;
+  transition: color 0.2s ease;
 }
 
-.mobile-nav-link span {
-  color: #a5a09a;
-  font-size: 11px;
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  color: #b31f35;
 }
 
 /* =========================================
@@ -311,15 +372,22 @@
 ========================================= */
 
 .mobile-dropdown-toggle {
+  width: 42px;
+  height: 42px;
   border: none;
   background: transparent;
   font-size: 24px;
+  font-weight: 400;
   cursor: pointer;
-  padding: 8px 12px;
   color: #233d4d;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.mobile-dropdown-toggle:hover {
+  color: #b31f35;
 }
 
 /* =========================================
@@ -327,8 +395,8 @@
 ========================================= */
 
 .mobile-dropdown {
-  margin-left: 35px;
-  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-bottom: 12px;
   padding-left: 15px;
   border-left: 2px solid #b31f35;
   animation: dropdownOpen 0.25s ease;
@@ -336,7 +404,7 @@
 
 .mobile-dropdown-item {
   display: block;
-  padding: 10px 0;
+  padding: 11px 0;
   color: #233d4d;
   text-decoration: none;
   font-size: 14px;
@@ -346,9 +414,10 @@
     padding-left 0.2s ease;
 }
 
-.mobile-dropdown-item:hover {
+.mobile-dropdown-item:hover,
+.mobile-dropdown-item.active {
   color: #b31f35;
-  padding-left: 5px;
+  padding-left: 6px;
 }
 
 /* =========================================
@@ -365,6 +434,7 @@
 .mobile-signup-button {
   flex: 1;
   padding: 13px;
+  font-family: inherit;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
@@ -378,10 +448,19 @@
   border: 1px solid #233d4d;
 }
 
+.mobile-login-button:hover {
+  background: #233d4d;
+  color: #ffffff;
+}
+
 .mobile-signup-button {
   background: #b31f35;
   color: #ffffff;
   border: 1px solid #b31f35;
+}
+
+.mobile-signup-button:hover {
+  background: #8f1729;
 }
 
 /* =========================================
@@ -398,6 +477,11 @@
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.mobile-contact:hover {
+  color: #8f1729;
 }
 
 /* =========================================
@@ -417,30 +501,53 @@
 }
 
 /* =========================================
-   TABLET
+   FOCUS ACCESSIBILITY
 ========================================= */
 
-@media (max-width: 1100px) {
+.site-navbar a:focus-visible,
+.site-navbar button:focus-visible {
+  outline: 2px solid #b31f35;
+  outline-offset: 4px;
+}
+
+/* =========================================
+   TABLET / SMALL LAPTOP
+========================================= */
+
+@media (max-width: 1200px) {
   .navbar-inner {
     padding: 0 3%;
-    gap: 18px;
+    gap: 14px;
   }
 
   .desktop-nav {
-    gap: 17px;
+    gap: 16px;
   }
 
   .navbar-right {
     gap: 12px;
   }
 
+  .school-name {
+    font-size: 20px;
+  }
+
   .navbar-logo {
-    width: 155px;
+    width: 52px;
     height: 52px;
+  }
+
+  .nav-link {
+    font-size: 13px;
   }
 
   .contact-link {
     display: none;
+  }
+
+  .login-button,
+  .signup-button {
+    padding: 10px 13px;
   }
 }
 
@@ -448,15 +555,10 @@
    TABLET / MOBILE
 ========================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .navbar-inner {
     min-height: 75px;
     padding: 0 5%;
-  }
-
-  .navbar-logo {
-    width: 160px;
-    height: 52px;
   }
 
   .desktop-nav {
@@ -488,7 +590,7 @@
     width: 100%;
     background: #f4f1eb;
     border-top: 1px solid rgba(35, 61, 77, 0.1);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 15px 25px rgba(35, 61, 77, 0.1);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -517,9 +619,22 @@
     padding: 0 18px;
   }
 
+  .navbar-brand {
+    gap: 8px;
+  }
+
   .navbar-logo {
-    width: 140px;
-    height: 46px;
+    width: 43px;
+    height: 43px;
+  }
+
+  .school-name {
+    font-size: 17px;
+  }
+
+  .association-name {
+    font-size: 7px;
+    letter-spacing: 1.2px;
   }
 
   .mobile-menu-content {
@@ -545,12 +660,44 @@
 ========================================= */
 
 @media (max-width: 360px) {
+  .navbar-brand {
+    gap: 6px;
+  }
+
   .navbar-logo {
-    width: 125px;
-    height: 42px;
+    width: 38px;
+    height: 38px;
+  }
+
+  .school-name {
+    font-size: 15px;
+  }
+
+  .association-name {
+    font-size: 6px;
+    letter-spacing: 0.8px;
   }
 
   .navbar-inner {
     padding: 0 14px;
+  }
+
+  .menu-button {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .site-navbar *,
+  .site-navbar *::before,
+  .site-navbar *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

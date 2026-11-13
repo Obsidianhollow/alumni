@@ -1,3 +1,4 @@
+
 const events = [
   {
     month: "OCT",
@@ -89,16 +90,18 @@ function Events() {
     <section id="events" className="events-section">
       <div className="container-custom">
 
-        {/* Section Header */}
+        {/* SECTION HEADER */}
         <div className="events-header">
 
           <div className="events-number">
-            03
+            <span>03</span>
+            <span className="events-number-line"></span>
           </div>
 
           <div className="events-heading-content">
 
             <div className="eyebrow">
+              <span className="eyebrow-dot"></span>
               What's happening
             </div>
 
@@ -107,7 +110,7 @@ function Events() {
               <br />
               Connect.
               <br />
-              Belong.
+              <span>Belong.</span>
             </h2>
 
             <p className="events-intro">
@@ -116,22 +119,19 @@ function Events() {
             </p>
 
           </div>
-
         </div>
 
-
-        {/* Events List */}
+        {/* EVENTS LIST */}
         <div className="events-list">
 
-          {events.map((event, index) => (
+          {events.map((event) => (
             <article
               className="event-card"
               key={`${event.title}-${event.day}`}
             >
 
-              {/* Date */}
+              {/* DATE */}
               <div className="event-date">
-
                 <span className="event-month">
                   {event.month}
                 </span>
@@ -143,11 +143,9 @@ function Events() {
                 <span className="event-year">
                   {event.year}
                 </span>
-
               </div>
 
-
-              {/* Main Content */}
+              {/* EVENT CONTENT */}
               <div className="event-content">
 
                 <div className="event-category">
@@ -162,8 +160,7 @@ function Events() {
                   {event.description}
                 </p>
 
-
-                {/* Meta */}
+                {/* EVENT DETAILS */}
                 <div className="event-meta">
 
                   <span className="event-meta-item">
@@ -177,11 +174,9 @@ function Events() {
                   </span>
 
                 </div>
-
               </div>
 
-
-              {/* Action */}
+              {/* EVENT ACTION */}
               <a
                 href="/events"
                 className="event-link"
@@ -196,15 +191,11 @@ function Events() {
 
         </div>
 
-
-        {/* All Events */}
+        {/* ALL EVENTS */}
         <div className="events-footer">
 
-          <a
-            href="/events"
-            className="events-all-link"
-          >
-            <span>View all events</span>
+          <a href="/events" className="events-all-link">
+            <span>Explore all events</span>
             <ArrowIcon />
           </a>
 

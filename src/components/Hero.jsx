@@ -1,37 +1,42 @@
-import React, { useEffect, useState } from "react";
+
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../css/hero.css";
 
+// =========================================
+// HERO CAROUSEL SLIDES
+// =========================================
+
 const slides = [
   {
-    image: "/images/home/alumni-meet.jpg",
+    image: "/Hero%20images/Events.jpeg",
     title: "Reunite, Celebrate, Network",
     description:
       "Explore upcoming alumni meets, webinars, and campus events designed for you.",
     buttonText: "Explore Events",
-    buttonLink: "/events",
+    buttonLink: "/#events",
   },
 
   {
-    image: "/images/home/alumni-community.jpg",
+    image: "/Hero%20images/Members.jpeg",
     title: "Celebrating Bonds That Last",
     description:
-      "Reconnect with old friends, build new relationships, and stay connected with the HIT alumni community.",
+      "Reconnect with old friends, build new relationships, and stay connected with the alumni community.",
     buttonText: "Meet Our Members",
     buttonLink: "/about/our-members",
   },
 
-  {
-    image: "/images/home/alumni-achievement.jpg",
-    title: "Inspiring Achievements",
-    description:
-      "Discover the accomplishments and journeys of alumni who continue to make a difference.",
-    buttonText: "View Achievements",
-    buttonLink: "/about/alumni-achievements",
-  },
+ {
+  image: "/Hero%20images/Achievements.jpeg",
+  title: "Inspiring Achievements",
+  description:
+    "Discover the accomplishments and journeys of alumni who continue to make a difference.",
+  buttonText: "View Achievements",
+  buttonLink: "/about/alumni-achievements",
+},
 
   {
-    image: "/images/home/alumni-directory.jpg",
+    image: "/Hero%20images/Directory.jpeg",
     title: "One Community. Many Stories.",
     description:
       "Find and connect with alumni from different batches, departments, professions, and locations.",
@@ -40,7 +45,7 @@ const slides = [
   },
 
   {
-    image: "/images/home/campus.jpg",
+    image: "/Hero%20images/About.jpeg",
     title: "Connected Beyond Graduation",
     description:
       "The journey continues long after graduation. Stay connected with your institution and fellow alumni.",
@@ -49,55 +54,73 @@ const slides = [
   },
 ];
 
+// =========================================
+// HERO COMPONENT
+// =========================================
+
 function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  /* Automatic slide - every 3 seconds */
+  // AUTOMATIC SLIDE CHANGE
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
 
-  /* Previous */
+  // PREVIOUS SLIDE
+
   const previousSlide = () => {
     setCurrentSlide((prev) =>
       prev === 0 ? slides.length - 1 : prev - 1
     );
   };
 
-  /* Next */
+  // NEXT SLIDE
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  // SELECT SLIDE
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
   };
 
   return (
     <section className="hero-carousel">
 
-      {/* Slides */}
+      {/* SLIDES */}
+
       <div className="hero-slides">
 
         {slides.map((slide, index) => (
           <div
-            key={index}
+            key={slide.title}
             className={`hero-slide ${
               index === currentSlide ? "active" : ""
             }`}
+            aria-hidden={index !== currentSlide}
           >
 
-            {/* Background image */}
+            {/* BACKGROUND IMAGE */}
+
             <img
               src={slide.image}
               alt={slide.title}
               className="hero-background"
             />
 
-            {/* Dark overlay */}
+            {/* DARK OVERLAY */}
+
             <div className="hero-overlay"></div>
 
-            {/* Content */}
+            {/* HERO CONTENT */}
+
             <div className="hero-content">
 
               <span className="hero-small-title">
@@ -113,7 +136,7 @@ function Hero() {
                 className="hero-button"
               >
                 {slide.buttonText}
-                <span>→</span>
+                <span aria-hidden="true">→</span>
               </Link>
 
             </div>
@@ -123,36 +146,45 @@ function Hero() {
 
       </div>
 
-      {/* Previous button */}
+      {/* PREVIOUS BUTTON */}
+
       <button
+        type="button"
         className="hero-arrow hero-arrow-left"
         onClick={previousSlide}
         aria-label="Previous slide"
       >
-        <span>‹</span>
+        <span aria-hidden="true">‹</span>
       </button>
 
-      {/* Next button */}
+      {/* NEXT BUTTON */}
+
       <button
+        type="button"
         className="hero-arrow hero-arrow-right"
         onClick={nextSlide}
         aria-label="Next slide"
       >
-        <span>›</span>
+        <span aria-hidden="true">›</span>
       </button>
 
-      {/* Dots */}
+      {/* SLIDE INDICATORS */}
+
       <div className="hero-dots">
 
-        {slides.map((_, index) => (
+        {slides.map((slide, index) => (
           <button
-            key={index}
+            type="button"
+            key={slide.title}
             className={`hero-dot ${
               index === currentSlide ? "active" : ""
             }`}
-            onClick={() => setCurrentSlide(index)}
+            onClick={() => goToSlide(index)}
             aria-label={`Go to slide ${index + 1}`}
-          ></button>
+            aria-current={
+              index === currentSlide ? "true" : undefined
+            }
+          />
         ))}
 
       </div>

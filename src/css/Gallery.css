@@ -1,27 +1,171 @@
 
+/* =========================================
+   1. CUSTOM FONT - CLOISTER BLACK
+========================================= */
+
+@font-face {
+  font-family: "CloisterBlack";
+  src: url("/Fonts/CloisterBlack.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =========================================
+   2. GALLERY SECTION
+========================================= */
+
+.home-gallery {
+  width: 100%;
+  background-color: #f4f1eb;
+  color: #233d4d;
+  overflow: hidden;
+}
+
+.home-gallery .container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   3. GALLERY HEADING
+========================================= */
+
+.gallery-heading-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 0 auto 56px;
+}
+
+.home-gallery h2.gallery-heading {
+  display: block;
+  width: 100%;
+  font-family: "CloisterBlack", serif !important;
+  font-size: clamp(64px, 7vw, 88px);
+  font-weight: 400 !important;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: #233d4d;
+  text-align: center;
+  text-transform: none;
+  margin: 0 0 18px;
+}
+
+.home-gallery .gallery-subtitle {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #53616a;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* =========================================
+   4. GALLERY GRID
+========================================= */
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 24px;
+  width: 100%;
 }
+
+/* =========================================
+   5. GALLERY CARD
+========================================= */
 
 .gallery-card {
   position: relative;
-  aspect-ratio: 3 / 4;
+  width: 100%;
+  height: 288px;
   overflow: hidden;
   background: #e5e2da;
+  border-radius: 12px;
+  box-shadow: 0 5px 14px rgba(35, 61, 77, 0.10);
+  isolation: isolate;
 }
+
+/* =========================================
+   6. GALLERY IMAGE
+========================================= */
 
 .gallery-image {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
+  object-position: center;
+  transition: transform 0.6s ease;
 }
 
 .gallery-card:hover .gallery-image {
   transform: scale(1.06);
+}
+
+/* =========================================
+   7. IMAGE OVERLAY
+========================================= */
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.25) 45%,
+    transparent 100%
+  );
+  opacity: 0.8;
+  transition: opacity 0.4s ease;
+}
+
+.gallery-card:hover .gallery-overlay {
+  opacity: 1;
+}
+
+/* =========================================
+   8. IMAGE TITLE
+========================================= */
+
+.gallery-card-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  padding: 28px;
+  pointer-events: none;
+}
+
+.gallery-card-content h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.4;
+  font-family: inherit;
+}
+
+/* =========================================
+   9. SEE MORE BUTTON
+========================================= */
+
+.gallery-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 48px;
 }
 
 .gallery-more-button {
@@ -29,28 +173,141 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  padding: 15px 28px;
+  padding: 15px 32px;
   background: #233d4d;
-  color: #fff;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 700;
-  transition: background 0.25s ease;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(35, 61, 77, 0.15);
+  transition: all 0.3s ease;
+}
+
+.gallery-more-button span {
+  color: #ffffff !important;
 }
 
 .gallery-more-button:hover {
   background: #a9253b;
+  color: #ffffff !important;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 18px rgba(35, 61, 77, 0.2);
 }
 
+.gallery-more-button:focus-visible {
+  outline: 3px solid #fe7f2d;
+  outline-offset: 4px;
+}
+
+.gallery-button-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.gallery-more-button:hover .gallery-button-arrow {
+  transform: translateX(5px);
+}
+
+/* =========================================
+   10. TABLET
+========================================= */
+
+@media (max-width: 992px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .gallery-card {
+    height: 270px;
+  }
+
+  .home-gallery h2.gallery-heading {
+    font-size: 68px;
+  }
+}
+
+/* =========================================
+   11. MOBILE
+========================================= */
+
 @media (max-width: 768px) {
+  .gallery-heading-wrapper {
+    margin-bottom: 38px;
+  }
+
+  .home-gallery h2.gallery-heading {
+    font-size: 56px;
+  }
+
+  .home-gallery .gallery-subtitle {
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 0 10px;
+  }
+
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 14px;
   }
+
+  .gallery-card {
+    height: 250px;
+  }
+
+  .gallery-card-content {
+    padding: 18px;
+  }
+
+  .gallery-card-content h3 {
+    font-size: 17px;
+  }
+
+  .gallery-button-wrapper {
+    margin-top: 36px;
+  }
 }
 
-@media (max-width: 420px) {
+/* =========================================
+   12. SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+  .home-gallery h2.gallery-heading {
+    font-size: 46px;
+  }
+
   .gallery-grid {
-    gap: 10px;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .gallery-card {
+    height: 260px;
+  }
+
+  .gallery-card-content h3 {
+    font-size: 19px;
+  }
+
+  .gallery-more-button {
+    padding: 13px 26px;
+    font-size: 14px;
+  }
+}
+
+/* =========================================
+   13. ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-image,
+  .gallery-overlay,
+  .gallery-more-button,
+  .gallery-button-arrow {
+    transition: none;
   }
 }
