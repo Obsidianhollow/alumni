@@ -1,3 +1,5 @@
+import "../css/Alumni.css";
+
 const alumniCards = [
   {
     category: "ALUMNI STORIES",
@@ -5,8 +7,7 @@ const alumniCards = [
     description:
       "Stories, memories, and experiences that continue to connect generations of our alumni.",
     image: "https://dummyimage.com/720x400",
-    views: "1.2K",
-    comments: "6",
+    
   },
   {
     category: "COMMUNITY",
@@ -14,8 +15,7 @@ const alumniCards = [
     description:
       "A community built through shared experiences, lasting friendships, and meaningful connections.",
     image: "https://dummyimage.com/721x401",
-    views: "980",
-    comments: "12",
+    
   },
   {
     category: "MEMORIES",
@@ -23,8 +23,7 @@ const alumniCards = [
     description:
       "Looking back at the moments that shaped us and the memories that remain with us.",
     image: "https://dummyimage.com/722x402",
-    views: "1.5K",
-    comments: "9",
+   
   },
 ];
 
@@ -90,9 +89,7 @@ function AlumniCards() {
             </div>
 
             <h2 className="alumni-cards-title">
-              Stories that
-              <br />
-              stay with us.
+              Stories that <span>stay with us.</span>
             </h2>
 
             <p className="alumni-cards-intro">
@@ -150,20 +147,6 @@ function AlumniCards() {
                     <span>Read story</span>
                     <ArrowIcon />
                   </a>
-
-                  <div className="alumni-card-stats">
-
-                    <span className="alumni-card-stat">
-                      <EyeIcon />
-                      <span>{card.views}</span>
-                    </span>
-
-                    <span className="alumni-card-stat">
-                      <CommentIcon />
-                      <span>{card.comments}</span>
-                    </span>
-
-                  </div>
 
                 </div>
               </div>

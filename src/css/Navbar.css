@@ -23,7 +23,7 @@
   padding: 0 5%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 25px;
 }
 
@@ -56,15 +56,19 @@
   line-height: 1.05;
 }
 
-.school-name {
-  font-family: "Cloister Black", serif;
+/* SCHOOL NAME — CLOISTER BLACK */
+
+.navbar-brand-text .school-name {
+  font-family: "CloisterBlack", serif;
   font-size: 23px;
-  font-weight: normal;
+  font-weight: 400;
   color: #233d4d;
+  line-height: 1.05;
   white-space: nowrap;
 }
+/* ALUMNI ASSOCIATION - ORIGINAL FONT */
 
-.association-name {
+.navbar-brand-text .association-name {
   margin-top: 5px;
   font-family: inherit;
   font-size: 9px;
@@ -83,7 +87,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 27px;
+  gap: 24px;
+  margin-left: auto;
+  flex-shrink: 0;
 }
 
 .nav-item {
@@ -200,6 +206,7 @@
   align-items: center;
   gap: 20px;
   flex-shrink: 0;
+  margin-left: 28px;
 }
 
 .contact-link {
@@ -526,6 +533,7 @@
 
   .navbar-right {
     gap: 12px;
+    margin-left: 12px;
   }
 
   .school-name {
@@ -567,6 +575,7 @@
 
   .navbar-right {
     gap: 12px;
+    margin-left: auto;
   }
 
   .contact-link,

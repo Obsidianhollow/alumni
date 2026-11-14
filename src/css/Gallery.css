@@ -42,6 +42,10 @@
   margin: 0 auto 56px;
 }
 
+.gallery-heading span {
+  color: #b31f35;
+}
+
 .home-gallery h2.gallery-heading {
   display: block;
   width: 100%;
@@ -164,8 +168,8 @@
 .gallery-button-wrapper {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: 48px;
+  margin-top: 45px;
+  margin-bottom: 65px;
 }
 
 .gallery-more-button {

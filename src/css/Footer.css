@@ -35,6 +35,8 @@
   gap: 50px;
 }
 
+
+
 /* =========================================
    BRAND / LOGO
 ========================================= */
@@ -64,13 +66,18 @@
   line-height: 1.05;
 }
 
+/* SCHOOL NAME — CLOISTER BLACK */
+
 .footer-school-name {
-  font-family: "Cloister Black", serif;
+  font-family: "CloisterBlack", serif;
   font-size: 23px;
-  font-weight: normal;
+  font-weight: 400;
   color: #f4f1eb;
+  line-height: 1.05;
   white-space: nowrap;
 }
+
+/* ALUMNI ASSOCIATION — ORIGINAL FONT */
 
 .footer-association-name {
   margin-top: 6px;

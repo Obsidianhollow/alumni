@@ -1,3 +1,5 @@
+import "../css/Events.css";
+
 
 const events = [
   {
@@ -106,11 +108,7 @@ function Events() {
             </div>
 
             <h2 className="events-title">
-              Meet.
-              <br />
-              Connect.
-              <br />
-              <span>Belong.</span>
+              Meet. Connect. <span>Belong.</span>
             </h2>
 
             <p className="events-intro">

@@ -33,25 +33,32 @@
 
   --font-heading: "CloisterBlack", serif;
   --font-body: Arial, Helvetica, sans-serif;
+
+  --container-width: 1240px;
+  --transition: 0.3s ease;
 }
 
 /* =========================================
    4. GLOBAL RESET
 ========================================= */
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 html {
+  width: 100%;
   scroll-behavior: smooth;
   scroll-padding-top: 100px;
 }
 
 body {
   width: 100%;
+  min-width: 320px;
   min-height: 100vh;
   background-color: var(--color-background);
   color: var(--color-text);
@@ -60,10 +67,25 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
 }
 
 /* =========================================
-   5. REUSABLE FONT CLASSES
+   5. REUSABLE CONTAINER
+========================================= */
+
+.container-custom {
+  width: min(var(--container-width), calc(100% - 80px));
+  margin-inline: auto;
+}
+
+/* =========================================
+   6. REUSABLE FONT CLASSES
 ========================================= */
 
 .cloister-font {
@@ -82,7 +104,7 @@ body {
 }
 
 /* =========================================
-   6. HEADINGS
+   7. HEADINGS
 ========================================= */
 
 h1,
@@ -98,7 +120,7 @@ h6 {
 }
 
 /* =========================================
-   7. LINKS
+   8. LINKS
 ========================================= */
 
 a {
@@ -111,31 +133,49 @@ a:hover {
 }
 
 /* =========================================
-   8. BUTTONS
+   9. BUTTONS AND FORM ELEMENTS
 ========================================= */
 
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
 button {
-  font-family: inherit;
   cursor: pointer;
 }
 
+button:disabled {
+  cursor: not-allowed;
+}
+
 button:focus-visible,
-a:focus-visible {
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
   outline: 3px solid var(--color-orange);
   outline-offset: 4px;
 }
 
 /* =========================================
-   9. IMAGES
+   10. IMAGES AND SVG
 ========================================= */
 
-img {
-  display: block;
+img,
+svg {
   max-width: 100%;
 }
 
+img {
+  display: block;
+  height: auto;
+}
+
 /* =========================================
-   10. SELECTION
+   11. SELECTION
 ========================================= */
 
 ::selection {
@@ -144,7 +184,7 @@ img {
 }
 
 /* =========================================
-   11. SCROLLBAR
+   12. SCROLLBAR
 ========================================= */
 
 ::-webkit-scrollbar {
@@ -165,7 +205,7 @@ img {
 }
 
 /* =========================================
-   12. ACCESSIBILITY
+   13. ACCESSIBILITY
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
@@ -179,5 +219,21 @@ img {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================
+   14. GLOBAL RESPONSIVENESS
+========================================= */
+
+@media (max-width: 768px) {
+  .container-custom {
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 480px) {
+  .container-custom {
+    width: calc(100% - 32px);
   }
 }

@@ -58,7 +58,7 @@ const HomeGallery = () => {
 
         <div className="gallery-heading-wrapper">
           <h2 className="gallery-heading">
-            Gallery
+            Galle<span>ry</span>
           </h2>
 
           <p className="gallery-subtitle">

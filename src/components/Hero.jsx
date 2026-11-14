@@ -3,10 +3,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../css/hero.css";
 
-// =========================================
-// HERO CAROUSEL SLIDES
-// =========================================
-
 const slides = [
   {
     image: "/Hero%20images/Events.jpeg",
@@ -16,7 +12,6 @@ const slides = [
     buttonText: "Explore Events",
     buttonLink: "/#events",
   },
-
   {
     image: "/Hero%20images/Members.jpeg",
     title: "Celebrating Bonds That Last",
@@ -25,16 +20,14 @@ const slides = [
     buttonText: "Meet Our Members",
     buttonLink: "/about/our-members",
   },
-
- {
-  image: "/Hero%20images/Achievements.jpeg",
-  title: "Inspiring Achievements",
-  description:
-    "Discover the accomplishments and journeys of alumni who continue to make a difference.",
-  buttonText: "View Achievements",
-  buttonLink: "/about/alumni-achievements",
-},
-
+  {
+    image: "/Hero%20images/Achievements.jpeg",
+    title: "Inspiring Achievements",
+    description:
+      "Discover the accomplishments and journeys of alumni who continue to make a difference.",
+    buttonText: "View Achievements",
+    buttonLink: "/about/alumni-achievements",
+  },
   {
     image: "/Hero%20images/Directory.jpeg",
     title: "One Community. Many Stories.",
@@ -43,7 +36,6 @@ const slides = [
     buttonText: "Alumni Directory",
     buttonLink: "/about/alumni-directory",
   },
-
   {
     image: "/Hero%20images/About.jpeg",
     title: "Connected Beyond Graduation",
@@ -54,39 +46,31 @@ const slides = [
   },
 ];
 
-// =========================================
-// HERO COMPONENT
-// =========================================
-
 function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  // AUTOMATIC SLIDE CHANGE
-
+  // Automatically change slides every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [currentSlide]);
 
-  // PREVIOUS SLIDE
-
+  // Previous slide
   const previousSlide = () => {
     setCurrentSlide((prev) =>
       prev === 0 ? slides.length - 1 : prev - 1
     );
   };
 
-  // NEXT SLIDE
-
+  // Next slide
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
-  // SELECT SLIDE
-
+  // Navigate directly to selected slide
   const goToSlide = (index) => {
     setCurrentSlide(index);
   };
@@ -95,9 +79,7 @@ function Hero() {
     <section className="hero-carousel">
 
       {/* SLIDES */}
-
       <div className="hero-slides">
-
         {slides.map((slide, index) => (
           <div
             key={slide.title}
@@ -106,28 +88,22 @@ function Hero() {
             }`}
             aria-hidden={index !== currentSlide}
           >
-
-            {/* BACKGROUND IMAGE */}
-
             <img
               src={slide.image}
               alt={slide.title}
               className="hero-background"
             />
 
-            {/* DARK OVERLAY */}
-
             <div className="hero-overlay"></div>
 
-            {/* HERO CONTENT */}
-
             <div className="hero-content">
-
               <span className="hero-small-title">
-                ALUMNI ASSOCIATION OF HALDIA INSTITUTE OF TECHNOLOGY
+                ALUMNI ASSOCIATION OF ASSEMBLY OF GOD CHURCH SCHOOL
               </span>
 
-              <h1>{slide.title}</h1>
+              <h1 className="hero-title">
+                {slide.title}
+              </h1>
 
               <p>{slide.description}</p>
 
@@ -138,16 +114,12 @@ function Hero() {
                 {slide.buttonText}
                 <span aria-hidden="true">→</span>
               </Link>
-
             </div>
-
           </div>
         ))}
-
       </div>
 
       {/* PREVIOUS BUTTON */}
-
       <button
         type="button"
         className="hero-arrow hero-arrow-left"
@@ -158,7 +130,6 @@ function Hero() {
       </button>
 
       {/* NEXT BUTTON */}
-
       <button
         type="button"
         className="hero-arrow hero-arrow-right"
@@ -169,9 +140,7 @@ function Hero() {
       </button>
 
       {/* SLIDE INDICATORS */}
-
       <div className="hero-dots">
-
         {slides.map((slide, index) => (
           <button
             type="button"
@@ -186,7 +155,6 @@ function Hero() {
             }
           />
         ))}
-
       </div>
 
     </section>

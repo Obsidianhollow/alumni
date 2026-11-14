@@ -2,7 +2,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../css/Notice.css";
 
-const Notice = () => {
+const Notice = ({ isAdmin = false }) => {
   const [notices, setNotices] = useState([]);
   const [caption, setCaption] = useState("");
   const [image, setImage] = useState(null);
@@ -12,23 +12,28 @@ const Notice = () => {
 
   useEffect(() => {
     return () => {
-      imageUrls.current.forEach((url) => URL.revokeObjectURL(url));
+      imageUrls.current.forEach((url) => {
+        URL.revokeObjectURL(url);
+      });
     };
   }, []);
 
   const handleImageChange = (e) => {
-    const file = e.target.files[0];
+    const file = e.target.files?.[0];
 
     if (file && file.type.startsWith("image/")) {
       setImage(file);
     } else {
-      alert("Please select a valid image file.");
+      setImage(null);
       e.target.value = "";
+      alert("Please select a valid image file.");
     }
   };
 
   const handleUpload = (e) => {
     e.preventDefault();
+
+    if (!isAdmin) return;
 
     if (!image || !caption.trim()) {
       alert("Please add both an image and a caption.");
@@ -56,18 +61,19 @@ const Notice = () => {
   };
 
   const handleDelete = (id) => {
-    setNotices((prev) => {
-      const noticeToDelete = prev.find((item) => item.id === id);
+    if (!isAdmin) return;
 
-      if (noticeToDelete) {
-        URL.revokeObjectURL(noticeToDelete.image);
-        imageUrls.current = imageUrls.current.filter(
-          (url) => url !== noticeToDelete.image
-        );
-      }
+    const noticeToDelete = notices.find((item) => item.id === id);
 
-      return prev.filter((item) => item.id !== id);
-    });
+    if (noticeToDelete) {
+      URL.revokeObjectURL(noticeToDelete.image);
+
+      imageUrls.current = imageUrls.current.filter(
+        (url) => url !== noticeToDelete.image
+      );
+    }
+
+    setNotices((prev) => prev.filter((item) => item.id !== id));
   };
 
   return (
@@ -75,71 +81,75 @@ const Notice = () => {
       <div className="notice-container">
 
         {/* Section Heading */}
-        <div className="notice-header">
+        <header className="notice-header">
           <span className="notice-subtitle">STAY UPDATED</span>
-          <h2>Notice Board</h2>
-          <p>
+
+          <h2 className="notice-title">
+            Notice <span>Board.</span>
+          </h2>
+
+          <p className="notice-intro">
             Stay informed with the latest announcements,
             updates and important notices.
           </p>
-          <div className="notice-heading-line"></div>
-        </div>
+        </header>
 
-        {/* Upload Notice */}
-        <div className="notice-upload-box">
-          <div className="upload-heading">
-            <h3>Publish a Notice</h3>
-            <p>Upload an image and add a short description.</p>
-          </div>
-
-          <form onSubmit={handleUpload}>
-            <div className="notice-form-grid">
-
-              <div className="notice-file-wrapper">
-                <label htmlFor="notice-image">
-                  Upload Notice Image
-                </label>
-
-                <input
-                  ref={fileInputRef}
-                  id="notice-image"
-                  type="file"
-                  accept="image/*"
-                  onChange={handleImageChange}
-                />
-
-                {image && (
-                  <span className="selected-file">
-                    Selected: {image.name}
-                  </span>
-                )}
-              </div>
-
-              <div className="notice-caption-wrapper">
-                <label htmlFor="notice-caption">
-                  Notice Caption
-                </label>
-
-                <input
-                  id="notice-caption"
-                  type="text"
-                  placeholder="Enter notice title or caption..."
-                  value={caption}
-                  onChange={(e) => setCaption(e.target.value)}
-                />
-              </div>
-
+        {/* Admin-only Upload Section */}
+        {isAdmin && (
+          <div className="notice-upload-box">
+            <div className="upload-heading">
+              <h3>Publish a Notice</h3>
+              <p>Upload an image and add a short description.</p>
             </div>
 
-            <button type="submit" className="notice-upload-btn">
-              + Publish Notice
-            </button>
-          </form>
-        </div>
+            <form onSubmit={handleUpload}>
+              <div className="notice-form-grid">
 
-        {/* Notice Cards */}
+                <div className="notice-file-wrapper">
+                  <label htmlFor="notice-image">
+                    Upload Notice Image
+                  </label>
+
+                  <input
+                    ref={fileInputRef}
+                    id="notice-image"
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                  />
+
+                  {image && (
+                    <span className="selected-file">
+                      Selected: {image.name}
+                    </span>
+                  )}
+                </div>
+
+                <div className="notice-caption-wrapper">
+                  <label htmlFor="notice-caption">
+                    Notice Caption
+                  </label>
+
+                  <input
+                    id="notice-caption"
+                    type="text"
+                    placeholder="Enter notice title or caption..."
+                    value={caption}
+                    onChange={(e) => setCaption(e.target.value)}
+                  />
+                </div>
+
+              </div>
+
+              <button type="submit" className="notice-upload-btn">
+                + Publish Notice
+              </button>
+            </form>
+          </div>
+        )}
+
+        {/* Published Notices */}
         <div className="notice-grid">
-
           {notices.length > 0 ? (
             notices.map((notice) => (
               <article className="notice-card" key={notice.id}>
@@ -163,13 +173,15 @@ const Notice = () => {
                       <span>↓</span> Download Notice
                     </a>
 
-                    <button
-                      type="button"
-                      className="notice-delete-btn"
-                      onClick={() => handleDelete(notice.id)}
-                    >
-                      Delete
-                    </button>
+                    {isAdmin && (
+                      <button
+                        type="button"
+                        className="notice-delete-btn"
+                        onClick={() => handleDelete(notice.id)}
+                      >
+                        Delete
+                      </button>
+                    )}
                   </div>
                 </div>
 
@@ -182,7 +194,6 @@ const Notice = () => {
               <p>New announcements will appear here.</p>
             </div>
           )}
-
         </div>
 
       </div>
