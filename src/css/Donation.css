@@ -1,0 +1,450 @@
+
+/* =========================================
+   DONATION SECTION
+========================================= */
+
+.donation-section {
+  width: 100%;
+  padding: 90px 6%;
+  background: #f4f1eb;
+  font-family: inherit;
+  color: #3a3032;
+}
+
+.donation-container {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   SECTION HEADING
+========================================= */
+
+.donation-heading {
+  max-width: 750px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.donation-eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  color: #b31f35;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.donation-title {
+  margin: 0 0 18px;
+  color: #3a3032;
+  font-family: "CloisterBlack", serif;
+  font-size: clamp(36px, 5vw, 54px);
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+/* MAKE A DIFFERENCE - RED */
+
+.donation-title span {
+  color: #b31f35 !important;
+}
+
+.donation-heading p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: #716568;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   DONATION CONTENT
+========================================= */
+
+.donation-content {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 28px;
+  align-items: stretch;
+}
+
+/* =========================================
+   BANK DETAILS CARD
+========================================= */
+
+.donation-bank-card {
+  padding: 38px;
+  background: #3a3032;
+  color: #f4f1eb;
+  border-radius: 8px;
+  border-top: 5px solid #b31f35;
+}
+
+.donation-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.donation-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(254, 127, 45, 0.14);
+  color: #fe7f2d;
+  border-radius: 50%;
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.donation-card-heading span,
+.donation-qr-heading span {
+  display: block;
+  margin-bottom: 6px;
+  color: #fe7f2d;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.donation-card-heading h3 {
+  margin: 0;
+  color: #f4f1eb;
+  font-size: 23px;
+  font-weight: 700;
+}
+
+.donation-account-name {
+  padding: 17px;
+  margin-bottom: 25px;
+  background: rgba(244, 241, 235, 0.08);
+  border-left: 3px solid #fe7f2d;
+  color: #f4f1eb;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+  overflow-wrap: anywhere;
+}
+
+.donation-detail-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.donation-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(244, 241, 235, 0.13);
+}
+
+.donation-detail span {
+  color: rgba(244, 241, 235, 0.65);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.donation-detail strong {
+  color: #f4f1eb;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: right;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.donation-bank-footer {
+  margin-top: 25px;
+  color: rgba(244, 241, 235, 0.65);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   QR CARD
+========================================= */
+
+.donation-qr-card {
+  padding: 38px 28px;
+  background: #ffffff;
+  border: 1px solid #e5ded8;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.donation-qr-heading h3 {
+  margin: 0 0 10px;
+  color: #3a3032;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+.donation-qr-heading p {
+  max-width: 300px;
+  margin: 0 auto 25px;
+  color: #776d6e;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   QR SAMPLE GRID
+========================================= */
+
+.donation-qr-wrapper {
+  padding: 12px;
+  background: #ffffff;
+  border: 1px solid #e3dcd6;
+  border-radius: 5px;
+}
+
+.donation-qr-grid {
+  position: relative;
+  width: 210px;
+  height: 210px;
+  display: grid;
+  grid-template-columns: repeat(25, 1fr);
+  grid-template-rows: repeat(25, 1fr);
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.donation-qr-grid span {
+  display: block;
+}
+
+.donation-qr-grid .qr-dark {
+  background: #211c1d;
+}
+
+.donation-qr-grid .qr-light {
+  background: #ffffff;
+}
+
+.donation-qr-stamp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  padding: 9px 0;
+  transform: translate(-50%, -50%) rotate(-12deg);
+  background: #b31f35;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.donation-sample-warning {
+  margin-top: 22px;
+  padding: 9px 16px;
+  background: #f9e8e9;
+  color: #b31f35;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  border-radius: 3px;
+}
+
+.donation-qr-caption {
+  max-width: 290px;
+  margin: 15px auto 0;
+  color: #827779;
+  font-size: 11px;
+  line-height: 1.7;
+}
+
+/* =========================================
+   IMPORTANT NOTICE
+========================================= */
+
+.donation-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 30px;
+  padding: 22px 25px;
+  background: #f8e9e9;
+  border-left: 4px solid #b31f35;
+  border-radius: 4px;
+}
+
+.donation-notice-icon {
+  color: #b31f35;
+  font-size: 22px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.donation-notice h4 {
+  margin: 0 0 7px;
+  color: #8f192d;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.donation-notice p {
+  margin: 0;
+  color: #65494d;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.donation-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.donation-contact span {
+  color: #716568;
+}
+
+.donation-contact a {
+  color: #b31f35;
+  font-weight: 700;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.donation-contact a:hover {
+  color: #fe7f2d;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 900px) {
+  .donation-section {
+    padding: 70px 5%;
+  }
+
+  .donation-content {
+    grid-template-columns: 1fr 0.85fr;
+    gap: 18px;
+  }
+
+  .donation-bank-card {
+    padding: 28px;
+  }
+
+  .donation-qr-card {
+    padding: 28px 18px;
+  }
+
+  .donation-detail {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .donation-detail strong {
+    text-align: left;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 650px) {
+  .donation-section {
+    padding: 60px 6%;
+  }
+
+  .donation-heading {
+    margin-bottom: 35px;
+  }
+
+  .donation-title {
+    font-size: 37px;
+  }
+
+  .donation-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .donation-bank-card {
+    padding: 25px 22px;
+  }
+
+  .donation-card-heading h3 {
+    font-size: 20px;
+  }
+
+  .donation-detail {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .donation-detail span {
+    flex-shrink: 0;
+  }
+
+  .donation-detail strong {
+    text-align: right;
+  }
+
+  .donation-qr-card {
+    padding: 30px 20px;
+  }
+
+  .donation-notice {
+    padding: 18px;
+    gap: 12px;
+  }
+
+  .donation-contact {
+    flex-direction: column;
+    gap: 7px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .donation-title {
+    font-size: 32px;
+  }
+
+  .donation-bank-card {
+    padding: 22px 16px;
+  }
+
+  .donation-detail {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .donation-detail strong {
+    text-align: left;
+  }
+
+  .donation-qr-grid {
+    width: 190px;
+    height: 190px;
+  }
+}

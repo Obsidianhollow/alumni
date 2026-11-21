@@ -66,7 +66,8 @@
   line-height: 1.05;
   white-space: nowrap;
 }
-/* ALUMNI ASSOCIATION - ORIGINAL FONT */
+
+/* ALUMNI ASSOCIATION */
 
 .navbar-brand-text .association-name {
   margin-top: 5px;
@@ -111,8 +112,6 @@
   white-space: nowrap;
   transition: color 0.25s ease;
 }
-
-/* UNDERLINE */
 
 .nav-link::after {
   content: "";
@@ -173,8 +172,6 @@
   pointer-events: auto;
 }
 
-/* DROPDOWN ITEMS */
-
 .dropdown-item {
   display: block;
   width: 100%;
@@ -209,6 +206,8 @@
   margin-left: 28px;
 }
 
+/* OLD CONTACT LINK */
+
 .contact-link {
   position: relative;
   display: flex;
@@ -241,6 +240,48 @@
 
 .contact-link:hover::after {
   transform: scaleX(1);
+}
+
+/* =========================================
+   MEMBERSHIP BUTTON - FULLY ROUNDED
+========================================= */
+
+.membership-nav-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  padding: 12px 22px;
+  border: none;
+  border-radius: 50px;
+  background: #b31f35;
+  color: #f4f1eb;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.membership-nav-button::before {
+  display: none;
+}
+
+.membership-nav-button:hover {
+  background: #8f192d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(179, 31, 53, 0.2);
+}
+
+.membership-nav-arrow {
+  font-size: 17px;
+  transition: transform 0.3s ease;
+}
+
+.membership-nav-button:hover .membership-nav-arrow {
+  transform: translate(3px, -3px);
 }
 
 /* =========================================
@@ -428,6 +469,36 @@
 }
 
 /* =========================================
+   MOBILE MEMBERSHIP BUTTON
+========================================= */
+
+.mobile-membership-button {
+  width: 100%;
+  margin: 20px 0;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  border-radius: 50px;
+  background: #b31f35;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.mobile-membership-button:hover {
+  background: #8f192d;
+}
+
+.mobile-membership-button span {
+  font-size: 19px;
+}
+
+/* =========================================
    MOBILE AUTHENTICATION
 ========================================= */
 
@@ -471,7 +542,7 @@
 }
 
 /* =========================================
-   MOBILE CONTACT
+   MOBILE CONTACT - OLD STYLE
 ========================================= */
 
 .mobile-contact {
@@ -508,11 +579,287 @@
 }
 
 /* =========================================
+   MEMBERSHIP MODAL OVERLAY
+========================================= */
+
+.membership-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(16, 36, 95, 0.72);
+  backdrop-filter: blur(5px);
+  animation: membershipOverlayIn 0.25s ease;
+}
+
+@keyframes membershipOverlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================================
+   MEMBERSHIP MODAL
+========================================= */
+
+.membership-modal {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 42px;
+  background: #f4f1eb;
+  color: #3a3032;
+  border-radius: 16px;
+  border-top: 5px solid #b31f35;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
+  animation: membershipModalIn 0.3s ease;
+}
+
+@keyframes membershipModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* CLOSE BUTTON */
+
+.membership-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: #e8dfd9;
+  color: #3a3032;
+  font-size: 25px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.membership-close:hover {
+  background: #b31f35;
+  color: #ffffff;
+}
+
+/* =========================================
+   MEMBERSHIP MODAL HEADER
+========================================= */
+
+.membership-modal-header {
+  margin-bottom: 28px;
+}
+
+.membership-eyebrow {
+  display: block;
+  margin-bottom: 12px;
+  color: #b31f35;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+.membership-modal-header h2 {
+  margin: 0 0 12px;
+  color: #3a3032;
+  font-family: "CloisterBlack", serif;
+  font-size: clamp(30px, 5vw, 42px);
+  font-weight: 400;
+}
+
+.membership-modal-header h2 span {
+  color: #b31f35;
+}
+
+.membership-modal-header p {
+  margin: 0;
+  color: #716568;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   MEMBERSHIP FORM GRID
+========================================= */
+
+.membership-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 19px;
+}
+
+.membership-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.membership-full-width {
+  grid-column: 1 / -1;
+}
+
+/* =========================================
+   FORM LABELS
+========================================= */
+
+.membership-field label {
+  color: #3a3032;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* =========================================
+   FORM INPUTS
+========================================= */
+
+.membership-field input,
+.membership-field textarea {
+  width: 100%;
+  padding: 13px 14px;
+  border: 1px solid #d9ceca;
+  border-radius: 8px;
+  outline: none;
+  background: #ffffff;
+  color: #3a3032;
+  font-family: inherit;
+  font-size: 13px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.membership-field input:focus,
+.membership-field textarea:focus {
+  border-color: #b31f35;
+  box-shadow: 0 0 0 2px rgba(179, 31, 53, 0.08);
+}
+
+.membership-field input::placeholder,
+.membership-field textarea::placeholder {
+  color: #a49a99;
+}
+
+.membership-field textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* =========================================
+   SUBMIT BUTTON - FULLY ROUNDED
+========================================= */
+
+.membership-submit {
+  width: 100%;
+  margin-top: 25px;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border: none;
+  border-radius: 50px;
+  background: #b31f35;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.membership-submit:hover {
+  background: #8f192d;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(179, 31, 53, 0.2);
+}
+
+.membership-submit span {
+  font-size: 18px;
+}
+
+.membership-form-note {
+  margin: 12px 0 0;
+  color: #897e7d;
+  font-size: 11px;
+  text-align: center;
+}
+
+/* =========================================
+   SUCCESS MESSAGE
+========================================= */
+
+.membership-success {
+  padding: 25px 5px;
+  text-align: center;
+}
+
+.membership-success-icon {
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #e4eee5;
+  color: #34734b;
+  font-size: 28px;
+}
+
+.membership-success h3 {
+  margin: 0 0 10px;
+  color: #3a3032;
+  font-size: 22px;
+}
+
+.membership-success p {
+  color: #716568;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.membership-success button {
+  margin-top: 15px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 50px;
+  background: #b31f35;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.membership-success button:hover {
+  background: #8f192d;
+}
+
+/* =========================================
    FOCUS ACCESSIBILITY
 ========================================= */
 
 .site-navbar a:focus-visible,
-.site-navbar button:focus-visible {
+.site-navbar button:focus-visible,
+.membership-modal button:focus-visible,
+.membership-modal input:focus-visible,
+.membership-modal textarea:focus-visible {
   outline: 2px solid #b31f35;
   outline-offset: 4px;
 }
@@ -536,7 +883,7 @@
     margin-left: 12px;
   }
 
-  .school-name {
+  .navbar-brand-text .school-name {
     font-size: 20px;
   }
 
@@ -556,6 +903,11 @@
   .login-button,
   .signup-button {
     padding: 10px 13px;
+  }
+
+  .membership-nav-button {
+    padding: 11px 18px;
+    font-size: 12px;
   }
 }
 
@@ -579,7 +931,8 @@
   }
 
   .contact-link,
-  .auth-buttons {
+  .auth-buttons,
+  .membership-nav-button {
     display: none;
   }
 
@@ -637,11 +990,11 @@
     height: 43px;
   }
 
-  .school-name {
+  .navbar-brand-text .school-name {
     font-size: 17px;
   }
 
-  .association-name {
+  .navbar-brand-text .association-name {
     font-size: 7px;
     letter-spacing: 1.2px;
   }
@@ -662,6 +1015,28 @@
   .mobile-nav-link {
     font-size: 14px;
   }
+
+  .membership-modal {
+    padding: 35px 22px 25px;
+    max-height: 88vh;
+  }
+
+  .membership-form-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .membership-full-width {
+    grid-column: auto;
+  }
+
+  .membership-modal-header h2 {
+    font-size: 32px;
+  }
+
+  .membership-overlay {
+    padding: 12px;
+  }
 }
 
 /* =========================================
@@ -678,11 +1053,11 @@
     height: 38px;
   }
 
-  .school-name {
+  .navbar-brand-text .school-name {
     font-size: 15px;
   }
 
-  .association-name {
+  .navbar-brand-text .association-name {
     font-size: 6px;
     letter-spacing: 0.8px;
   }
@@ -695,6 +1070,10 @@
     width: 38px;
     height: 38px;
   }
+
+  .membership-modal {
+    padding: 32px 17px 22px;
+  }
 }
 
 /* =========================================
@@ -704,7 +1083,10 @@
 @media (prefers-reduced-motion: reduce) {
   .site-navbar *,
   .site-navbar *::before,
-  .site-navbar *::after {
+  .site-navbar *::after,
+  .membership-overlay *,
+  .membership-overlay *::before,
+  .membership-overlay *::after {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;

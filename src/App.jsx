@@ -8,20 +8,29 @@ import {
   useLocation,
 } from "react-router-dom";
 
+// =========================================
 // LAYOUT COMPONENTS
-import TopBar from "./components/TopBar.jsx";
+// =========================================
+
+import TopBar from "./components/Topbar.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 
+// =========================================
 // HOME COMPONENTS
+// =========================================
+
 import Hero from "./components/Hero.jsx";
-import AlumniCards from "./components/Alumni.jsx";
 import Notice from "./components/Notice.jsx";
 import Events from "./components/Events.jsx";
+import Donation from "./components/Donation.jsx";
 import Gallery from "./components/Gallery.jsx";
 import About from "./components/About.jsx";
 
+// =========================================
 // PAGE COMPONENTS
+// =========================================
+
 import GalleryPage from "./pages/GalleryPage.jsx";
 import AlumniAchivment from "./pages/AlumniAchivment.jsx";
 import AlumniDirectory from "./pages/AlumniDirectory.jsx";
@@ -29,7 +38,18 @@ import CoreCommitteeMembers from "./pages/CoreCommitteeMembers.jsx";
 import FoundingMember from "./pages/FoundingMember.jsx";
 
 // =========================================
-// SCROLL TO TOP ON PAGE CHANGE
+// MEMBERSHIP COMPONENTS
+// =========================================
+
+
+import Membership from "./membership-temp/Membership.jsx";
+import MembershipStatus from "./membership-temp/MembershipStatus.jsx";
+import Payment from "./membership-temp/Payment.jsx";
+import Admin from "./membership-temp/Admin.jsx";
+
+
+// =========================================
+// SCROLL TO TOP
 // =========================================
 
 function ScrollToTop() {
@@ -56,8 +76,9 @@ function Home() {
       <Hero />
       <Notice />
       <Events />
-      <AlumniCards />
+      <Donation />
       <Gallery />
+      <About />
     </>
   );
 }
@@ -91,6 +112,7 @@ function App() {
 
       <main>
         <Routes>
+
           {/* HOME */}
           <Route path="/" element={<Home />} />
 
@@ -106,7 +128,7 @@ function App() {
             element={<FoundingMember />}
           />
 
-          {/* CORE COMMITTEE MEMBERS */}
+          {/* CORE COMMITTEE */}
           <Route
             path="/about/core-committee-members"
             element={<CoreCommitteeMembers />}
@@ -124,8 +146,33 @@ function App() {
             element={<AlumniAchivment />}
           />
 
+          {/* MEMBERSHIP REGISTRATION */}
+          <Route
+            path="/membership"
+            element={<Membership />}
+          />
+
+          {/* MEMBERSHIP STATUS */}
+          <Route
+            path="/membership/status"
+            element={<MembershipStatus />}
+          />
+
+          {/* MEMBERSHIP PAYMENT */}
+          <Route
+            path="/membership/payment"
+            element={<Payment />}
+          />
+
+          {/* ADMIN PANEL - FRONTEND DEMO */}
+          <Route
+            path="/admin/memberships"
+            element={<Admin />}
+          />
+
           {/* 404 */}
           <Route path="*" element={<NotFound />} />
+
         </Routes>
       </main>
 

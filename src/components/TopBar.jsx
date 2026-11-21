@@ -63,26 +63,6 @@ function TopBarContent({ duplicate = false }) {
         >
           <FaInstagram />
         </a>
-
-        <a
-          href="https://www.linkedin.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          tabIndex={duplicate ? -1 : 0}
-        >
-          <FaLinkedinIn />
-        </a>
-
-        <a
-          href="https://www.youtube.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="YouTube"
-          tabIndex={duplicate ? -1 : 0}
-        >
-          <FaYoutube />
-        </a>
       </div>
     </div>
   );

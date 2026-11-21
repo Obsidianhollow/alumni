@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 import "../css/AuthModal.css";
 
@@ -15,6 +16,10 @@ function AuthModal({
   });
 
   const [showPassword, setShowPassword] = useState(false);
+  const [message, setMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
+
+  const isLogin = mode === "login";
 
   useEffect(() => {
     if (!isOpen) return;
@@ -25,28 +30,22 @@ function AuthModal({
       }
     };
 
-    document.addEventListener(
-      "keydown",
-      handleEscape
-    );
-
+    document.addEventListener("keydown", handleEscape);
     document.body.style.overflow = "hidden";
 
     return () => {
-      document.removeEventListener(
-        "keydown",
-        handleEscape
-      );
-
+      document.removeEventListener("keydown", handleEscape);
       document.body.style.overflow = "";
     };
   }, [isOpen, onClose]);
 
-  if (!isOpen) {
-    return null;
-  }
+  useEffect(() => {
+    setMessage("");
+    setMessageType("");
+    setShowPassword(false);
+  }, [mode]);
 
-  const isLogin = mode === "login";
+  if (!isOpen) return null;
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -55,25 +54,79 @@ function AuthModal({
       ...prev,
       [name]: value,
     }));
+
+    setMessage("");
+    setMessageType("");
+  };
+
+  const showFeedback = (text, type = "error") => {
+    setMessage(text);
+    setMessageType(type);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
+    if (!formData.email.trim() || !formData.password) {
+      showFeedback("Please fill in all required fields.");
+      return;
+    }
+
+    if (!isLogin) {
+      if (!formData.name.trim()) {
+        showFeedback("Please enter your full name.");
+        return;
+      }
+
+      if (formData.password.length < 8) {
+        showFeedback("Password must contain at least 8 characters.");
+        return;
+      }
+
+      if (formData.password !== formData.confirmPassword) {
+        showFeedback("Your passwords do not match.");
+        return;
+      }
+    }
+
     /*
-      Connect your backend / Firebase / Supabase
-      authentication here.
+      FRONTEND DEMO ONLY
+
+      Connect your backend, Firebase or Supabase
+      authentication here before using this in production.
     */
 
     console.log(
-      isLogin
-        ? "Login submitted"
-        : "Signup submitted",
-      formData
+      isLogin ? "Login submitted" : "Signup submitted",
+      {
+        name: isLogin ? undefined : formData.name,
+        email: formData.email,
+        password: formData.password,
+      }
+    );
+
+    showFeedback(
+      "Your form is valid! Authentication is not connected yet.",
+      "success"
+    );
+  };
+
+  const handleForgotPassword = () => {
+    if (!formData.email.trim()) {
+      showFeedback("Please enter your email address first.");
+      return;
+    }
+
+    showFeedback(
+      "Password reset is not connected yet. Please contact the alumni association.",
+      "error"
     );
   };
 
   const switchMode = () => {
+    setMessage("");
+    setMessageType("");
+    setShowPassword(false);
     onModeChange(isLogin ? "signup" : "login");
   };
 
@@ -81,23 +134,18 @@ function AuthModal({
     <div
       className="auth-modal-overlay"
       onMouseDown={(event) => {
-        if (
-          event.target === event.currentTarget
-        ) {
+        if (event.target === event.currentTarget) {
           onClose();
         }
       }}
     >
-
       <div
         className="auth-modal"
         role="dialog"
         aria-modal="true"
         aria-labelledby="auth-modal-title"
       >
-
         {/* Close Button */}
-
         <button
           type="button"
           className="auth-modal-close"
@@ -107,11 +155,8 @@ function AuthModal({
           ×
         </button>
 
-
         {/* Header */}
-
         <div className="auth-modal-header">
-
           <div className="auth-modal-eyebrow">
             Alumni Association
           </div>
@@ -125,22 +170,19 @@ function AuthModal({
           <p>
             {isLogin
               ? "Sign in to reconnect with your alumni community."
-              : "Create your alumni account and stay connected."}
+              : "Create your alumni account and stay connected with your school."}
           </p>
-
         </div>
 
-
-        {/* Form */}
-
+        {/* Authentication Form */}
         <form
           className="auth-form"
           onSubmit={handleSubmit}
+          noValidate
         >
-
+          {/* Full Name - Signup Only */}
           {!isLogin && (
             <div className="auth-field">
-
               <label htmlFor="auth-name">
                 Full name
               </label>
@@ -149,19 +191,17 @@ function AuthModal({
                 id="auth-name"
                 name="name"
                 type="text"
-                placeholder="Your full name"
+                placeholder="Enter your full name"
                 value={formData.name}
                 onChange={handleChange}
                 autoComplete="name"
                 required
               />
-
             </div>
           )}
 
-
+          {/* Email */}
           <div className="auth-field">
-
             <label htmlFor="auth-email">
               Email address
             </label>
@@ -176,14 +216,11 @@ function AuthModal({
               autoComplete="email"
               required
             />
-
           </div>
 
-
+          {/* Password */}
           <div className="auth-field">
-
             <div className="auth-label-row">
-
               <label htmlFor="auth-password">
                 Password
               </label>
@@ -192,28 +229,18 @@ function AuthModal({
                 <button
                   type="button"
                   className="forgot-password"
-                  onClick={() => {
-                    console.log(
-                      "Forgot password"
-                    );
-                  }}
+                  onClick={handleForgotPassword}
                 >
                   Forgot password?
                 </button>
               )}
-
             </div>
 
             <div className="password-wrapper">
-
               <input
                 id="auth-password"
                 name="password"
-                type={
-                  showPassword
-                    ? "text"
-                    : "password"
-                }
+                type={showPassword ? "text" : "password"}
                 placeholder="Enter your password"
                 value={formData.password}
                 onChange={handleChange}
@@ -229,29 +256,20 @@ function AuthModal({
                 type="button"
                 className="password-toggle"
                 onClick={() =>
-                  setShowPassword(
-                    (prev) => !prev
-                  )
+                  setShowPassword((prev) => !prev)
                 }
                 aria-label={
-                  showPassword
-                    ? "Hide password"
-                    : "Show password"
+                  showPassword ? "Hide password" : "Show password"
                 }
               >
-                {showPassword
-                  ? "Hide"
-                  : "Show"}
+                {showPassword ? "Hide" : "Show"}
               </button>
-
             </div>
-
           </div>
 
-
+          {/* Confirm Password - Signup Only */}
           {!isLogin && (
             <div className="auth-field">
-
               <label htmlFor="auth-confirm-password">
                 Confirm password
               </label>
@@ -259,57 +277,55 @@ function AuthModal({
               <input
                 id="auth-confirm-password"
                 name="confirmPassword"
-                type={
-                  showPassword
-                    ? "text"
-                    : "password"
-                }
-                placeholder="Confirm your password"
-                value={
-                  formData.confirmPassword
-                }
+                type={showPassword ? "text" : "password"}
+                placeholder="Re-enter your password"
+                value={formData.confirmPassword}
                 onChange={handleChange}
                 autoComplete="new-password"
                 required
               />
-
             </div>
           )}
 
-
+          {/* Terms and Conditions */}
           {!isLogin && (
             <label className="terms-checkbox">
-
               <input
                 type="checkbox"
                 required
               />
 
               <span>
-                I agree to the terms and
-                privacy policy.
+                I agree to the terms and privacy policy.
               </span>
-
             </label>
           )}
 
+          {/* Feedback Message */}
+          {message && (
+            <div
+              className={
+                messageType === "success"
+                  ? "auth-success-message"
+                  : "auth-error"
+              }
+              role="alert"
+            >
+              {message}
+            </div>
+          )}
 
+          {/* Submit */}
           <button
             type="submit"
             className="auth-submit-button"
           >
-            {isLogin
-              ? "Sign in"
-              : "Create account"}
+            {isLogin ? "Sign in" : "Create account"}
           </button>
-
         </form>
 
-
         {/* Switch Login / Signup */}
-
         <div className="auth-switch">
-
           <span>
             {isLogin
               ? "Don't have an account?"
@@ -320,13 +336,9 @@ function AuthModal({
             type="button"
             onClick={switchMode}
           >
-            {isLogin
-              ? "Sign up"
-              : "Login"}
+            {isLogin ? "Sign up" : "Login"}
           </button>
-
         </div>
-
       </div>
     </div>
   );

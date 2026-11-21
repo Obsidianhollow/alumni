@@ -45,10 +45,6 @@ const navLinks = [
     href: "/#events",
   },
   {
-    name: "Alumni",
-    href: "/#alumni",
-  },
-  {
     name: "Gallery",
     href: "/#gallery",
   },
@@ -66,20 +62,37 @@ function Navbar() {
   const [authMode, setAuthMode] = useState("login");
   const [aboutOpen, setAboutOpen] = useState(false);
 
+  // =========================================
   // CLOSE MOBILE MENU
+  // =========================================
+
   const closeMenu = () => {
     setMenuOpen(false);
     setAboutOpen(false);
   };
 
+  // =========================================
   // OPEN AUTH MODAL
+  // =========================================
+
   const openAuth = (mode) => {
     setAuthMode(mode);
     setAuthOpen(true);
     closeMenu();
   };
 
+  // =========================================
+  // CLOSE AUTH MODAL
+  // =========================================
+
+  const closeAuth = () => {
+    setAuthOpen(false);
+  };
+
+  // =========================================
   // ACTIVE NAVIGATION CHECK
+  // =========================================
+
   const isLinkActive = (link) => {
     if (link.href === "/") {
       return (
@@ -106,7 +119,10 @@ function Navbar() {
     return location.pathname === link.href;
   };
 
+  // =========================================
   // SCROLL TO HASH SECTION
+  // =========================================
+
   useEffect(() => {
     if (!location.hash) return;
 
@@ -136,10 +152,33 @@ function Navbar() {
     };
   }, [location.pathname, location.hash]);
 
+  // =========================================
   // CLOSE MOBILE MENU ON ROUTE CHANGE
+  // =========================================
+
   useEffect(() => {
     closeMenu();
   }, [location.pathname, location.hash]);
+
+  // =========================================
+  // MOBILE MENU ESCAPE HANDLER
+  // =========================================
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        closeMenu();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [menuOpen]);
 
   // =========================================
   // RENDER
@@ -230,18 +269,20 @@ function Navbar() {
 
           <div className="navbar-right">
 
-            {/* CONTACT LINK */}
+            {/* DESKTOP MEMBERSHIP BUTTON */}
 
             <Link
-              to="/#contact"
-              className="contact-link"
+              to="/membership"
+              className="membership-nav-button"
               onClick={closeMenu}
             >
-              <span>Get in touch</span>
-              <span aria-hidden="true">↗</span>
+              <span>Membership</span>
+              <span className="membership-nav-arrow">
+                ↗
+              </span>
             </Link>
 
-            {/* AUTH BUTTONS */}
+            {/* DESKTOP AUTH BUTTONS */}
 
             <div className="auth-buttons">
               <button
@@ -316,7 +357,6 @@ function Navbar() {
                 className="mobile-nav-wrapper"
               >
                 <div className="mobile-nav-row">
-
                   <Link
                     to={link.href}
                     className={`mobile-nav-link ${
@@ -367,6 +407,16 @@ function Navbar() {
               </div>
             ))}
 
+            {/* MOBILE MEMBERSHIP BUTTON */}
+
+            <Link
+              to="/membership"
+              className="mobile-membership-button"
+              onClick={closeMenu}
+            >
+              Membership <span>↗</span>
+            </Link>
+
             {/* MOBILE AUTH BUTTONS */}
 
             <div className="mobile-auth-buttons">
@@ -387,17 +437,6 @@ function Navbar() {
               </button>
             </div>
 
-            {/* MOBILE CONTACT */}
-
-            <Link
-              to="/#contact"
-              className="mobile-contact"
-              onClick={closeMenu}
-            >
-              <span>Start a conversation</span>
-              <span aria-hidden="true">↗</span>
-            </Link>
-
           </div>
         </div>
       </header>
@@ -407,7 +446,7 @@ function Navbar() {
       <AuthModal
         isOpen={authOpen}
         mode={authMode}
-        onClose={() => setAuthOpen(false)}
+        onClose={closeAuth}
         onModeChange={setAuthMode}
       />
     </>

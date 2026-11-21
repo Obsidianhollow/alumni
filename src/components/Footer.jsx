@@ -81,24 +81,7 @@ function Footer() {
               >
                 <FaInstagram />
               </a>
-
-              <a
-                href="https://www.linkedin.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedinIn />
-              </a>
-
-              <a
-                href="https://www.youtube.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="YouTube"
-              >
-                <FaYoutube />
-              </a>
+              
             </div>
           </div>
 
@@ -150,13 +133,6 @@ function Footer() {
               <FaEnvelope />
               <a href="mailto:agalumni.hld@agcschools.edu.in">
                 agalumni.hld@agcschools.edu.in
-              </a>
-            </div>
-
-            <div className="footer-contact-item">
-              <FaPhoneAlt />
-              <a href="tel:+919800060515">
-                +91 98000 60515
               </a>
             </div>
           </div>

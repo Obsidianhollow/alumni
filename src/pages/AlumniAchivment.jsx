@@ -1,3 +1,4 @@
+
 import React from "react";
 import "../css/AlumniAchivment.css";
 
@@ -47,57 +48,64 @@ const achievements = [
 ];
 
 const stats = [
-  {
-    number: "50+",
-    label: "Recognised Alumni",
-  },
-  {
-    number: "20+",
-    label: "Achievement Categories",
-  },
-  {
-    number: "15+",
-    label: "Years of Excellence",
-  },
-  {
-    number: "10+",
-    label: "Industry Leaders",
-  },
+  { number: "50+", label: "Recognised Alumni" },
+  { number: "20+", label: "Achievement Categories" },
+  { number: "15+", label: "Years of Excellence" },
+  { number: "10+", label: "Industry Leaders" },
 ];
 
 function AlumniAchievements() {
   return (
     <main className="achievements-page">
-      {/* =========================================
-          HERO
-      ========================================= */}
 
+      {/* HERO */}
       <section className="achievements-hero">
+        <div className="achievements-hero-pattern" />
+
         <div className="achievements-hero-content">
-          <span className="achievements-eyebrow">ALUMNI ASSOCIATION</span>
+          <span className="achievements-eyebrow">
+            ALUMNI ASSOCIATION · AGCS HALDIA
+          </span>
 
           <h1>
-            Alumni
-            <span> Achievements</span>
+            Beyond the
+            <br />
+            <span>classroom.</span>
           </h1>
 
           <p>
-            Celebrating the accomplishments, contributions and journeys of our
-            alumni who continue to make a difference beyond the campus.
+            Celebrating the accomplishments, contributions and journeys
+            of our alumni who continue to make a difference beyond the campus.
           </p>
+
+          <a href="#achievement-list" className="achievements-hero-link">
+            EXPLORE THE MILESTONES <span>↓</span>
+          </a>
         </div>
 
-        <div className="hero-number">01</div>
+        <div className="achievements-hero-art" aria-hidden="true">
+          <div className="achievements-hero-ring achievements-ring-one" />
+          <div className="achievements-hero-ring achievements-ring-two" />
+          <span className="achievements-hero-number">01</span>
+          <span className="achievements-hero-art-label">
+            A LEGACY OF EXCELLENCE
+          </span>
+        </div>
+
+        <div className="achievements-hero-bottom">
+          <span>ASSEMBLY OF GOD CHURCH SCHOOL</span>
+          <span>HALDIA · ALUMNI ASSOCIATION</span>
+        </div>
       </section>
 
-      {/* =========================================
-          INTRO
-      ========================================= */}
-
+      {/* INTRO */}
       <section className="achievements-intro">
-        <div className="intro-label">OUR LEGACY</div>
+        <div className="achievements-intro-label">
+          <span>01 / OUR LEGACY</span>
+          <div />
+        </div>
 
-        <div className="intro-content">
+        <div className="achievements-intro-content">
           <h2>
             Excellence that
             <br />
@@ -106,97 +114,122 @@ function AlumniAchievements() {
 
           <p>
             Our alumni community continues to grow across industries,
-            professions and communities. Their achievements reflect the values,
-            knowledge and experiences built during their time at the
-            institution.
+            professions and communities. Their achievements reflect the
+            values, knowledge and experiences built during their time
+            at the institution. Every milestone adds another chapter
+            to the story of our school.
           </p>
         </div>
       </section>
 
-      {/* =========================================
-          STATS
-      ========================================= */}
-
+      {/* STATS */}
       <section className="achievement-stats">
-        <div className="stats-container">
+        <div className="achievement-stats-container">
           {stats.map((stat, index) => (
-            <div className="stat-item" key={index}>
-              <strong>{stat.number}</strong>
+            <div className="achievement-stat-item" key={stat.label}>
+              <span className="achievement-stat-index">
+                {String(index + 1).padStart(2, "0")}
+              </span>
 
-              <span>{stat.label}</span>
+              <strong>{stat.number}</strong>
+              <span className="achievement-stat-label">{stat.label}</span>
             </div>
           ))}
         </div>
       </section>
 
-      {/* =========================================
-          ACHIEVEMENTS
-      ========================================= */}
-
-      <section className="achievements-list">
+      {/* ACHIEVEMENTS */}
+      <section
+        className="achievements-list"
+        id="achievement-list"
+      >
         <div className="achievements-heading">
           <div>
-            <span className="section-label">MILESTONES</span>
+            <span className="achievements-section-label">
+              02 / MILESTONES
+            </span>
 
-            <h2>Celebrating our alumni</h2>
+            <h2>
+              Recognising
+              <br />
+              <span>excellence.</span>
+            </h2>
           </div>
 
           <p>
-            A collection of milestones and achievements that represent the
-            spirit of our alumni network.
+            A celebration of ambition, dedication and the remarkable
+            contributions of our alumni across different fields.
           </p>
         </div>
 
         <div className="achievement-grid">
           {achievements.map((achievement, index) => (
-            <article className="achievement-card" key={index}>
-              <div className="achievement-top">
-                <span className="achievement-year">{achievement.year}</span>
+            <article className="achievement-card" key={`${achievement.year}-${achievement.title}`}>
+              <div className="achievement-card-top">
+                <span className="achievement-year">
+                  {achievement.year}
+                </span>
 
                 <span className="achievement-category">
                   {achievement.category}
                 </span>
               </div>
 
-              <div className="achievement-number">
+              <div className="achievement-card-number">
                 {String(index + 1).padStart(2, "0")}
               </div>
 
-              <div className="achievement-content">
+              <div className="achievement-card-content">
+                <span className="achievement-card-line" />
+
                 <h3>{achievement.title}</h3>
 
                 <p>{achievement.description}</p>
               </div>
 
-              <div className="achievement-arrow">↗</div>
+              <div className="achievement-card-bottom">
+                <span>AGCS HALDIA · ALUMNI</span>
+                <span className="achievement-card-arrow">↗</span>
+              </div>
             </article>
           ))}
         </div>
       </section>
 
-      {/* =========================================
-          CTA
-      ========================================= */}
-
+      {/* CTA */}
       <section className="achievements-cta">
-        <div className="cta-content">
-          <span>BE PART OF THE STORY</span>
+        <div className="achievements-cta-decoration" aria-hidden="true">
+          AGCS
+        </div>
+
+        <div className="achievements-cta-content">
+          <span className="achievements-cta-label">
+            03 / BE PART OF THE STORY
+          </span>
 
           <h2>
             Your achievement
             <br />
-            could be next.
+            <span>could be next.</span>
           </h2>
 
           <p>
-            Have an achievement, milestone or professional accomplishment you'd
-            like to share with the alumni community?
+            Have an achievement, milestone or professional accomplishment
+            you'd like to share with the alumni community? We would love
+            to hear your story.
           </p>
 
-          <button type="button">
-            Share Your Achievement
-            <span>↗</span>
-          </button>
+          <a
+            className="achievements-cta-button"
+            href="mailto:agalumni.hld@agschools.edu.in?subject=Sharing%20an%20Alumni%20Achievement"
+          >
+            SHARE YOUR ACHIEVEMENT <span>↗</span>
+          </a>
+        </div>
+
+        <div className="achievements-cta-footer">
+          <span>ALUMNI ASSOCIATION</span>
+          <span>ASSEMBLY OF GOD CHURCH SCHOOL, HALDIA</span>
         </div>
       </section>
     </main>

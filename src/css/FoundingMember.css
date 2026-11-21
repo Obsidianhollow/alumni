@@ -1,491 +1,907 @@
 
 /* =========================================
    FOUNDING MEMBERS PAGE
+   EDITORIAL / INSTITUTIONAL DESIGN
 ========================================= */
 
-.committee-page {
-  background: #f4f3ef;
-  color: #233d4d;
+.founders-page {
+  --founders-navy: #233d4d;
+  --founders-deep: #172f3d;
+  --founders-burgundy: #b31f35;
+  --founders-orange: #fe7f2d;
+  --founders-cream: #f4f1eb;
+  --founders-paper: #e9e6df;
+  --founders-white: #fffaf2;
+  --founders-muted: #69777d;
+
+  width: 100%;
   overflow: hidden;
+  background: var(--founders-cream);
+  color: var(--founders-navy);
+}
+
+.founders-page *,
+.founders-page *::before,
+.founders-page *::after {
+  box-sizing: border-box;
+}
+
+.founders-page a {
+  text-decoration: none;
 }
 
 /* =========================================
-   HERO
+   HERO SECTION
 ========================================= */
 
-.committee-hero {
-  min-height: 480px;
-  background: #233d4d;
-  color: #f4f3ef;
+.founders-hero {
   position: relative;
-  display: flex;
-  align-items: center;
-  padding: 100px 8%;
+  min-height: 690px;
+  background: var(--founders-navy);
+  color: var(--founders-cream);
   overflow: hidden;
 }
 
-.committee-hero-content {
-  max-width: 780px;
+.founders-hero-inner {
   position: relative;
-  z-index: 2;
+  width: min(1320px, 84%);
+  min-height: 690px;
+  margin: auto;
+  display: flex;
+  align-items: center;
 }
 
-.committee-eyebrow,
-.section-kicker {
-  font-size: 12px;
-  font-weight: 700;
+.founders-hero-copy {
+  position: relative;
+  z-index: 3;
+  width: 62%;
+  padding: 100px 0 110px;
+}
+
+.founders-eyebrow,
+.founders-section-kicker {
+  display: inline-block;
+  color: var(--founders-orange);
+  font-size: 11px;
+  font-weight: 800;
   letter-spacing: 2.5px;
-  color: #fe7f2d;
+  line-height: 1.6;
 }
 
-.committee-hero h1 {
-  font-size: clamp(48px, 7vw, 88px);
-  line-height: 0.95;
-  letter-spacing: -3px;
-  margin: 20px 0 28px;
+.founders-hero h1 {
+  margin: 28px 0 28px;
+  font-size: clamp(64px, 8vw, 112px);
+  line-height: 0.91;
+  letter-spacing: -5px;
+  font-weight: 750;
+}
+
+.founders-hero h1 span {
+  color: var(--founders-orange);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.founders-hero-copy > p {
+  max-width: 540px;
+  margin: 0;
+  color: #d4dadd;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.founders-hero-bottom {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 48px;
+  color: #d4dadd;
+  font-size: 10px;
+  letter-spacing: 2px;
   font-weight: 700;
 }
 
-.committee-hero p {
-  max-width: 680px;
-  color: #d9dee1;
-  font-size: 17px;
-  line-height: 1.8;
-  margin: 0;
+.founders-hero-line {
+  display: block;
+  width: 48px;
+  height: 2px;
+  background: var(--founders-orange);
 }
 
-/* DECORATIVE SHAPES */
+/* HERO DECORATIVE ART */
 
-.committee-hero-shape {
+.founders-hero-art {
   position: absolute;
-  border: 1px solid rgba(254, 127, 45, 0.35);
+  width: 510px;
+  height: 510px;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid rgba(244, 241, 235, 0.13);
   border-radius: 50%;
 }
 
-.shape-one {
-  width: 430px;
-  height: 430px;
-  right: -120px;
-  top: -140px;
+.founders-art-circle {
+  position: absolute;
+  border: 1px solid rgba(254, 127, 45, 0.4);
+  border-radius: 50%;
 }
 
-.shape-two {
-  width: 280px;
-  height: 280px;
-  right: 100px;
-  bottom: -190px;
+.founders-art-circle-one {
+  inset: 45px;
+}
+
+.founders-art-circle-two {
+  inset: 100px;
+  border-color: rgba(244, 241, 235, 0.2);
+}
+
+.founders-art-letter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(244, 241, 235, 0.07);
+  font-family: Georgia, serif;
+  font-size: 390px;
+  font-style: italic;
+  line-height: 1;
+}
+
+.founders-art-caption {
+  position: absolute;
+  right: 20px;
+  bottom: 75px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 17px 22px;
+  background: var(--founders-burgundy);
+  color: var(--founders-white);
+  transform: rotate(-5deg);
+}
+
+.founders-art-caption span {
+  font-size: 8px;
+  letter-spacing: 2px;
+}
+
+.founders-art-caption strong {
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.founders-hero-index {
+  position: absolute;
+  right: 0;
+  bottom: 42px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: #cbd2d6;
+  font-size: 9px;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.founders-hero-index > span:first-child {
+  color: var(--founders-orange);
+  font-size: 17px;
+}
+
+.founders-index-divider {
+  width: 35px;
+  height: 1px;
+  background: rgba(244, 241, 235, 0.4);
 }
 
 /* =========================================
-   INTRO
+   INTRODUCTION
 ========================================= */
 
-.committee-intro {
-  padding: 100px 8% 80px;
-  max-width: 1400px;
+.founders-intro {
+  padding: 115px 0 95px;
+  background: var(--founders-cream);
+}
+
+.founders-intro-inner {
+  width: min(1200px, 84%);
   margin: auto;
 }
 
-.committee-intro-label {
+.founders-intro-label {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 12px;
-  font-weight: 700;
+  gap: 13px;
+  margin-bottom: 50px;
+  color: var(--founders-burgundy);
+  font-size: 10px;
+  font-weight: 800;
   letter-spacing: 2px;
-  color: #fe7f2d;
-  margin-bottom: 45px;
 }
 
-.committee-intro-label span {
-  width: 35px;
+.founders-small-line {
+  width: 38px;
   height: 2px;
-  background: #fe7f2d;
+  background: var(--founders-burgundy);
 }
 
-.committee-intro-grid {
+.founders-intro-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 100px;
   align-items: start;
 }
 
-.committee-intro-grid h2 {
-  font-size: clamp(36px, 5vw, 62px);
-  line-height: 1;
-  letter-spacing: -2px;
+.founders-intro-content h2 {
   margin: 0;
+  font-size: clamp(40px, 5.4vw, 70px);
+  line-height: 1.04;
+  letter-spacing: -3px;
 }
 
-.committee-intro-grid p {
-  max-width: 600px;
-  font-size: 17px;
-  line-height: 1.8;
-  color: #5c6970;
-  margin: 0;
+.founders-intro-content h2 em {
+  color: var(--founders-burgundy);
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+
+.founders-intro-description {
+  padding-top: 7px;
+}
+
+.founders-intro-description p {
+  margin: 0 0 20px;
+  color: var(--founders-muted);
+  font-size: 15px;
+  line-height: 1.95;
+}
+
+.founders-intro-bottom {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-top: 65px;
+  padding-top: 23px;
+  border-top: 1px solid #d9d5cc;
+  color: #788389;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.founders-intro-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--founders-orange);
 }
 
 /* =========================================
-   FOUNDING MEMBERS SECTION
+   MEMBERS SECTION
 ========================================= */
 
-.committee-section {
-  padding: 40px 8% 110px;
-  max-width: 1500px;
+.founders-members {
+  padding: 100px 0 120px;
+  background: var(--founders-paper);
+}
+
+.founders-members-inner {
+  width: min(1320px, 84%);
   margin: auto;
 }
 
-.committee-section-heading {
+.founders-section-heading {
   display: flex;
   justify-content: space-between;
   align-items: end;
   gap: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 55px;
 }
 
-.committee-section-heading h2 {
-  margin: 12px 0 0;
-  font-size: 42px;
-  letter-spacing: -1.5px;
+.founders-section-heading h2 {
+  margin: 18px 0 0;
+  font-size: clamp(48px, 6vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -3px;
 }
 
-.committee-section-heading p {
-  max-width: 420px;
-  color: #68747a;
-  line-height: 1.7;
-  margin: 0;
+.founders-section-heading h2 em {
+  color: var(--founders-burgundy);
+  font-family: Georgia, serif;
+  font-weight: 400;
+}
+
+.founders-section-heading > p {
+  max-width: 370px;
+  margin: 0 0 7px;
+  color: var(--founders-muted);
+  font-size: 14px;
+  line-height: 1.9;
 }
 
 /* =========================================
-   MEMBER CARDS
+   MEMBER GRID
 ========================================= */
 
-.committee-grid {
+.founders-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
+  gap: 27px;
+  align-items: start;
 }
 
-.committee-card {
-  background: #ffffff;
-  border: 1px solid #e1e3e4;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.founder-card {
   min-width: 0;
-}
-
-.committee-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 45px rgba(35, 61, 77, 0.1);
-}
-
-/* IMAGE SIZE - REDUCED */
-
-.committee-image-wrapper {
-  height: 290px;
-  position: relative;
   overflow: hidden;
-  background: #eaecf0;
+  background: var(--founders-white);
+  border: 1px solid rgba(35, 61, 77, 0.08);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
-.committee-image-wrapper img {
+.founder-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 45px rgba(35, 61, 77, 0.12);
+}
+
+.founder-card-featured {
+  border-top: 4px solid var(--founders-orange);
+}
+
+/* MEMBER IMAGE */
+
+.founder-card-image {
+  position: relative;
+  height: 350px;
+  overflow: hidden;
+  background: #d9d9d3;
+}
+
+.founder-card-image img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  display: block;
-  transition: transform 0.5s ease;
+  transition: transform 0.65s ease;
 }
 
-.committee-card:hover .committee-image-wrapper img {
-  transform: scale(1.04);
+.founder-card:hover .founder-card-image img {
+  transform: scale(1.055);
 }
 
-/* MEMBER NUMBER */
-
-.member-number {
+.founder-card-number {
   position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 42px;
-  height: 42px;
-  background: #233d4d;
-  color: #ffffff;
+  top: 16px;
+  left: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-/* CARD CONTENT */
-
-.committee-card-content {
-  padding: 24px;
-}
-
-.member-designation {
-  color: #fe7f2d;
-  text-transform: uppercase;
+  width: 42px;
+  height: 42px;
+  background: var(--founders-navy);
+  color: var(--founders-cream);
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.founder-featured-label {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 12px 18px;
+  background: var(--founders-burgundy);
+  color: var(--founders-white);
+  font-size: 9px;
+  font-weight: 800;
   letter-spacing: 1.5px;
 }
 
-.committee-card-content h3 {
-  font-size: 23px;
-  margin: 10px 0 6px;
-  letter-spacing: -0.5px;
+/* MEMBER DETAILS */
+
+.founder-card-details {
+  padding: 27px 25px 20px;
+}
+
+.founder-designation {
+  display: inline-block;
+  color: var(--founders-burgundy);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.3px;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.founder-card-details h3 {
+  margin: 12px 0 8px;
+  color: var(--founders-navy);
+  font-size: 22px;
   line-height: 1.3;
+  letter-spacing: -0.5px;
 }
 
-.committee-card-content p {
-  color: #68747a;
-  font-size: 14px;
+.founder-card-details > p {
   margin: 0;
-}
-
-.member-line {
-  height: 1px;
-  background: #e2e4e5;
-  margin: 20px 0 14px;
-}
-
-.member-role {
+  color: var(--founders-muted);
   font-size: 12px;
-  color: #7a858a;
 }
 
-/* FEATURED MEMBER CARD */
-
-.committee-card-featured {
-  border-top: 4px solid #fe7f2d;
+.founder-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 25px;
+  padding-top: 17px;
+  border-top: 1px solid #e3e0d9;
 }
 
-.committee-card-featured .committee-image-wrapper {
-  height: 315px;
+.founder-card-footer > span:first-child {
+  color: #8a9395;
+  font-size: 8px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.founder-card-arrow {
+  color: var(--founders-orange);
+  font-size: 19px;
+  transition: transform 0.3s ease;
+}
+
+.founder-card:hover .founder-card-arrow {
+  transform: translate(3px, -3px);
 }
 
 /* =========================================
-   RESPONSIBILITY SECTION
+   LEGACY SECTION
 ========================================= */
 
-.committee-responsibility {
-  background: #eaecf0;
-  padding: 90px 8%;
+.founders-legacy {
+  position: relative;
+  overflow: hidden;
+  padding: 110px 0;
+  background: var(--founders-burgundy);
+  color: var(--founders-white);
+}
+
+.founders-legacy::after {
+  content: "";
+  position: absolute;
+  width: 480px;
+  height: 480px;
+  right: -200px;
+  top: -190px;
+  border: 1px solid rgba(255, 250, 242, 0.16);
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 45px rgba(255, 250, 242, 0.025),
+    0 0 0 90px rgba(255, 250, 242, 0.025);
+  pointer-events: none;
+}
+
+.founders-legacy-inner {
+  position: relative;
+  z-index: 1;
+  width: min(1200px, 84%);
+  margin: auto;
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1fr 0.85fr;
   gap: 100px;
   align-items: center;
 }
 
-.responsibility-content {
-  max-width: 700px;
+.founders-legacy .founders-section-kicker {
+  color: #ffc08f;
 }
 
-.responsibility-content h2 {
-  font-size: clamp(38px, 5vw, 58px);
-  line-height: 1;
-  letter-spacing: -2px;
-  margin: 18px 0 25px;
+.founders-legacy-copy h2 {
+  margin: 22px 0 25px;
+  font-size: clamp(48px, 6vw, 72px);
+  line-height: 0.98;
+  letter-spacing: -3px;
 }
 
-.responsibility-content p {
-  color: #5f6b71;
-  line-height: 1.8;
-  font-size: 16px;
-  max-width: 620px;
-}
-
-.responsibility-stats {
-  display: grid;
-  gap: 20px;
-}
-
-.responsibility-stats div {
-  background: #f4f3ef;
-  padding: 22px 25px;
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  border-left: 3px solid #fe7f2d;
-}
-
-.responsibility-stats strong {
-  font-size: 25px;
-  color: #fe7f2d;
-}
-
-.responsibility-stats span {
+.founders-legacy-copy > p {
+  max-width: 540px;
+  margin: 0;
+  color: #f0dce0;
   font-size: 14px;
-  font-weight: 600;
+  line-height: 1.95;
+}
+
+/* LEGACY VALUES */
+
+.founders-legacy-values {
+  display: grid;
+}
+
+.founders-value {
+  display: flex;
+  gap: 23px;
+  align-items: flex-start;
+  padding: 25px 0;
+  border-bottom: 1px solid rgba(255, 250, 242, 0.2);
+}
+
+.founders-value:first-child {
+  border-top: 1px solid rgba(255, 250, 242, 0.2);
+}
+
+.founders-value > span {
+  color: #ffc08f;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.founders-value h3 {
+  margin: 0 0 7px;
+  color: var(--founders-white);
+  font-size: 20px;
+}
+
+.founders-value p {
+  margin: 0;
+  color: #f0dce0;
+  font-size: 12px;
+  line-height: 1.7;
 }
 
 /* =========================================
-   CTA SECTION
+   CALL TO ACTION
 ========================================= */
 
-.committee-cta {
-  margin: 80px 8% 100px;
-  padding: 60px;
-  background: #233d4d;
-  color: #ffffff;
+.founders-cta {
+  padding: 95px 0;
+  background: var(--founders-cream);
+}
+
+.founders-cta-inner {
+  width: min(1200px, 84%);
+  margin: auto;
+  padding: 55px 60px;
+  background: var(--founders-navy);
+  color: var(--founders-cream);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 50px;
+  gap: 45px;
 }
 
-.committee-cta h2 {
-  font-size: 38px;
-  margin: 15px 0;
-  letter-spacing: -1px;
+.founders-cta .founders-section-kicker {
+  color: var(--founders-orange);
 }
 
-.committee-cta p {
-  color: #cbd2d6;
+.founders-cta h2 {
+  margin: 18px 0 15px;
+  font-size: clamp(38px, 5vw, 57px);
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.founders-cta p {
+  max-width: 510px;
   margin: 0;
-  line-height: 1.6;
+  color: #d1d9dc;
+  font-size: 13px;
+  line-height: 1.9;
 }
 
-.committee-cta button {
-  border: none;
-  background: #fe7f2d;
-  color: #ffffff;
-  padding: 16px 25px;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  display: flex;
+.founders-cta-link {
+  flex-shrink: 0;
+  display: inline-flex;
   align-items: center;
-  gap: 15px;
-  white-space: nowrap;
-  transition: 0.3s ease;
+  justify-content: center;
+  gap: 25px;
+  min-height: 56px;
+  padding: 0 23px;
+  background: var(--founders-orange);
+  color: var(--founders-deep);
+  font-size: 12px;
+  font-weight: 800;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
-.committee-cta button:hover {
-  background: #ffffff;
-  color: #233d4d;
+.founders-cta-link span {
+  font-size: 19px;
 }
 
-.committee-cta button span {
-  font-size: 18px;
+.founders-cta-link:hover {
+  background: var(--founders-cream);
+  color: var(--founders-navy);
+  transform: translateY(-3px);
 }
 
 /* =========================================
-   RESPONSIVE - TABLET
+   TABLET RESPONSIVE
 ========================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
+  .founders-hero-art {
+    width: 410px;
+    height: 410px;
+    right: -90px;
+  }
 
-  .committee-grid {
+  .founders-art-letter {
+    font-size: 310px;
+  }
+
+  .founders-hero-copy {
+    width: 70%;
+  }
+
+  .founders-intro-content {
+    gap: 55px;
+  }
+
+  .founders-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
   }
 
-  .committee-intro-grid {
-    gap: 40px;
+  .founders-legacy-inner {
+    gap: 55px;
   }
 
-  .committee-responsibility {
-    grid-template-columns: 1fr;
-    gap: 50px;
+  .founder-card-image {
+    height: 370px;
   }
-
 }
 
 /* =========================================
-   RESPONSIVE - MOBILE
+   MOBILE RESPONSIVE
 ========================================= */
 
 @media (max-width: 700px) {
-
-  .committee-hero {
-    min-height: 430px;
-    padding: 80px 7%;
+  .founders-hero,
+  .founders-hero-inner {
+    min-height: 620px;
   }
 
-  .committee-hero h1 {
+  .founders-hero-inner {
+    width: 86%;
+    align-items: flex-start;
+  }
+
+  .founders-hero-copy {
+    width: 100%;
+    padding: 95px 0 120px;
+  }
+
+  .founders-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.8px;
+  }
+
+  .founders-hero h1 {
+    margin: 25px 0;
+    font-size: clamp(58px, 12vw, 82px);
+    letter-spacing: -3.5px;
+  }
+
+  .founders-hero-copy > p {
+    max-width: 430px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .founders-hero-art {
+    width: 290px;
+    height: 290px;
+    right: -115px;
+    top: auto;
+    bottom: 20px;
+    transform: none;
+    opacity: 0.65;
+  }
+
+  .founders-art-circle-one {
+    inset: 25px;
+  }
+
+  .founders-art-circle-two {
+    inset: 60px;
+  }
+
+  .founders-art-letter {
+    font-size: 220px;
+  }
+
+  .founders-art-caption {
+    right: 0;
+    bottom: 35px;
+    padding: 12px 15px;
+  }
+
+  .founders-hero-index {
+    right: auto;
+    left: 0;
+    bottom: 30px;
+  }
+
+  .founders-intro {
+    padding: 75px 0 65px;
+  }
+
+  .founders-intro-inner,
+  .founders-members-inner,
+  .founders-legacy-inner,
+  .founders-cta-inner {
+    width: 86%;
+  }
+
+  .founders-intro-label {
+    margin-bottom: 35px;
+  }
+
+  .founders-intro-content {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .founders-intro-content h2 {
+    font-size: clamp(42px, 9vw, 58px);
     letter-spacing: -2px;
   }
 
-  .committee-hero p {
-    font-size: 15px;
+  .founders-intro-description p {
+    font-size: 14px;
   }
 
-  .committee-intro {
-    padding: 70px 7% 50px;
+  .founders-intro-bottom {
+    flex-wrap: wrap;
+    gap: 11px;
+    margin-top: 40px;
+    font-size: 8px;
+    letter-spacing: 1.3px;
   }
 
-  .committee-intro-grid {
+  .founders-members {
+    padding: 75px 0 80px;
+  }
+
+  .founders-section-heading {
+    display: block;
+    margin-bottom: 38px;
+  }
+
+  .founders-section-heading h2 {
+    font-size: 57px;
+    letter-spacing: -2px;
+  }
+
+  .founders-section-heading > p {
+    max-width: 450px;
+    margin-top: 23px;
+    font-size: 13px;
+  }
+
+  .founders-grid {
     grid-template-columns: 1fr;
     gap: 25px;
   }
 
-  .committee-section {
-    padding: 30px 7% 70px;
+  .founder-card-image {
+    height: 380px;
   }
 
-  .committee-section-heading {
-    display: block;
+  .founder-card-details {
+    padding: 25px 23px 19px;
   }
 
-  .committee-section-heading h2 {
-    font-size: 35px;
+  .founder-card-details h3 {
+    font-size: 23px;
   }
 
-  .committee-section-heading p {
-    margin-top: 20px;
+  .founders-legacy {
+    padding: 75px 0;
   }
 
-  .committee-grid {
+  .founders-legacy-inner {
     grid-template-columns: 1fr;
+    gap: 45px;
   }
 
-  .committee-image-wrapper,
-  .committee-card-featured .committee-image-wrapper {
-    height: 310px;
+  .founders-legacy-copy h2 {
+    font-size: 57px;
   }
 
-  .committee-responsibility {
-    padding: 70px 7%;
+  .founders-legacy-copy > p {
+    font-size: 13px;
   }
 
-  .committee-cta {
-    margin: 50px 7% 70px;
-    padding: 40px 30px;
+  .founders-cta {
+    padding: 65px 0;
+  }
+
+  .founders-cta-inner {
     display: block;
+    padding: 38px 28px;
   }
 
-  .committee-cta h2 {
-    font-size: 32px;
+  .founders-cta h2 {
+    font-size: 43px;
   }
 
-  .committee-cta button {
+  .founders-cta p {
+    font-size: 12px;
+  }
+
+  .founders-cta-link {
     margin-top: 30px;
   }
-
 }
 
 /* =========================================
-   RESPONSIVE - SMALL MOBILE
+   SMALL MOBILE
 ========================================= */
 
-@media (max-width: 450px) {
-
-  .committee-hero h1 {
-    font-size: 48px;
+@media (max-width: 400px) {
+  .founders-hero,
+  .founders-hero-inner {
+    min-height: 590px;
   }
 
-  .committee-card-content {
-    padding: 22px;
+  .founders-hero h1 {
+    font-size: 55px;
   }
 
-  .committee-image-wrapper,
-  .committee-card-featured .committee-image-wrapper {
-    height: 280px;
+  .founders-hero-copy {
+    padding-top: 80px;
   }
 
-  .committee-cta {
-    padding: 35px 25px;
+  .founders-hero-art {
+    width: 250px;
+    height: 250px;
+    right: -120px;
   }
 
+  .founders-art-letter {
+    font-size: 190px;
+  }
+
+  .founders-section-heading h2,
+  .founders-legacy-copy h2 {
+    font-size: 49px;
+  }
+
+  .founder-card-image {
+    height: 320px;
+  }
+
+  .founder-card-details h3 {
+    font-size: 20px;
+  }
+
+  .founders-cta-inner {
+    padding: 32px 23px;
+  }
+
+  .founders-cta h2 {
+    font-size: 38px;
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .founders-page *,
+  .founders-page *::before,
+  .founders-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
