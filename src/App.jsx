@@ -12,7 +12,7 @@ import {
 // LAYOUT COMPONENTS
 // =========================================
 
-import TopBar from "./components/Topbar.jsx";
+import TopBar from "./components/TopBar.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 
