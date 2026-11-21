@@ -12,7 +12,7 @@ import {
 // LAYOUT COMPONENTS
 // =========================================
 
-import TopBar from "./components/TopBar.jsx";
+import Topbar from "./components/Topbar.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 
@@ -78,7 +78,6 @@ function Home() {
       <Events />
       <Donation />
       <Gallery />
-      <About />
     </>
   );
 }
@@ -107,7 +106,7 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
 
-      <TopBar />
+      <Topbar />
       <Navbar />
 
       <main>

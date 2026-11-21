@@ -9,9 +9,9 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 
-import "../css/TopBar.css";
+import "../css/Topbar.css";
 
-function TopBarContent({ duplicate = false }) {
+function TopbarContent({ duplicate = false }) {
   return (
     <div
       className="topbar-content"
@@ -68,17 +68,17 @@ function TopBarContent({ duplicate = false }) {
   );
 }
 
-function TopBar() {
+function Topbar() {
   return (
     <div className="topbar">
       <div className="topbar-marquee">
         <div className="topbar-track">
-          <TopBarContent />
-          <TopBarContent duplicate />
+          <TopbarContent />
+          <TopbarContent duplicate />
         </div>
       </div>
     </div>
   );
 }
 
-export default TopBar;
+export default Topbar;
