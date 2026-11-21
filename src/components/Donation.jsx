@@ -1,6 +1,6 @@
 
 import React from "react";
-import "../CSS/Donation.css";
+import "../css/Donation.css";
 
 const createSampleQR = () => {
   const size = 25;
