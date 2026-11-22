@@ -11,6 +11,7 @@ import {
 // =========================================
 // LAYOUT COMPONENTS
 // =========================================
+
 import TopBarTemp from "./components/TopBarTemp.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
@@ -24,12 +25,12 @@ import Notice from "./components/Notice.jsx";
 import Events from "./components/Events.jsx";
 import Donation from "./components/Donation.jsx";
 import Gallery from "./components/Gallery.jsx";
-import About from "./components/About.jsx";
 
 // =========================================
 // PAGE COMPONENTS
 // =========================================
 
+import About from "./components/About.jsx";
 import GalleryPage from "./pages/GalleryPage.jsx";
 import AlumniAchivment from "./pages/AlumniAchivment.jsx";
 import AlumniDirectory from "./pages/AlumniDirectory.jsx";
@@ -40,12 +41,10 @@ import FoundingMember from "./pages/FoundingMember.jsx";
 // MEMBERSHIP COMPONENTS
 // =========================================
 
-
 import Membership from "./membership-temp/Membership.jsx";
 import MembershipStatus from "./membership-temp/MembershipStatus.jsx";
 import Payment from "./membership-temp/Payment.jsx";
 import Admin from "./membership-temp/Admin.jsx";
-
 
 // =========================================
 // SCROLL TO TOP
@@ -110,7 +109,6 @@ function App() {
 
       <main>
         <Routes>
-
           {/* HOME */}
           <Route path="/" element={<Home />} />
 
@@ -170,7 +168,6 @@ function App() {
 
           {/* 404 */}
           <Route path="*" element={<NotFound />} />
-
         </Routes>
       </main>
 
