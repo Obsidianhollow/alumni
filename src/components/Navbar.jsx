@@ -6,7 +6,7 @@ import {
   useLocation,
 } from "react-router-dom";
 
-import AuthModal from "./AuthModal";
+import AuthModal from "./AuthModal.jsx";
 import "../css/Navbar.css";
 
 // =========================================
@@ -157,7 +157,8 @@ function Navbar() {
   // =========================================
 
   useEffect(() => {
-    closeMenu();
+    setMenuOpen(false);
+    setAboutOpen(false);
   }, [location.pathname, location.hash]);
 
   // =========================================
@@ -277,6 +278,7 @@ function Navbar() {
               onClick={closeMenu}
             >
               <span>Membership</span>
+
               <span className="membership-nav-arrow">
                 ↗
               </span>

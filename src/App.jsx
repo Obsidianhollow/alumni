@@ -11,7 +11,7 @@ import {
 // =========================================
 // LAYOUT COMPONENTS
 // =========================================
-import Topbar from "./components/Topbar.jsx";
+import TopBarTemp from "./components/TopBarTemp.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 
@@ -105,7 +105,7 @@ function App() {
     <BrowserRouter>
       <ScrollToTop />
 
-      <Topbar />
+      <TopBarTemp />
       <Navbar />
 
       <main>

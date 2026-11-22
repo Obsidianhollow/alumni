@@ -3,7 +3,7 @@
    TOP BAR
 ========================================= */
 
-.topbar {
+.TopBarTemp {
   width: 100%;
   height: 56px;
   background: #b31f35;
@@ -18,20 +18,20 @@
    MARQUEE STRUCTURE
 ========================================= */
 
-.topbar-marquee {
+.TopBarTemp-marquee {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
-.topbar-track {
+.TopBarTemp-track {
   display: flex;
   align-items: center;
   width: max-content;
   height: 100%;
 }
 
-.topbar-content {
+.TopBarTemp-content {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -46,15 +46,15 @@
    LEFT SECTION
 ========================================= */
 
-.topbar-left {
+.TopBarTemp-left {
   display: flex;
   align-items: center;
   height: 100%;
   gap: 22px;
 }
 
-.topbar-location,
-.topbar-email {
+.TopBarTemp-location,
+.TopBarTemp-email {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -66,13 +66,13 @@
   transition: opacity 0.2s ease;
 }
 
-.topbar-location:hover,
-.topbar-email:hover {
+.TopBarTemp-location:hover,
+.TopBarTemp-email:hover {
   opacity: 0.75;
 }
 
-.topbar-location svg,
-.topbar-email svg {
+.TopBarTemp-location svg,
+.TopBarTemp-email svg {
   font-size: 16px;
   flex-shrink: 0;
 }
@@ -81,7 +81,7 @@
    DIVIDER
 ========================================= */
 
-.topbar-divider {
+.TopBarTemp-divider {
   width: 1px;
   height: 30px;
   background: rgba(255, 255, 255, 0.45);
@@ -92,7 +92,7 @@
    SOCIAL ICONS
 ========================================= */
 
-.topbar-right {
+.TopBarTemp-right {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -101,7 +101,7 @@
   flex-shrink: 0;
 }
 
-.topbar-right a {
+.TopBarTemp-right a {
   width: 20px;
   height: 20px;
   display: flex;
@@ -113,7 +113,7 @@
   transition: all 0.2s ease;
 }
 
-.topbar-right a:hover {
+.TopBarTemp-right a:hover {
   opacity: 0.7;
   transform: translateY(-2px);
 }
@@ -123,31 +123,31 @@
 ========================================= */
 
 @media (min-width: 769px) {
-  .topbar {
+  .TopBarTemp {
     height: 56px;
   }
 
-  .topbar-track {
+  .TopBarTemp-track {
     width: 100%;
     animation: none;
   }
 
-  .topbar-content:first-child {
+  .TopBarTemp-content:first-child {
     width: 100%;
     flex: 0 0 100%;
     padding: 0 6%;
     justify-content: space-between;
   }
 
-  .topbar-content:nth-child(2) {
+  .TopBarTemp-content:nth-child(2) {
     display: none;
   }
 
-  .topbar-left {
+  .TopBarTemp-left {
     gap: 22px;
   }
 
-  .topbar-right {
+  .TopBarTemp-right {
     gap: 32px;
   }
 }
@@ -157,20 +157,20 @@
 ========================================= */
 
 @media (min-width: 769px) and (max-width: 1100px) {
-  .topbar-content:first-child {
+  .TopBarTemp-content:first-child {
     padding: 0 3%;
   }
 
-  .topbar-location,
-  .topbar-email {
+  .TopBarTemp-location,
+  .TopBarTemp-email {
     font-size: 12px;
   }
 
-  .topbar-left {
+  .TopBarTemp-left {
     gap: 14px;
   }
 
-  .topbar-right {
+  .TopBarTemp-right {
     gap: 22px;
   }
 }
@@ -180,41 +180,41 @@
 ========================================= */
 
 @media (max-width: 768px) {
-  .topbar {
+  .TopBarTemp {
     height: 40px;
   }
 
-  .topbar-track {
-    animation: topbarScroll 28s linear infinite;
+  .TopBarTemp-track {
+    animation: TopBarTempScroll 28s linear infinite;
   }
 
-  .topbar-content {
+  .TopBarTemp-content {
     width: max-content;
     justify-content: flex-start;
     gap: 22px;
     padding: 0 20px;
   }
 
-  .topbar-left {
+  .TopBarTemp-left {
     gap: 16px;
   }
 
-  .topbar-location,
-  .topbar-email {
+  .TopBarTemp-location,
+  .TopBarTemp-email {
     font-size: 11px;
     gap: 7px;
   }
 
-  .topbar-right {
+  .TopBarTemp-right {
     gap: 18px;
   }
 
-  .topbar-right a {
+  .TopBarTemp-right a {
     font-size: 14px;
   }
 
-  .topbar-track:hover,
-  .topbar-track:focus-within {
+  .TopBarTemp-track:hover,
+  .TopBarTemp-track:focus-within {
     animation-play-state: paused;
   }
 }
@@ -224,25 +224,25 @@
 ========================================= */
 
 @media (max-width: 480px) {
-  .topbar {
+  .TopBarTemp {
     height: 38px;
   }
 
-  .topbar-content {
+  .TopBarTemp-content {
     gap: 18px;
     padding: 0 16px;
   }
 
-  .topbar-location,
-  .topbar-email {
+  .TopBarTemp-location,
+  .TopBarTemp-email {
     font-size: 10px;
   }
 
-  .topbar-left {
+  .TopBarTemp-left {
     gap: 13px;
   }
 
-  .topbar-right {
+  .TopBarTemp-right {
     gap: 15px;
   }
 }
@@ -251,7 +251,7 @@
    MARQUEE ANIMATION
 ========================================= */
 
-@keyframes topbarScroll {
+@keyframes TopBarTempScroll {
   from {
     transform: translateX(0);
   }
@@ -266,11 +266,11 @@
 ========================================= */
 
 @media (prefers-reduced-motion: reduce) {
-  .topbar-track {
+  .TopBarTemp-track {
     animation: none !important;
   }
 
-  .topbar-content:nth-child(2) {
+  .TopBarTemp-content:nth-child(2) {
     display: none;
   }
 }

@@ -1,41 +1,43 @@
 
-import React from "react";
 import {
   FaMapMarkerAlt,
   FaEnvelope,
   FaFacebookF,
   FaInstagram,
-  FaLinkedinIn,
-  FaYoutube,
 } from "react-icons/fa";
 
-import "../css/Topbar.css";
+import "../css/TopBar.css";
 
-function TopbarContent({ duplicate = false }) {
+// =========================================
+// TOP BAR CONTENT
+// =========================================
+
+function TopBarTempContent({ duplicate = false }) {
   return (
     <div
-      className="topbar-content"
+      className="TopBarTemp-content"
       aria-hidden={duplicate ? "true" : undefined}
     >
-      <div className="topbar-left">
+      <div className="TopBarTemp-left">
         <a
           href="https://www.google.com/maps/search/?api=1&query=Assembly+of+God+Church+School"
           target="_blank"
           rel="noopener noreferrer"
-          className="topbar-location"
+          className="TopBarTemp-location"
           tabIndex={duplicate ? -1 : 0}
         >
           <FaMapMarkerAlt />
+
           <span>
             Alumni Association of Assembly of God Church School (AAAGCS)
           </span>
         </a>
 
-        <span className="topbar-divider"></span>
+        <span className="TopBarTemp-divider"></span>
 
         <a
           href="mailto:agalumni.hld@agcschools.edu.in"
-          className="topbar-email"
+          className="TopBarTemp-email"
           tabIndex={duplicate ? -1 : 0}
         >
           <FaEnvelope />
@@ -43,7 +45,7 @@ function TopbarContent({ duplicate = false }) {
         </a>
       </div>
 
-      <div className="topbar-right">
+      <div className="TopBarTemp-right">
         <a
           href="https://www.facebook.com/"
           target="_blank"
@@ -68,17 +70,21 @@ function TopbarContent({ duplicate = false }) {
   );
 }
 
-function Topbar() {
+// =========================================
+// TOP BAR COMPONENT
+// =========================================
+
+function TopBarTemp() {
   return (
-    <div className="topbar">
-      <div className="topbar-marquee">
-        <div className="topbar-track">
-          <TopbarContent />
-          <TopbarContent duplicate />
+    <div className="TopBarTemp">
+      <div className="TopBarTemp-marquee">
+        <div className="TopBarTemp-track">
+          <TopBarTempContent />
+          <TopBarTempContent duplicate />
         </div>
       </div>
     </div>
   );
 }
 
-export default Topbar;
+export default TopBarTemp;

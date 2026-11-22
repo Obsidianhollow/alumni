@@ -18,11 +18,14 @@ function AuthModal({
   const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
 
   const isLogin = mode === "login";
 
   useEffect(() => {
     if (!isOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
 
     const handleEscape = (event) => {
       if (event.key === "Escape") {
@@ -35,7 +38,7 @@ function AuthModal({
 
     return () => {
       document.removeEventListener("keydown", handleEscape);
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
     };
   }, [isOpen, onClose]);
 
@@ -67,8 +70,17 @@ function AuthModal({
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (!formData.email.trim() || !formData.password) {
+    const email = formData.email.trim();
+
+    if (!email || !formData.password) {
       showFeedback("Please fill in all required fields.");
+      return;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailPattern.test(email)) {
+      showFeedback("Please enter a valid email address.");
       return;
     }
 
@@ -87,6 +99,11 @@ function AuthModal({
         showFeedback("Your passwords do not match.");
         return;
       }
+
+      if (!termsAccepted) {
+        showFeedback("Please accept the terms and privacy policy.");
+        return;
+      }
     }
 
     /*
@@ -100,8 +117,7 @@ function AuthModal({
       isLogin ? "Login submitted" : "Signup submitted",
       {
         name: isLogin ? undefined : formData.name,
-        email: formData.email,
-        password: formData.password,
+        email,
       }
     );
 
@@ -292,6 +308,10 @@ function AuthModal({
             <label className="terms-checkbox">
               <input
                 type="checkbox"
+                checked={termsAccepted}
+                onChange={(event) =>
+                  setTermsAccepted(event.target.checked)
+                }
                 required
               />
 
