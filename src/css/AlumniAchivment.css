@@ -105,6 +105,7 @@
 }
 
 .achievements-hero h1 {
+  font-family: "Cloister Black", Georgia, serif;
   margin: 0;
   font-size: clamp(58px, 7.5vw, 104px);
   font-weight: 500;
@@ -246,6 +247,7 @@
 }
 
 .achievements-intro-content h2 {
+  font-family: "Cloister Black", Georgia, serif;
   margin: 0 0 30px;
   color: var(--achievement-navy);
   font-size: clamp(42px, 5vw, 70px);
@@ -350,6 +352,7 @@
 }
 
 .achievements-heading h2 {
+  font-family: "Cloister Black", Georgia, serif;
   margin: 0;
   color: var(--achievement-navy);
   font-size: clamp(43px, 5vw, 68px);
@@ -475,6 +478,7 @@
 }
 
 .achievement-card-content h3 {
+  font-family: "Cloister Black", Georgia, serif;
   margin: 0 0 12px;
   color: var(--achievement-navy);
   font-size: 22px;
@@ -594,6 +598,7 @@
 }
 
 .achievements-cta h2 {
+  font-family: "Cloister Black", Georgia, serif;
   margin: 0;
   color: var(--achievement-cream);
   font-size: clamp(48px, 6vw, 78px);

@@ -90,7 +90,7 @@ function Membership() {
       otherContribution: form.contributions.includes("Other")
         ? otherContribution
         : "",
-      registrationFee: 500,
+      registrationFee: 1000,
       paymentStatus: "Not Paid",
       applicationStatus: "Submitted",
     };
@@ -147,7 +147,7 @@ function Membership() {
           <div className="membership-success-info">
             <span>Membership Registration Fee</span>
 
-            <strong>₹500</strong>
+            <strong>₹1,000</strong>
 
             <small>
               Payment will be available only after administrator
@@ -225,7 +225,7 @@ function Membership() {
 
           <span>REGISTRATION FEE</span>
 
-          <strong>₹500</strong>
+          <strong>₹1,000</strong>
 
           <small>For all applicants</small>
 
@@ -734,10 +734,10 @@ function Membership() {
 
               <div>
                 <span>Membership Registration Fee</span>
-                <small>Rupees Five Hundred Only</small>
+                <small>Rupees One Thousand Only</small>
               </div>
 
-              <strong>₹500/-</strong>
+              <strong>₹1,000/-</strong>
 
             </div>
 

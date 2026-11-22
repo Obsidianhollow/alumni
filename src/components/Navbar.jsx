@@ -42,11 +42,11 @@ const navLinks = [
   },
   {
     name: "Events",
-    href: "/#events",
+    href: "/events",
   },
   {
     name: "Gallery",
-    href: "/#gallery",
+    href: "/gallery",
   },
 ];
 
@@ -103,6 +103,10 @@ function Navbar() {
 
     if (link.href === "/about") {
       return location.pathname.startsWith("/about");
+    }
+
+    if (link.href === "/gallery") {
+      return location.pathname === "/gallery";
     }
 
     if (link.href.includes("#")) {

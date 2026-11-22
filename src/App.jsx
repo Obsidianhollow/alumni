@@ -32,6 +32,7 @@ import Gallery from "./components/Gallery.jsx";
 
 import About from "./components/About.jsx";
 import GalleryPage from "./pages/GalleryPage.jsx";
+import EventsPage from "./pages/EventPage.jsx";
 import AlumniAchivment from "./pages/AlumniAchivment.jsx";
 import AlumniDirectory from "./pages/AlumniDirectory.jsx";
 import CoreCommitteeMembers from "./pages/CoreCommitteeMembers.jsx";
@@ -109,11 +110,15 @@ function App() {
 
       <main>
         <Routes>
+
           {/* HOME */}
           <Route path="/" element={<Home />} />
 
           {/* ABOUT */}
           <Route path="/about" element={<About />} />
+
+          {/* DEDICATED EVENTS PAGE */}
+          <Route path="/events" element={<EventsPage />} />
 
           {/* GALLERY */}
           <Route path="/gallery" element={<GalleryPage />} />
@@ -168,6 +173,7 @@ function App() {
 
           {/* 404 */}
           <Route path="*" element={<NotFound />} />
+
         </Routes>
       </main>
 

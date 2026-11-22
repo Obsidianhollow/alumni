@@ -14,6 +14,32 @@ import {
 
 import "../css/Footer.css";
 
+// =========================================
+// SOCIAL MEDIA LINKS
+// =========================================
+
+const socialLinks = [
+  {
+    name: "Facebook",
+    url: "https://www.facebook.com/share/1PkpQV2mxc/",
+    icon: FaFacebookF,
+  },
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/alumni.meet_ag_haldia_/",
+    icon: FaInstagram,
+  },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/alumni-association-of-agcs-haldia-287b5342b/",
+    icon: FaLinkedinIn,
+  },
+];
+
+// =========================================
+// FOOTER COMPONENT
+// =========================================
+
 function Footer() {
   const scrollToTop = () => {
     window.scrollTo({
@@ -38,18 +64,20 @@ function Footer() {
               aria-label="Alumni Association Home"
             >
               <img
-  src="/alumni-logo.png"
-  alt="Alumni Association Logo"
-  className="footer-logo"
-/>
+                src="/alumni-logo.png"
+                alt="Alumni Association Logo"
+                className="footer-logo"
+              />
 
               <div className="footer-brand-text">
                 <span className="footer-school-name">
                   Assembly of God
                 </span>
+
                 <span className="footer-school-name">
                   Church School
                 </span>
+
                 <span className="footer-association-name">
                   Alumni Association
                 </span>
@@ -64,24 +92,18 @@ function Footer() {
 
             {/* SOCIAL MEDIA */}
             <div className="footer-social">
-              <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-              >
-                <FaFacebookF />
-              </a>
-
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-              >
-                <FaInstagram />
-              </a>
-              
+              {socialLinks.map(({ name, url, icon: Icon }) => (
+                <a
+                  key={name}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit our ${name} profile`}
+                  title={name}
+                >
+                  <Icon />
+                </a>
+              ))}
             </div>
           </div>
 
@@ -110,9 +132,9 @@ function Footer() {
             <h3>Explore</h3>
 
             <div className="footer-links">
-              <Link to="/#events">Events</Link>
-              <Link to="/#alumni">Alumni</Link>
-              <Link to="/#gallery">Gallery</Link>
+              <Link to="/events">Events</Link>
+              <Link to="/about/alumni-directory">Alumni</Link>
+              <Link to="/gallery">Gallery</Link>
               <Link to="/#contact">Contact Us</Link>
             </div>
           </div>

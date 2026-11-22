@@ -1,4 +1,3 @@
-
 /* =========================================
    ALUMNI DIRECTORY
    AGCS HALDIA — EDITORIAL DESIGN
@@ -106,6 +105,7 @@
 
 .directory-hero h1 {
   margin: 0;
+  font-family: "Cloister Black", Georgia, serif;
   font-size: clamp(58px, 7.5vw, 104px);
   font-weight: 500;
   line-height: 0.94;
@@ -248,6 +248,7 @@
 .directory-intro-content h2 {
   margin: 0 0 30px;
   color: var(--directory-navy);
+  font-family: "Cloister Black", Georgia, serif;
   font-size: clamp(42px, 5vw, 70px);
   font-weight: 500;
   line-height: 1.03;
@@ -352,6 +353,7 @@
 .directory-heading h2 {
   margin: 0;
   color: var(--directory-navy);
+  font-family: "Cloister Black", Georgia, serif;
   font-size: clamp(43px, 5vw, 68px);
   font-weight: 500;
   line-height: 0.98;
@@ -617,6 +619,7 @@
 .directory-card h3 {
   margin: 0 0 9px;
   color: var(--directory-navy);
+  font-family: "Cloister Black", Georgia, serif;
   font-size: 24px;
   font-weight: 500;
   line-height: 1.2;
@@ -695,6 +698,7 @@
 .directory-empty h3 {
   margin: 0 0 10px;
   color: var(--directory-navy);
+  font-family: "Cloister Black", Georgia, serif;
   font-size: 27px;
   font-weight: 500;
 }
@@ -798,6 +802,7 @@
 .directory-cta h2 {
   margin: 0;
   color: var(--directory-cream);
+  font-family: "Cloister Black", Georgia, serif;
   font-size: clamp(48px, 6vw, 78px);
   font-weight: 500;
   line-height: 0.98;

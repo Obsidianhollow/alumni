@@ -1,215 +1,1341 @@
+/* =========================================================
+   CUSTOM FONT — CLOISTER BLACK LIGHT
+   Place CloisterBlack.ttf in public/Fonts/
+========================================================= */
 
-/* ==================================
-   AAACGS ABOUT PAGE
-   Professional Institutional Style
-================================== */
+@font-face {
+  font-family: "Cloister Black";
+  src: url("/Fonts/CloisterBlack.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+
+/* =========================================================
+   AAACGS ALUMNI ASSOCIATION
+   ABOUT PAGE — COMPLETE RESPONSIVE STYLESHEET
+
+   Typography:
+   - Headings: Cloister Black
+   - Body: Existing website font (inherit)
+
+   Theme:
+   Navy | Cream | Orange | Red
+========================================================= */
+
+
+/* =========================================================
+   01. VARIABLES & GLOBAL SETTINGS
+========================================================= */
+
+:root {
+  --about-navy: #233D4D;
+  --about-blue: #10245F;
+  --about-red: #B31F35;
+  --about-orange: #FE7F2D;
+  --about-cream: #F4F1EB;
+  --about-light: #EAECF0;
+  --about-muted: #B9C2C9;
+  --about-dark: #172D3A;
+
+  --about-transition: 0.3s ease;
+}
 
 .about-page {
-  --about-navy: #233d4d;
-  --about-maroon: #a9253b;
-  --about-cream: #f7f5f0;
-  --about-text: #4e5962;
-  --about-border: #deded8;
-
   width: 100%;
-  padding: 0 0 80px;
+  max-width: 100%;
+  overflow-x: clip;
   background: var(--about-cream);
   color: var(--about-navy);
   font-family: inherit;
 }
 
-.about-page * {
+.about-page *,
+.about-page *::before,
+.about-page *::after {
   box-sizing: border-box;
 }
 
-.about-container {
-  width: min(1000px, 88%);
+.about-page h1,
+.about-page h2,
+.about-page h3 {
+  font-family: "Cloister Black", Georgia, serif;
+  font-weight: 400;
+}
+
+.about-page p,
+.about-page span,
+.about-page a,
+.about-page small {
+  font-family: inherit;
+}
+
+.about-page p {
+  line-height: 1.8;
+}
+
+.about-page img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.about-section-inner {
+  width: min(1180px, 88%);
   margin: 0 auto;
 }
 
-/* Page header */
-
-.about-page-header {
-  padding: 80px 0 55px;
-  border-bottom: 1px solid var(--about-border);
+.about-section-kicker {
+  display: inline-block;
+  color: var(--about-orange);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  line-height: 1.6;
+  text-transform: uppercase;
 }
 
-.about-label {
+
+/* =========================================================
+   02. HERO SECTION
+========================================================= */
+
+.about-hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 620px;
+  overflow: hidden;
+  background: var(--about-navy);
+  color: var(--about-cream);
+}
+
+.about-hero::before {
+  content: "";
+  position: absolute;
+  top: -190px;
+  right: -170px;
+  width: 550px;
+  height: 550px;
+  border: 1px solid rgba(244, 241, 235, 0.12);
+  border-radius: 50%;
+}
+
+.about-hero::after {
+  content: "";
+  position: absolute;
+  top: -110px;
+  right: -90px;
+  width: 390px;
+  height: 390px;
+  border: 1px solid rgba(244, 241, 235, 0.12);
+  border-radius: 50%;
+}
+
+.about-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: 40px;
+  width: min(1180px, 88%);
+  min-height: 620px;
+  margin: 0 auto;
+  padding: 90px 0 110px;
+}
+
+.about-hero-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 690px;
+}
+
+.about-eyebrow {
   display: inline-block;
-  margin-bottom: 20px;
-  color: var(--about-maroon);
-  font-size: 12px;
+  margin-bottom: 25px;
+  color: var(--about-orange);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.about-hero-copy h1 {
+  margin: 0 0 25px;
+  color: var(--about-cream);
+  font-family: "Cloister Black", Georgia, serif;
+  font-size: clamp(48px, 6vw, 82px);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -1.5px;
+}
+
+.about-hero-copy h1 span {
+  color: var(--about-orange);
+}
+
+.about-hero-copy p {
+  max-width: 510px;
+  margin-bottom: 35px;
+  color: rgba(244, 241, 235, 0.75);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.about-hero-bottom {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--about-cream);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.about-hero-line {
+  display: inline-block;
+  width: 55px;
+  height: 2px;
+  background: var(--about-orange);
+}
+
+.about-hero-art {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 390px;
+}
+
+.about-art-circle {
+  position: absolute;
+  border: 1px solid rgba(244, 241, 235, 0.2);
+  border-radius: 50%;
+}
+
+.about-art-circle-one {
+  width: 330px;
+  height: 330px;
+}
+
+.about-art-circle-two {
+  width: 255px;
+  height: 255px;
+  border-color: rgba(254, 127, 45, 0.55);
+}
+
+.about-art-letter {
+  position: relative;
+  z-index: 1;
+  color: rgba(244, 241, 235, 0.09);
+  font-family: "Cloister Black", Georgia, serif;
+  font-size: 310px;
+  line-height: 1;
+}
+
+.about-art-caption {
+  position: absolute;
+  right: 0;
+  bottom: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 17px 20px;
+  border-left: 2px solid var(--about-orange);
+  background: rgba(16, 36, 95, 0.45);
+}
+
+.about-art-caption span {
+  color: var(--about-muted);
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.about-art-caption strong {
+  color: var(--about-cream);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+}
+
+.about-hero-index {
+  position: absolute;
+  right: 0;
+  bottom: 35px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  color: rgba(244, 241, 235, 0.65);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.about-hero-index > span:first-child {
+  color: var(--about-orange);
+  font-size: 15px;
+}
+
+.about-index-divider {
+  width: 35px;
+  height: 1px;
+  background: var(--about-orange);
+}
+
+
+/* =========================================================
+   03. ABOUT INTRODUCTION
+========================================================= */
+
+.about-intro {
+  padding: 105px 0 85px;
+  background: var(--about-cream);
+}
+
+.about-intro-label {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 35px;
+  color: var(--about-red);
+  font-size: 10px;
   font-weight: 800;
   letter-spacing: 2.5px;
 }
 
-.about-page-header h1 {
-  max-width: 800px;
-  margin: 0 0 20px;
-  color: var(--about-navy);
-  font-size: clamp(36px, 5vw, 58px);
-  font-weight: 800;
-  line-height: 1.15;
-  letter-spacing: -1.5px;
+.about-small-line {
+  display: inline-block;
+  width: 38px;
+  height: 2px;
+  background: var(--about-orange);
 }
 
-.about-page-header > p {
-  max-width: 720px;
+.about-intro-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 75px;
+}
+
+.about-intro-content h2 {
   margin: 0;
-  color: var(--about-text);
-  font-size: 17px;
-  line-height: 1.8;
-}
-
-/* Content sections */
-
-.about-content-section {
-  padding: 42px 0;
-  border-bottom: 1px solid var(--about-border);
-  scroll-margin-top: 100px;
-}
-
-.about-content-section h2 {
-  position: relative;
-  margin: 0 0 24px;
-  padding-left: 18px;
   color: var(--about-navy);
-  font-size: 28px;
-  font-weight: 800;
-  line-height: 1.4;
-}
-
-.about-content-section h2::before {
-  position: absolute;
-  top: 5px;
-  bottom: 5px;
-  left: 0;
-  width: 4px;
-  background: var(--about-maroon);
-  content: "";
-}
-
-.about-content-section p {
-  margin: 0 0 18px;
-  color: var(--about-text);
-  font-size: 15px;
+  font-family: "Cloister Black", Georgia, serif;
+  font-size: clamp(40px, 5vw, 65px);
   font-weight: 400;
-  line-height: 1.95;
-  text-align: left;
+  line-height: 1.12;
 }
 
-.about-content-section p:last-child {
+.about-intro-content h2 em {
+  color: var(--about-red);
+  font-style: normal;
+}
+
+.about-intro-description {
+  padding-top: 8px;
+}
+
+.about-intro-description p {
+  margin-bottom: 22px;
+  color: #596B75;
+  font-size: 14px;
+}
+
+.about-intro-bottom {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 65px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(35, 61, 77, 0.2);
+  color: var(--about-navy);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.about-intro-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--about-orange);
+}
+
+
+/* =========================================================
+   04. OUR JOURNEY
+========================================================= */
+
+.about-journey {
+  padding: 105px 0;
+  background: var(--about-light);
+}
+
+.about-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 50px;
+  margin-bottom: 65px;
+}
+
+.about-section-heading h2 {
+  margin: 15px 0 0;
+  color: var(--about-navy);
+  font-family: "Cloister Black", Georgia, serif;
+  font-size: clamp(45px, 5vw, 68px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.about-section-heading h2 em {
+  color: var(--about-red);
+  font-style: normal;
+}
+
+.about-section-heading > p {
+  max-width: 390px;
+  margin-bottom: 5px;
+  color: #63727B;
+  font-size: 14px;
+}
+
+.about-journey-content {
+  display: grid;
+  grid-template-columns: 0.65fr 1.35fr;
+  align-items: start;
+  gap: 75px;
+  padding: 45px;
+  background: var(--about-navy);
+  color: var(--about-cream);
+}
+
+.about-journey-year {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 25px;
+  border-right: 1px solid rgba(244, 241, 235, 0.2);
+}
+
+.about-journey-year span {
+  color: var(--about-orange);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.about-journey-year strong {
+  margin: 15px 0;
+  color: var(--about-cream);
+  font-family: "Cloister Black", Georgia, serif;
+  font-size: clamp(65px, 8vw, 105px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.about-journey-year small {
+  color: var(--about-muted);
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.about-journey-description p {
+  margin-bottom: 18px;
+  color: rgba(244, 241, 235, 0.76);
+  font-size: 13px;
+}
+
+.about-journey-description p:last-child {
   margin-bottom: 0;
 }
 
-/* Closing statement */
-
-.about-closing {
-  margin-top: 45px;
-  padding: 30px 32px;
-  border-left: 4px solid var(--about-maroon);
-  background: #eeece5;
+.about-journey-divider {
+  width: 100%;
+  height: 1px;
+  margin: 65px 0 40px;
+  background: rgba(35, 61, 77, 0.2);
 }
 
-.about-closing p {
-  margin: 0 0 12px;
-  color: var(--about-navy);
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.6;
+.about-journey-highlights {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
 }
 
-.about-closing span {
-  color: var(--about-maroon);
-  font-size: 12px;
+.about-highlight {
+  padding-right: 20px;
+}
+
+.about-highlight > span {
+  display: inline-block;
+  margin-bottom: 20px;
+  color: var(--about-orange);
+  font-size: 11px;
   font-weight: 800;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-/* Tablet */
+.about-highlight h3 {
+  margin-bottom: 12px;
+  color: var(--about-navy);
+  font-family: "Cloister Black", Georgia, serif;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.about-highlight p {
+  margin-bottom: 0;
+  color: #687780;
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   05. OUR VISION
+========================================================= */
+
+.about-vision {
+  padding: 105px 0;
+  background: var(--about-cream);
+}
+
+.about-vision-heading {
+  max-width: 720px;
+  margin-bottom: 55px;
+}
+
+.about-vision-heading h2 {
+  margin: 18px 0;
+  color: var(--about-navy);
+  font-family: "Cloister Black", Georgia, serif;
+  font-size: clamp(48px, 5vw, 70px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.about-vision-heading h2 em {
+  color: var(--about-red);
+  font-style: normal;
+}
+
+.about-vision-heading p {
+  max-width: 520px;
+  margin-bottom: 0;
+  color: #63727B;
+  font-size: 14px;
+}
+
+
+/* Vision image */
+
+.about-vision-image-wrapper {
+  width: 100%;
+  max-width: 1050px;
+  margin: 0 auto 65px;
+}
+
+.about-vision-image-frame {
+  padding: 12px;
+  border: 1px solid rgba(35, 61, 77, 0.18);
+  background: #EBE8E0;
+  box-shadow: 0 15px 40px rgba(35, 61, 77, 0.10);
+}
+
+.about-vision-image-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.about-image-caption {
+  display: block;
+  margin-top: 18px;
+  color: var(--about-orange);
+  text-align: center;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+
+/* Vision content */
+
+.about-vision-content {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: start;
+  gap: 70px;
+  padding: 55px;
+  background: var(--about-navy);
+  color: var(--about-cream);
+}
+
+.about-vision-main > span {
+  color: var(--about-orange);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.about-vision-main h3 {
+  margin: 25px 0 0;
+  color: var(--about-cream);
+  font-family: "Cloister Black", Georgia, serif;
+  font-size: clamp(35px, 4vw, 53px);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.about-vision-main h3 em {
+  color: var(--about-orange);
+  font-style: normal;
+}
+
+.about-vision-description p {
+  margin-bottom: 20px;
+  color: rgba(244, 241, 235, 0.78);
+  font-size: 13px;
+}
+
+.about-vision-description p:last-child {
+  margin-bottom: 0;
+}
+
+
+/* Vision values */
+
+.about-vision-values {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 45px;
+}
+
+.about-vision-value {
+  padding: 25px 22px;
+  border-top: 2px solid var(--about-orange);
+  background: var(--about-light);
+}
+
+.about-vision-value > span {
+  color: var(--about-red);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.about-vision-value h3 {
+  margin: 15px 0 10px;
+  color: var(--about-navy);
+  font-family: "Cloister Black", Georgia, serif;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.about-vision-value p {
+  margin-bottom: 0;
+  color: #65747D;
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   06. OUR MISSION
+========================================================= */
+
+.about-mission {
+  padding: 105px 0;
+  background: var(--about-blue);
+  color: var(--about-cream);
+}
+
+.about-mission-inner {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  align-items: start;
+  column-gap: 75px;
+  row-gap: 0;
+  width: min(1180px, 88%);
+  margin: 0 auto;
+}
+
+.about-mission-copy h2 {
+  margin: 18px 0 25px;
+  color: var(--about-cream);
+  font-family: "Cloister Black", Georgia, serif;
+  font-size: clamp(48px, 5vw, 70px);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.about-mission-copy h2 em {
+  color: var(--about-orange);
+  font-style: normal;
+}
+
+.about-mission-copy p {
+  margin-bottom: 20px;
+  color: rgba(244, 241, 235, 0.76);
+  font-size: 13px;
+}
+
+.about-mission-points {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.about-mission-point {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 18px;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(244, 241, 235, 0.18);
+}
+
+.about-mission-point:first-child {
+  padding-top: 0;
+}
+
+.about-mission-point > span {
+  color: var(--about-orange);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.about-mission-point h3 {
+  margin-bottom: 8px;
+  color: var(--about-cream);
+  font-family: "Cloister Black", Georgia, serif;
+  font-size: 23px;
+  font-weight: 400;
+}
+
+.about-mission-point p {
+  margin-bottom: 0;
+  color: rgba(244, 241, 235, 0.68);
+  font-size: 12px;
+}
+
+
+/* Mission image — full-width placement */
+
+.about-mission-image-wrapper {
+  grid-column: 1 / -1;
+  width: 100%;
+  max-width: 1050px;
+  margin: 55px auto 0;
+}
+
+.about-mission-image-frame {
+  padding: 12px;
+  border: 1px solid rgba(244, 241, 235, 0.25);
+  background: var(--about-cream);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.about-mission-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.about-mission-image-caption {
+  display: block;
+  margin-top: 18px;
+  color: var(--about-orange);
+  text-align: center;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   07. OUR COMMUNITY
+========================================================= */
+
+.about-community {
+  position: relative;
+  padding: 110px 0;
+  overflow: hidden;
+  background: var(--about-cream);
+  text-align: center;
+}
+
+.about-community::before,
+.about-community::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(35, 61, 77, 0.12);
+  border-radius: 50%;
+}
+
+.about-community::before {
+  top: -150px;
+  left: -100px;
+}
+
+.about-community::after {
+  right: -100px;
+  bottom: -150px;
+}
+
+.about-community .about-section-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.about-community h2 {
+  margin: 25px 0;
+  color: var(--about-navy);
+  font-family: "Cloister Black", Georgia, serif;
+  font-size: clamp(45px, 6vw, 75px);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.about-community h2 em {
+  color: var(--about-red);
+  font-style: normal;
+}
+
+.about-community > .about-section-inner > p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: #64737C;
+  font-size: 14px;
+}
+
+.about-community-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 40px;
+  color: var(--about-navy);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.about-community-note > span:first-child {
+  color: var(--about-red);
+}
+
+.about-community-line {
+  width: 40px;
+  height: 1px;
+  background: var(--about-orange);
+}
+
+
+/* =========================================================
+   08. CALL TO ACTION
+========================================================= */
+
+.about-cta {
+  padding: 85px 0;
+  background: var(--about-red);
+  color: var(--about-cream);
+}
+
+.about-cta-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 45px;
+  width: min(1180px, 88%);
+  margin: 0 auto;
+}
+
+.about-cta .about-section-kicker {
+  color: #FFD1B5;
+}
+
+.about-cta h2 {
+  margin: 20px 0;
+  color: var(--about-cream);
+  font-family: "Cloister Black", Georgia, serif;
+  font-size: clamp(38px, 5vw, 60px);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.about-cta h2 em {
+  color: #FFC18F;
+  font-style: normal;
+}
+
+.about-cta p {
+  max-width: 520px;
+  margin-bottom: 0;
+  color: rgba(244, 241, 235, 0.8);
+  font-size: 13px;
+}
+
+.about-cta-link {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  min-width: 205px;
+  padding: 17px 23px;
+  border: 1px solid var(--about-cream);
+  color: var(--about-cream);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition:
+    background var(--about-transition),
+    color var(--about-transition),
+    transform var(--about-transition);
+}
+
+.about-cta-link span {
+  font-size: 18px;
+  transition: transform var(--about-transition);
+}
+
+.about-cta-link:hover {
+  transform: translateY(-3px);
+  background: var(--about-cream);
+  color: var(--about-red);
+}
+
+.about-cta-link:hover span {
+  transform: translate(3px, -3px);
+}
+
+
+/* =========================================================
+   09. TABLET RESPONSIVE — 1024px
+========================================================= */
+
+@media (max-width: 1024px) {
+
+  .about-hero-inner {
+    gap: 20px;
+  }
+
+  .about-hero-copy h1 {
+    font-size: 62px;
+  }
+
+  .about-art-circle-one {
+    width: 280px;
+    height: 280px;
+  }
+
+  .about-art-circle-two {
+    width: 215px;
+    height: 215px;
+  }
+
+  .about-art-letter {
+    font-size: 260px;
+  }
+
+  .about-intro-content {
+    gap: 45px;
+  }
+
+  .about-journey-content {
+    gap: 45px;
+  }
+
+  .about-vision-content {
+    gap: 40px;
+    padding: 40px;
+  }
+
+  .about-mission-inner {
+    column-gap: 45px;
+  }
+}
+
+
+/* =========================================================
+   10. MOBILE RESPONSIVE — 768px
+========================================================= */
 
 @media (max-width: 768px) {
-  .about-page {
-    padding-bottom: 55px;
+
+  .about-section-inner,
+  .about-hero-inner,
+  .about-mission-inner,
+  .about-cta-inner {
+    width: calc(100% - 40px);
+    max-width: 100%;
   }
 
-  .about-page-header {
-    padding: 60px 0 40px;
+
+  /* HERO */
+
+  .about-hero,
+  .about-hero-inner {
+    min-height: auto;
   }
 
-  .about-page-header > p {
-    font-size: 16px;
+  .about-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 65px 0 90px;
   }
 
-  .about-content-section {
-    padding: 34px 0;
+  .about-hero-copy {
+    width: 100%;
+    max-width: 100%;
   }
 
-  .about-content-section h2 {
-    font-size: 25px;
+  .about-hero-copy h1 {
+    font-size: clamp(38px, 8vw, 58px);
+    line-height: 1.08;
+    letter-spacing: -0.5px;
+    overflow-wrap: break-word;
   }
 
-  .about-content-section p {
+  .about-hero-copy p {
+    max-width: 100%;
     font-size: 14px;
-    line-height: 1.85;
+  }
+
+  .about-hero-art {
+    width: 100%;
+    min-height: 230px;
+    overflow: hidden;
+  }
+
+  .about-art-letter {
+    font-size: clamp(160px, 35vw, 220px);
+  }
+
+  .about-art-caption {
+    right: 0;
+    bottom: 5px;
+  }
+
+
+  /* INTRO */
+
+  .about-intro-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .about-intro-content h2 {
+    font-size: clamp(36px, 8vw, 52px);
+    line-height: 1.12;
+  }
+
+  .about-intro-description p {
+    font-size: 14px;
+  }
+
+
+  /* JOURNEY */
+
+  .about-section-heading {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .about-section-heading h2 {
+    font-size: clamp(42px, 8vw, 58px);
+  }
+
+  .about-journey-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 25px;
+  }
+
+  .about-journey-year {
+    padding: 0 0 20px;
+    border-right: none;
+    border-bottom: 1px solid rgba(244, 241, 235, 0.2);
+  }
+
+  .about-journey-highlights {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+
+  /* VISION */
+
+  .about-vision-heading h2 {
+    font-size: clamp(42px, 8vw, 58px);
+  }
+
+  .about-vision-content {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 25px;
+  }
+
+  .about-vision-values {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+
+  /* MISSION */
+
+  .about-mission-inner {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .about-mission-copy h2 {
+    font-size: clamp(42px, 8vw, 58px);
+  }
+
+  .about-mission-image-wrapper {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+
+  /* COMMUNITY */
+
+  .about-community h2 {
+    font-size: clamp(38px, 8vw, 55px);
+  }
+
+
+  /* CTA */
+
+  .about-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .about-cta h2 {
+    font-size: clamp(36px, 8vw, 55px);
   }
 }
 
-/* Mobile */
+
+/* =========================================================
+   11. SMALL MOBILE — 480px
+========================================================= */
 
 @media (max-width: 480px) {
-  .about-container {
-    width: 90%;
+
+  .about-section-inner,
+  .about-hero-inner,
+  .about-mission-inner,
+  .about-cta-inner {
+    width: calc(100% - 32px);
   }
 
-  .about-page-header {
-    padding: 45px 0 32px;
+
+  /* SECTION SPACING */
+
+  .about-intro,
+  .about-journey,
+  .about-vision,
+  .about-mission {
+    padding: 55px 0;
   }
 
-  .about-label {
-    margin-bottom: 15px;
-    font-size: 10px;
-    letter-spacing: 2px;
+
+  /* TYPOGRAPHY */
+
+  .about-hero-copy h1 {
+    font-size: clamp(34px, 9vw, 43px);
+    line-height: 1.1;
   }
 
-  .about-page-header h1 {
-    font-size: 35px;
-    letter-spacing: -0.8px;
+  .about-intro-content h2,
+  .about-community h2 {
+    font-size: clamp(32px, 8.5vw, 40px);
   }
 
-  .about-page-header > p {
-    font-size: 14px;
-    line-height: 1.8;
+  .about-section-heading h2,
+  .about-vision-heading h2,
+  .about-mission-copy h2 {
+    font-size: clamp(38px, 9vw, 48px);
   }
 
-  .about-content-section {
-    padding: 28px 0;
+  .about-cta h2 {
+    font-size: clamp(34px, 8.5vw, 42px);
   }
 
-  .about-content-section h2 {
-    margin-bottom: 18px;
-    padding-left: 14px;
-    font-size: 23px;
+  .about-page p {
+    font-size: 13px;
+    line-height: 1.75;
   }
 
-  .about-content-section p {
-    margin-bottom: 15px;
-    font-size: 14px;
-    line-height: 1.85;
+
+  /* HERO ARTWORK */
+
+  .about-hero-art {
+    min-height: 190px;
   }
 
-  .about-closing {
-    margin-top: 30px;
-    padding: 23px 20px;
+  .about-art-circle-one {
+    width: 190px;
+    height: 190px;
   }
 
-  .about-closing p {
-    font-size: 17px;
+  .about-art-circle-two {
+    width: 145px;
+    height: 145px;
   }
 
-  .about-closing span {
-    font-size: 10px;
-    line-height: 1.8;
+  .about-art-letter {
+    font-size: 175px;
+  }
+
+  .about-art-caption {
+    padding: 10px 12px;
+  }
+
+
+  /* CONTENT CARDS */
+
+  .about-journey-content,
+  .about-vision-content {
+    padding: 20px;
+  }
+
+  .about-vision-value {
+    padding: 20px;
+  }
+
+  .about-mission-point {
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 10px;
+    padding: 18px 0;
+  }
+
+  .about-mission-point h3 {
+    font-size: 21px;
+  }
+
+
+  /* INTRO LABELS */
+
+  .about-intro-bottom {
+    justify-content: flex-start;
+    gap: 9px;
+    margin-top: 35px;
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+
+
+  /* IMAGES */
+
+  .about-vision-image-wrapper,
+  .about-mission-image-wrapper {
+    margin-top: 25px;
+  }
+
+  .about-vision-image-frame,
+  .about-mission-image-frame {
+    padding: 5px;
+  }
+
+  .about-image-caption,
+  .about-mission-image-caption {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+
+  /* COMMUNITY */
+
+  .about-community {
+    padding: 65px 0;
+  }
+
+  .about-community-note {
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 8px;
+  }
+
+
+  /* CTA */
+
+  .about-cta {
+    padding: 60px 0;
+  }
+
+  .about-cta-link {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+
+/* =========================================================
+   12. VERY SMALL MOBILE — 360px
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .about-section-inner,
+  .about-hero-inner,
+  .about-mission-inner,
+  .about-cta-inner {
+    width: calc(100% - 26px);
+  }
+
+  .about-hero-copy h1 {
+    font-size: 33px;
+  }
+
+  .about-intro-content h2,
+  .about-community h2 {
+    font-size: 31px;
+  }
+
+  .about-section-heading h2,
+  .about-vision-heading h2,
+  .about-mission-copy h2 {
+    font-size: 37px;
+  }
+
+  .about-journey-content,
+  .about-vision-content {
+    padding: 17px;
+  }
+
+  .about-hero-index {
+    gap: 7px;
+    font-size: 7px;
+  }
+}
+
+
+/* =========================================================
+   13. ACCESSIBILITY & OVERFLOW PROTECTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .about-page *,
+  .about-page *::before,
+  .about-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }

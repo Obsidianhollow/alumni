@@ -4,9 +4,32 @@ import {
   FaEnvelope,
   FaFacebookF,
   FaInstagram,
+  FaLinkedinIn,
 } from "react-icons/fa";
 
 import "../css/TopBar.css";
+
+// =========================================
+// SOCIAL MEDIA LINKS
+// =========================================
+
+const socialLinks = [
+  {
+    name: "Facebook",
+    url: "https://www.facebook.com/share/1PkpQV2mxc/",
+    icon: FaFacebookF,
+  },
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/alumni.meet_ag_haldia_/",
+    icon: FaInstagram,
+  },
+  {
+    name: "LinkedIn",
+    url: "https://www.linkedin.com/in/alumni-association-of-agcs-haldia-287b5342b/",
+    icon: FaLinkedinIn,
+  },
+];
 
 // =========================================
 // TOP BAR CONTENT
@@ -45,26 +68,21 @@ function TopBarTempContent({ duplicate = false }) {
         </a>
       </div>
 
+      {/* SOCIAL MEDIA LINKS */}
       <div className="TopBarTemp-right">
-        <a
-          href="https://www.facebook.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Facebook"
-          tabIndex={duplicate ? -1 : 0}
-        >
-          <FaFacebookF />
-        </a>
-
-        <a
-          href="https://www.instagram.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Instagram"
-          tabIndex={duplicate ? -1 : 0}
-        >
-          <FaInstagram />
-        </a>
+        {socialLinks.map(({ name, url, icon: Icon }) => (
+          <a
+            key={name}
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Visit our ${name} profile`}
+            title={name}
+            tabIndex={duplicate ? -1 : 0}
+          >
+            <Icon />
+          </a>
+        ))}
       </div>
     </div>
   );

@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "../css/hero.css";
 
+// =========================================
+// HERO CAROUSEL SLIDES
+// =========================================
+
 const slides = [
   {
     image: "/Hero%20images/Events.jpeg",
@@ -10,15 +14,15 @@ const slides = [
     description:
       "Explore upcoming alumni meets, webinars, and campus events designed for you.",
     buttonText: "Explore Events",
-    buttonLink: "/#events",
+    buttonLink: "/events",
   },
   {
     image: "/Hero%20images/Members.jpeg",
     title: "Celebrating Bonds That Last",
     description:
       "Reconnect with old friends, build new relationships, and stay connected with the alumni community.",
-    buttonText: "Meet Our Members",
-    buttonLink: "/about/our-members",
+    buttonText: "Meet Our Founding Members",
+    buttonLink: "/about/founding-member",
   },
   {
     image: "/Hero%20images/Achievements.jpeg",
@@ -46,6 +50,10 @@ const slides = [
   },
 ];
 
+// =========================================
+// HERO COMPONENT
+// =========================================
+
 function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -56,7 +64,7 @@ function Hero() {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [currentSlide]);
+  }, []);
 
   // Previous slide
   const previousSlide = () => {
@@ -94,8 +102,10 @@ function Hero() {
               className="hero-background"
             />
 
+            {/* DARK OVERLAY */}
             <div className="hero-overlay"></div>
 
+            {/* SLIDE CONTENT */}
             <div className="hero-content">
               <span className="hero-small-title">
                 ALUMNI ASSOCIATION OF ASSEMBLY OF GOD CHURCH SCHOOL
@@ -110,6 +120,7 @@ function Hero() {
               <Link
                 to={slide.buttonLink}
                 className="hero-button"
+                tabIndex={index === currentSlide ? 0 : -1}
               >
                 {slide.buttonText}
                 <span aria-hidden="true">→</span>

@@ -1,91 +1,79 @@
+
+import { Link } from "react-router-dom";
 import "../css/Events.css";
 
+// =========================================
+// HOMEPAGE EVENTS DATA
+// =========================================
 
 const events = [
   {
-    month: "OCT",
-    day: "18",
-    year: "2026",
-    category: "ALUMNI MEET",
-    title: "Annual Alumni Gathering",
+    month: "DEC",
+    day: "16",
+    year: "2023",
+    category: "PAST ALUMNI MEET",
+    title: "Alumni Meet Retrace 2023",
     description:
-      "Reconnect with old friends, meet fellow alumni, and celebrate the community that continues to bring us together.",
-    location: "Main Campus",
-    time: "06:00 PM",
-  },
-  {
-    month: "NOV",
-    day: "07",
-    year: "2026",
-    category: "NETWORKING",
-    title: "Alumni Networking Evening",
-    description:
-      "An evening of conversations, professional connections, and opportunities to build meaningful relationships.",
-    location: "City Convention Centre",
-    time: "05:30 PM",
+      "A milestone in the journey of our alumni community.",
+    status: "PAST EVENT",
   },
   {
     month: "DEC",
-    day: "12",
-    year: "2026",
-    category: "COMMUNITY",
-    title: "Giving Back Together",
+    day: "21",
+    year: "2024",
+    category: "PAST ALUMNI MEET",
+    title: "Alumni Meet Retrace 2024",
     description:
-      "Join fellow alumni for an evening focused on community, collaboration, and giving back to future generations.",
-    location: "Alumni House",
-    time: "04:00 PM",
+      "Another chapter in the story of our alumni community.",
+    status: "PAST EVENT",
+  },
+  {
+    month: "JAN",
+    day: "24",
+    year: "2026",
+    category: "ALUMNI MEET",
+    title: "Alumni Meet Retrace 2026",
+    description:
+      "A celebration of shared memories, familiar faces and the connections that bring our alumni community together.",
+    status: "PAST EVENT",
+  },
+  {
+    month: "JAN",
+    day: "09",
+    year: "2027",
+    category: "UPCOMING ALUMNI MEET",
+    title: "Alumni Meet Retrace 2027",
+    description:
+      "The next chapter of our alumni journey. Another opportunity to reconnect and create new memories.",
+    status: "UPCOMING EVENT",
   },
 ];
 
-const CalendarIcon = () => (
-  <svg
-    className="event-meta-icon"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.7"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <rect x="3" y="4" width="18" height="18" rx="2" />
-    <line x1="16" y1="2" x2="16" y2="6" />
-    <line x1="8" y1="2" x2="8" y2="6" />
-    <line x1="3" y1="10" x2="21" y2="10" />
-  </svg>
-);
+// =========================================
+// ARROW ICON
+// =========================================
 
-const LocationIcon = () => (
-  <svg
-    className="event-meta-icon"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.7"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
-    <circle cx="12" cy="10" r="2.5" />
-  </svg>
-);
+function ArrowIcon() {
+  return (
+    <svg
+      className="event-arrow"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M5 12h14" />
+      <path d="M12 5l7 7-7 7" />
+    </svg>
+  );
+}
 
-const ArrowIcon = () => (
-  <svg
-    className="event-arrow"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.8"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M5 12h14" />
-    <path d="M12 5l7 7-7 7" />
-  </svg>
-);
+// =========================================
+// HOMEPAGE EVENTS COMPONENT
+// =========================================
 
 function Events() {
   return (
@@ -104,7 +92,7 @@ function Events() {
 
             <div className="eyebrow">
               <span className="eyebrow-dot"></span>
-              What's happening
+              Our alumni journey
             </div>
 
             <h2 className="events-title">
@@ -112,8 +100,9 @@ function Events() {
             </h2>
 
             <p className="events-intro">
-              From alumni gatherings to networking evenings,
-              discover the events that keep our community connected.
+              Every reunion adds a new chapter to our story.
+              Explore the journey of Alumni Meet Retrace and
+              the gatherings that keep our community connected.
             </p>
 
           </div>
@@ -125,11 +114,12 @@ function Events() {
           {events.map((event) => (
             <article
               className="event-card"
-              key={`${event.title}-${event.day}`}
+              key={`${event.title}-${event.year}`}
             >
 
-              {/* DATE */}
+              {/* EVENT DATE */}
               <div className="event-date">
+
                 <span className="event-month">
                   {event.month}
                 </span>
@@ -141,9 +131,10 @@ function Events() {
                 <span className="event-year">
                   {event.year}
                 </span>
+
               </div>
 
-              {/* EVENT CONTENT */}
+              {/* EVENT INFORMATION */}
               <div className="event-content">
 
                 <div className="event-category">
@@ -158,44 +149,39 @@ function Events() {
                   {event.description}
                 </p>
 
-                {/* EVENT DETAILS */}
                 <div className="event-meta">
-
                   <span className="event-meta-item">
-                    <CalendarIcon />
-                    {event.time}
+                    {event.status}
                   </span>
-
-                  <span className="event-meta-item">
-                    <LocationIcon />
-                    {event.location}
-                  </span>
-
                 </div>
+
               </div>
 
-              {/* EVENT ACTION */}
-              <a
-                href="/events"
+              {/* VIEW EVENT */}
+              <Link
+                to="/events"
                 className="event-link"
-                aria-label={`View details for ${event.title}`}
+                aria-label={`Explore ${event.title}`}
               >
                 <span>View event</span>
                 <ArrowIcon />
-              </a>
+              </Link>
 
             </article>
           ))}
 
         </div>
 
-        {/* ALL EVENTS */}
+        {/* EXPLORE ALL EVENTS */}
         <div className="events-footer">
 
-          <a href="/events" className="events-all-link">
+          <Link
+            to="/events"
+            className="events-all-link"
+          >
             <span>Explore all events</span>
             <ArrowIcon />
-          </a>
+          </Link>
 
         </div>
 
